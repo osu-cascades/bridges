@@ -1,0 +1,109 @@
+<!--Bridges Web App Version 0.0.2-->
+<!--Natkiypie-->
+
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bridges</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <style>
+
+      .main-header h1 {
+        font-size: 3em;
+        margin-bottom: 80px;
+      }
+
+      #create-container {
+        padding-left: 10%;
+        padding-right: 10%;
+      }
+
+      #create-container textarea {
+        resize: none;
+        border: none;
+        border-radius: 25px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: left;
+      }
+
+      #create-container textarea, label {
+        font-weight: bold;
+      }
+
+      #create-container textarea:focus {
+        border: none;
+        outline: none;
+      }
+
+      #create-container button {
+        margin-top: 30px;
+        margin-bottom: 200px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <a href="./index.html">
+      <button id="log-button" type="button">
+        <span>Logout</span>
+      </button>
+    </a>
+
+    <div id="main-div">
+
+      <div class="main-header">
+          <h1>New Activity!</h1>
+      </div>
+
+      <div id="create-container">
+
+        <div>
+          <label for="basic">Organization:</label>
+          <textarea name="TextArea" form="usrform" cols="80" rows="1"></textarea>
+        </div>
+        <div>
+          <label for="basic">Contact Information:</label>
+          <textarea name="TextArea" form="usrform" cols="80" rows="5">
+          </textarea>
+        </div>
+        <div>
+          <label for="basic">Description:</label>
+          <textarea name="TextArea" form="usrform" cols="80" rows="5">
+          </textarea>
+        </div>
+        <div>
+          <label for="basic">Details:</label>
+          <textarea name="TextArea" form="usrform" cols="80" rows="5">
+          </textarea>
+        </div>
+
+        <div>
+          <a href="./dashboard.html" alt="Cancel and return to dashboard">
+            <button type="button">
+            <span>Cancel :(</span>
+            </button>
+          </a>
+          <a href="./post_created.html" alt="Submit activity for approval">
+            <button type="button">
+            <span>Create!</span>
+            </button>
+          </a>
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="footer">
+      <p>Bridges Contact Information / License Agreement</p>
+    </div>
+
+
+  </body>
+</html>
