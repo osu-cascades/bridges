@@ -1,0 +1,72 @@
+<!--Bridges Web App Version 0.1.3-->
+<!--Natkiypie-->
+
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bridges</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+  </head>
+  <body>
+
+    <div id="top-nav">
+      <a class="left" href="">About</a>
+      <a class="left" href="">Contact</a>
+      <a class="right" href="./dashboard.html" alt="Login to Bridges web app" style="margin-right: 20px" >Login</a>
+      <a class="right" href="./index.html">Home</a>
+    </div>
+
+    <div id="main-header-container">
+        <h1>Organization</h1>
+    </div>
+
+    <div id="results-container" style="text-align: center">
+      <button type="button">
+        <span>H</span>
+      </button>
+      <button type="button">
+        <span>D</span>
+      </button>
+      <button type="button">
+        <span>A</span>
+      </button>
+    </div>
+
+    <div id="information-container">
+      <p><strong>Description</strong> iusto eaque cum facere totam necessitatibus laboriosam voluptas est aut vitae architecto ex tenetur voluptatem illo quam quam fugit ea maiores qui voluptas et non rerum voluptas consequuntur praesentium iure accusantium sint</p>
+      <p><strong>Details</strong> sed et est sit ullam omnis vero et ipsa tenetur blanditiis sunt quibusdam dolorem aspernatur voluptatum minus rerum earum mollitia numquam sed similique vel sunt velit quia vero sed non doloremque nihil expedita voluptates sed sapiente libero totam omnis et facilis non sunt fuga architecto occaecati exercitationem sed incidunt dolor vel consequuntur dicta voluptatem animi molestiae nemo sit deserunt harum non voluptas ut doloribus maxime sed qui sint soluta modi quia voluptatem omnis voluptatem nisi dolorum eos ullam in eos est non voluptate dicta harum doloremque consectetur ratione repellat est architecto voluptas in est voluptatum illo aut deserunt iste voluptatem eveniet qui veritatis fugiat blanditiis ipsa aut explicabo totam dolorum quia ut quas dolores deserunt magni quidem perspiciatis voluptates totam vel qui distinctio autem modi ab doloribus deserunt architecto voluptate illum perferendis rem repudiandae dolor rem ut in minima quidem aut debitis facilis quaerat culpa non deserunt corporis sequi porro sunt error corrupti dolores aut dolor laudantium itaque voluptas et laborum quam beatae error incidunt doloremque quia eius veritatis est illo delectus sint harum ut mollitia ipsum accusamus et facilis eos sequi ut praesentium assumenda enim fugit optio consectetur voluptatem et cupiditate maiores ut impedit sunt rerum et sed alias<br>
+      </br>et quis tenetur omnis modi et voluptas non ab nisi ut cumque doloremque laborum voluptatem veritatis corporis voluptate id ratione velit vel incidunt atque sequi quisquam doloremque necessitatibus et sint et accusamus itaque vel repellendus quibusdam rerum est possimus doloremque harum excepturi a enim numquam impedit non iure enim aut odio placeat tempore corporis cupiditate beatae aperiam reprehenderit aut voluptatem architecto corporis sed laboriosam aut atque et illo eum ipsa et veritatis earum ab explicabo omnis vel quia voluptas ipsam sunt ut sed nam nihil nemo voluptatibus excepturi laudantium animi nesciunt quod ipsam porro quia voluptates et aspernatur deleniti laboriosam labore consequuntur accusantium asperiores mollitia molestiae et cumque repudiandae quia debitis dignissimos cum alias ipsa voluptas sit est possimus ipsam exercitationem est autem at aliquam cumque hic amet quam voluptate sint placeat eos voluptas non quia ut natus iusto voluptates animi et est velit voluptatibus voluptas temporibus sed officia aut in aliquam quibusdam nostrum dolor et quisquam et voluptatem impedit qui velit sint totam expedita quas temporibus voluptatum sit alias at et est et iste commodi dolores et dolor ut sit dolores quaerat molestias ut et et qui dolor sit perspiciatis vel dolor maiores magni architecto modi dolor nam nihil</p>
+
+      <p><strong>Org Info</strong> iusto eaque cum facere totam necessitatibus laboriosam voluptas est aut vitae architecto ex tenetur voluptatem illo quam quam fugit ea maior <a style="color: blue" target="_blank" href="./org.html" alt="Organiztion's Website">https://voluptasetnon.com</a> es qui voluptas et non rerum voluptas consequuntur praesentium iure accusantium sint totam veniam praesentium est voluptates rerum sed alias et eveniet eaque voluptate itaque aut nesciunt doloremque provident excepturi aut facilis</p>
+
+    </div>
+
+    <a href="./search.html" alt="Organiztion's Website">
+      <button type="button" style="width: 100%">
+      <span>Back to search</span>
+      </button>
+    </a>
+
+    <div class="footer">
+      <p>Terms / Licensing</p>
+    </div>
+
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("top-nav").style.top = "0";
+      } else {
+        document.getElementById("top-nav").style.top = "-50px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
+  <script src="../js.js"></script>
+
+
+  </body>
+</html>

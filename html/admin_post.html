@@ -5,36 +5,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="en">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bridges</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <style>
+
+      #filter-container {
+        margin-bottom: 60px;
+      }
+
+    </style>
   </head>
   <body>
 
     <div id="top-nav">
       <a class="left" href="./new_submissions.html" alt="Review submissions for approval">Pending</a>
       <a class="right" href="./index.html" alt="Logout of Bridges web app" style="margin-right: 20px" >Logout</a>
-      <a href="./admin_post.html" class="right" href="">Post</a>
+      <a class="right" href="dashboard.html" alt="Return to dashboard">Dash</a>
     </div>
 
-    <div id="bridges-header-container">
-      <a href="./dashboard.html" alt="Bridges dashboard">
-        <h1>Bridges</h1>
-      </a>
-      <p>Dashboard</p>
-    </div>
-
-    <div id="search-container">
-      <input id="search-input" type="text" placeholder="Search..." name="search">
-      <button id="search-button" onclick="location.href='./admin_search.html';"></button>
+    <div>
+        <h1>Post Activity</h1>
     </div>
 
     <div id="filter-container">
-      <a href="./admin_search.html" alt="Show all activities">
-        <button class="button-one" type="button">
-        <span>Show All</span>
-        </button>
-      </a>
       <button type="button">
         <span>A</span>
       </button>
@@ -61,6 +57,41 @@
       </button>
     </div>
 
+    <div id="textarea-container">
+
+      <div>
+        <label for="activity">Activity:</label>
+        <textarea name="activity" form="usrform" cols="68" rows="1"></textarea>
+      </div>
+
+      <div>
+        <label for="organization">Organization:</label>
+        <textarea name="organization" form="usrform" cols="68" rows="1"></textarea>
+      </div>
+
+      <div>
+        <label for="description">Description:</label>
+        <textarea name="description" form="usrform" cols="68" rows="10"></textarea>
+      </div>
+
+      <div>
+        <label for="tags">Tags:</label>
+        <textarea name="tags" form="usrform" cols="68" rows="1"></textarea>
+      </div>
+
+      <div>
+        <label for="webpage">Link for More Info:</label>
+        <textarea name="webpage" form="usrform" cols="68" rows="1"></textarea>
+      </div>
+
+      <a href="./admin_submission.html" alt="Submit activity">
+        <button type="button">
+        <span>Submit</span>
+        </button>
+      </a>
+
+    </div>
+
     <div class="footer">
       <p>Terms / Licensing</p>
     </div>
@@ -76,14 +107,6 @@
       }
       prevScrollpos = currentScrollPos;
     }
-
-    var input = document.getElementById("search-input");
-    input.addEventListener("keyup", function(event) {
-        event.preventDefault();
-        if (event.keyCode === 13) {
-          document.getElementById("search-button").click();
-        }
-    });
   </script>
 
   </body>

@@ -8,30 +8,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bridges</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <style>
+
+      .edit-button {
+        margin-top: 35px;
+      }
+
+      #results-container button:hover {
+        background-color: #8e8e8e;
+      }
+
+      #results-container button:focus {
+        background-color: #8e8e8e;
+      }
+
+      #results-container .edit-button:hover {
+        background-color: #aaaaaa;
+      }
+
+      #results-container .edit-button:focus {
+        background-color: transparent;
+      }
+
+    </style>
   </head>
   <body>
   
     <div id="top-nav">
-      <a class="left" href="">About</a>
-      <a class="left" href="">Contact</a>
-      <a class="right" href="./dashboard.html" alt="Login to Bridges web app" style="margin-right: 20px" >Login</a>
-      <a href="./post.html" class="right" href="">Post</a>
+      <a class="left" href="./new_submissions.html" alt="Review submissions for approval">Pending</a>
+      <a class="right" href="index.html" alt="Logout of Bridges web app" style="margin-right: 20px" >Logout</a>
+      <a class="right" href="./admin_post.html">Post</a>
     </div>
 
     <div id="bridges-header-container">
-      <a href="./index.html" alt="Bridges Homepage">
-        <h1>Bridges</h1>
-      </a>
-      <p>Tagline</p>
+      <h1>Bridges</h1>
+      <p>Dashboard</p>
     </div>
 
     <div id="search-container">
       <input id="search-input" type="text" placeholder="Search..." name="search">
-      <button id="search-button" onclick="location.href = './search.html';"></button>
+      <button id="search-button" onclick="location.href = './admin_search.html';"></button>
     </div>
 
     <div id="filter-container">
-      <a href="./index.html" alt="Show all activities">
+      <a href="./dashboard.html" alt="Show all activities">
         <button type="button">
         <span>Show All</span>
         </button>
@@ -63,15 +83,28 @@
     </div>
 
     <div id="results-container">
-      <a href="./view.html" alt="Link to Organization's Information">
+
+      <a alt="Edit posting description">
+        <button class="edit-button" type="button">
+        <span>Edit</span>
+        </button>
+      </a>
+
+      <a href="./admin_view.html" alt="Open activity posting for editing">
         <div class="posting">
           <h2>Organization</h2>
           <p><strong>Meets Criteria: </strong>A / B</p>
-          <p><strong>Activity: </strong>iusto eaque cum facere totam necessitatibus laboriosam voluptas est aut vitae architecto ex tenetur voluptatem illo quam quam fugit ea maiores qui voluptas et non rerum voluptas consequuntur praesentium iure accusantium sint</p>
+          <span><p><strong>Activity: </strong>iusto eaque cum facere totam necessitatibus laboriosam voluptas est aut vitae architecto ex tenetur voluptatem illo quam quam fugit ea maiores qui voluptas et non rerum voluptas consequuntur praesentium iure accusantium sint</p></span>
         </div>
       </a>
 
-      <a href="./view.html" alt="Link to Organization's Information">
+      <a alt="Edit posting description">
+        <button class="edit-button" type="button">
+        <span>Edit</span>
+        </button>
+      </a>
+
+      <a href="./admin_view.html" alt="Open activity posting for editing">
         <div class="posting">
           <h2>Organization</h2>
           <p><strong>Meets Criteria: </strong>C / D</p>
@@ -79,7 +112,13 @@
         </div>
       </a>
 
-      <a href="./view.html" alt="Link to Organization's Information">
+      <a alt="Edit posting description">
+        <button class="edit-button" type="button">
+        <span>Edit</span>
+        </button>
+      </a>
+
+      <a href="./admin_view.html" alt="Open activity posting for editing">
         <div class="posting">
           <h2>Organization</h2>
           <p><strong>Meets Criteria: </strong>B / F / G</p>
@@ -87,7 +126,13 @@
         </div>
       </a>
 
-      <a href="./view.html" alt="Link to Organization's Information">
+      <a alt="Edit posting description">
+        <button class="edit-button" type="button" style="margin-top: 35px; float: right">
+        <span>Edit</span>
+        </button>
+      </a>
+
+      <a href="./admin_view.html" alt="Open activity posting for editing">
         <div class="posting">
           <h2>Organization</h2>
           <p><strong>Meets Criteria: </strong>H / D / A</p>
@@ -95,7 +140,13 @@
         </div>
       </a>
 
-      <a href="./view.html" alt="Link to Organization's Information">
+      <a alt="Edit posting description">
+        <button class="edit-button" type="button">
+        <span>Edit</span>
+        </button>
+      </a>
+
+      <a href="./admin_view.html" alt="Open activity posting for editing">
         <div class="posting">
           <h2>Organization</h2>
           <p><strong>Meets Criteria: </strong>A / B / C / D</p>
@@ -103,21 +154,34 @@
         </div>
       </a>
 
-      <a href="./view.html" alt="Link to Organization's Information">
+      <a alt="Edit posting description">
+        <button class="edit-button" type="button">
+        <span>Edit</span>
+        </button>
+      </a>
+
+      <a href="./admin_view.html" alt="Open activity posting for editing">
         <div class="posting">
           <h2>Organization</h2>
           <p><strong>Meets Criteria: </strong>B / C / D / H</p>
           <p><strong>Activity: </strong>ducimus quia omnis saepe quod ut dignissimos minus voluptas repudiandae iusto aut aut ea ducimus perspiciatis voluptas eligendi ea maiores eos dolor omnis sit inventore sint ad expedita nihil consequatur mollitia est cupiditate amet</p>
         </div>
       </a>
+
+      <a alt="Edit posting description">
+        <button class="edit-button" type="button">
+        <span>Edit</span>
+        </button>
+      </a>
       
-      <a href="./view.html" alt="Link to Organization's Information">
+      <a href="./admin_view.html" alt="Open activity posting for editing">
         <div class="posting">
           <h2>Organization</h2>
           <p><strong>Meets Criteria: </strong>G / H</p>
           <p><strong>Activity: </strong>perferendis inventore vel eos illo aut amet quia ratione tempore quia vel nostrum et explicabo ex vero animi sit animi saepe nihil earum dolorum rerum quibusdam reiciendis possimus nesciunt culpa nobis et sequi tempora fugit voluptates ut autem non doloremque qui quia iste rerum modi</p>
         </div>
       </a>
+
     </div>
 
     <div class="footer">
