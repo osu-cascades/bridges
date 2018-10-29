@@ -1,4 +1,4 @@
-<!--Bridges Web App Version 0.1.3-->
+<!--Bridges Web App Version 0.1.4-->
 <!--Natkiypie-->
 
  <!DOCTYPE html>
@@ -11,98 +11,79 @@
   </head>
   <body>
 
-    <div id="main-header-container">
-        <h1>New Submissions</h1>
-    </div>
+    <h1>New Submissions</h1>
   
     <div id="top-nav">
-      <a class="left" href="./new_submissions.html" alt="Review submissions for approval">Pending</a>
-      <a class="right" href="./index.html" alt="Logout of Bridges web app" style="margin-right: 20px" >Logout</a>
-      <a class="right" href="./dashboard.html" alt="Return to dashboard">Dash</a>
+      <a class="left far-left" href="./dash_pending.html">Pending</a>
+      <a class="right far-right" href="./index.html">Logout</a>
+      <a class="right" href="./dash.html">Dash</a>
     </div>
 
     <div id="results-container">
-      <a href="./submission_review.html" alt="Link to Organization's Information">
+
+      <a href="./dash_review.html">
         <div class="posting">
-          <h2>Organization</h2>
-          <p><strong>Criteria: </strong>A / B</p>
-          <span><p><strong>Activity: </strong>iusto eaque cum facere totam necessitatibus laboriosam voluptas est aut vitae architecto ex tenetur voluptatem illo quam quam fugit ea maiores qui voluptas et non rerum voluptas consequuntur praesentium iure accusantium sint</p></span>
+          <p><strong>Organization</strong></p>
+          <p><strong>Meets Criteria: </strong>A / B</p>
+          <p><strong>Activity: </strong>iusto eaque cum facere totam necessitatibus laboriosam voluptas est aut vitae architecto ex tenetur voluptatem illo quam quam fugit ea maiores qui voluptas et non rerum voluptas consequuntur praesentium iure accusantium sint</p>
         </div>
       </a>
 
-      <a href="./submission_review.html" alt="Link to Organization's Information">
+      <a href="./dash_review.html">
         <div class="posting">
-          <h2>Organization</h2>
-          <p><strong>Criteria: </strong>C / D</p>
+          <p><strong>Organization</strong></p>
+          <p><strong>Meets Criteria: </strong>C / D</p>
           <p><strong>Activity: </strong>officiis voluptas et enim mollitia dolores eaque sit reprehenderit ad est sit rerum voluptas nihil et sed id est aliquid voluptas ut molestiae aliquid porro quam quia consequatur sed natus est et non consequuntur ea eaque nulla exercitationem</p>
         </div>
       </a>
 
-      <a href="./submission_review.html" alt="Link to Organization's Information">
+      <a href="./dash_review.html">
         <div class="posting">
-          <h2>Organization</h2>
-          <p><strong>Criteria: </strong>B / F / G</p>
+          <p><strong>Organization</strong></p>
+          <p><strong>Meets Criteria: </strong>B / F / G</p>
           <p><strong>Activity: </strong>molestiae soluta debitis ipsum cumque sed quas ipsa aut est ipsam id maiores vel ut quia quisquam aliquid laboriosam est ut perspiciatis eaque ducimus vero neque voluptatem modi dolore rerum non non omnis voluptatum ut</p>
         </div>
       </a>
 
-      <a href="./submission_review.html" alt="Link to Organization's Information">
+      <a href="./dash_review.html">
         <div class="posting">
-          <h2>Organization</h2>
-          <p><strong>Criteria: </strong>H / D / A</p>
+          <p><strong>Organization</strong></p>
+          <p><strong>Meets Criteria: </strong>H / D / A</p>
           <p><strong>Activity: </strong>laboriosam expedita incidunt quis labore sit saepe blanditiis excepturi repellendus ut optio voluptatibus expedita aut harum suscipit quas neque sint at maxime quam perferendis est nostrum praesentium excepturi est tempora assumenda magni sit aut beatae odio aliquam qui repudiandae ut quae nostrum ut voluptate</p>
         </div>
       </a>
 
-      <a href="./submission_review.html" alt="Link to Organization's Information">
+      <a href="./dash_review.html">
         <div class="posting">
-          <h2>Organization</h2>
-          <p><strong>Criteria: </strong>A / B / C / D</p>
+          <p><strong>Organization</strong></p>
+          <p><strong>Meets Criteria: </strong>A / B / C / D</p>
           <p><strong>Activity: </strong>id rerum dolorum omnis harum ducimus id inventore labore vero non harum et deserunt dolorem minima et consequatur et earum repellat nostrum consequuntur vero placeat possimus neque incidunt velit rem</p>
         </div>
       </a>
 
-      <a href="./submission_review.html" alt="Link to Organization's Information">
+      <a href="./dash_review.html">
         <div class="posting">
-          <h2>Organization</h2>
-          <p><strong>Criteria: </strong>B / C / D / H</p>
+          <p><strong>Organization</strong></p>
+          <p><strong>Meets Criteria: </strong>B / C / D / H</p>
           <p><strong>Activity: </strong>ducimus quia omnis saepe quod ut dignissimos minus voluptas repudiandae iusto aut aut ea ducimus perspiciatis voluptas eligendi ea maiores eos dolor omnis sit inventore sint ad expedita nihil consequatur mollitia est cupiditate amet</p>
         </div>
       </a>
       
-      <a href="./submission_review.html" alt="Link to Organization's Information">
+      <a href="./dash_review.html">
         <div class="posting">
-          <h2>Organization</h2>
-          <p><strong>Criteria: </strong>G / H</p>
+          <p><strong>Organization</strong></p>
+          <p><strong>Meets Criteria: </strong>G / H</p>
           <p><strong>Activity: </strong>perferendis inventore vel eos illo aut amet quia ratione tempore quia vel nostrum et explicabo ex vero animi sit animi saepe nihil earum dolorum rerum quibusdam reiciendis possimus nesciunt culpa nobis et sequi tempora fugit voluptates ut autem non doloremque qui quia iste rerum modi</p>
         </div>
       </a>
+
     </div>
 
     <div class="footer">
       <p>Terms / Licensing</p>
     </div>
 
-  <script>
-    var prevScrollpos = window.pageYOffset;
-    window.onscroll = function() {
-    var currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        document.getElementById("top-nav").style.top = "0";
-      } else {
-        document.getElementById("top-nav").style.top = "-50px";
-      }
-      prevScrollpos = currentScrollPos;
-    }
-
-    var input = document.getElementById("search-input");
-    input.addEventListener("keyup", function(event) {
-        event.preventDefault();
-        if (event.keyCode === 13) {
-          document.getElementById("search-button").click();
-        }
-    });
-  </script>
+    <script src="../js/javascript.js"></script>
 
   </body>
 </html>
