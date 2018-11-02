@@ -1,19 +1,56 @@
-h2 {
-  font-size: 1em !important;
+/* https://getbootstrap.com/docs/4.1/examples/album/ */
+:root {
+  --jumbotron-padding-y: 3rem;
 }
 
-ul.tag-list {
-  list-style-type: none;
-  display: inline;
-  margin: 0;
-  padding: 0;
+.jumbotron {
+  padding-top: var(--jumbotron-padding-y);
+  padding-bottom: var(--jumbotron-padding-y);
+  margin-bottom: 0;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: calc(var(--jumbotron-padding-y) * 2);
+    padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+  }
 }
 
-.filter-container {
-  margin: 1em;
+.jumbotron p:last-child {
+  margin-bottom: 1em;
+}
+
+.jumbotron-heading {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+form#search {
 
 }
 
-.posting {
-  margin-top: 3em;
+input#searchField {
+  width: 50%;
+}
+
+#filter-container {
+  margin-top: 2em;
+}
+
+#filter-container a {
+  font-size: 1em;
+  margin-right: 0.2em;
+  margin-top: 0.2em;
 }
