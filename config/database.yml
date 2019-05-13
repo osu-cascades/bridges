@@ -5,11 +5,11 @@ default: &default
 
 development:
   <<: *default
-  database: CHANGEME_development
+  database: bridges_development
 
 test:
   <<: *default
-  database: CHANGEME_test
+  database: bridges_test
 
 production:
   <<: *default
