@@ -1,0 +1,29 @@
+- content_for_title("Organization #{@organization.name}")
+- content_for(:subnav) do
+  = link_to '« Back to organizations', organizations_path, class: 'btn btn-primary', title: 'List of all organizations'
+  .btn-group
+    = link_to 'Edit', edit_organization_path(@organization), class: 'btn', title: "Edit #{@organization}"
+    = link_to 'Delete', @organization, method: :delete, data: { confirm: "Delete Organization #{@organization.name}?" }, class: 'btn btn-danger', title: "Delete #{@organization}"
+%section
+  %table.table-striped
+    %tr
+      %th Name
+      %td= @organization.name
+    %tr
+      %th Location
+      %td= @organization.location
+    %tr
+      %th Ages Served
+      %td= @organization.ages_served
+    %tr
+      %th Programs
+      %td= @organization.programs
+    %tr
+      %th Contact Number
+      %td= @organization.contact_number
+    %tr
+      %th Contact Email
+      %td= @organization.contact_email
+    %tr
+      %th Website
+      %td= @organization.website

@@ -1,0 +1,8 @@
+- content_for_title('Organizations')
+- content_for(:subnav) do
+  = link_to('Add Organization', new_organization_path, class: 'btn btn-primary', title: 'Add a new organization') if current_user&.admin?
+%ul.indexing
+  - @organizations.each do |organization|
+    .col-md-10
+      %h3= link_to organization.name, organization, title: "Details of #{organization}"
+      %p= link_to('edit', edit_organization_path(organization), title: "Edit #{organization}") if current_user&.admin?

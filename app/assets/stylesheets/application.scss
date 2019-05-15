@@ -75,6 +75,10 @@ footer {
   }
 }
 
+th, td {
+  padding: 15px;
+}
+
 /* Authentication */
 
 body.sessions.new, body.registrations.new, body.registrations.create {

@@ -1,0 +1,19 @@
+.row
+  .col-md-6.col-md-offset-3
+    = form_for(@organization, html: { multipart: true }) do |form|
+      = form_errors_for(@organization)
+      = form.label :name
+      = form.text_field :name, class: 'form-control'
+      = form.label :location
+      = form.text_field :location, class: 'form-control'
+      = form.label :ages_served
+      = form.text_field :ages_served, class: 'form-control'
+      = form.label :programs
+      = form.text_field :programs, class: 'form-control'
+      = form.label :contact_number
+      = form.text_field :contact_number, class: 'form-control'
+      = form.label :contact_email
+      = form.text_field :contact_email, class: 'form-control'
+      = form.label :website
+      = form.text_field :website, class: 'form-control'
+      = form.submit class: 'btn btn-primary'
