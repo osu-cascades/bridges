@@ -85,6 +85,23 @@ th, td {
   margin-bottom: 30px;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.tags {
+  padding: 10px 10px 0px 10px;
+  text-align: center;
+}
+
+.search {
+  justify-content: center;
+}
+
+.search > .btn {
+  margin-left: 10px;
+}
+
 /* Authentication */
 
 body.sessions.new, body.registrations.new, body.registrations.create {

@@ -7,5 +7,5 @@
       - organization.each do |o|
         .col-lg-4.center
           .col-lg-12.center
-            %h3= link_to o.name, o, title: "Details of #{o}"
-            %p= link_to('edit', edit_organization_path(o), title: "Edit #{o}") if current_user&.admin?
+            %h3= link_to o.name, o, title: "Details of #{o.name}"
+            %p= link_to('edit', edit_organization_path(o), title: "Edit #{o.name}") if current_user&.admin?

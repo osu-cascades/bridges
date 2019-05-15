@@ -2,8 +2,8 @@
 - content_for(:subnav) do
   = link_to '« Back to organizations', organizations_path, class: 'btn btn-primary', title: 'List of all organizations'
   .btn-group
-    = link_to 'Edit', edit_organization_path(@organization), class: 'btn', title: "Edit #{@organization}"
-    = link_to 'Delete', @organization, method: :delete, data: { confirm: "Delete Organization #{@organization.name}?" }, class: 'btn btn-danger', title: "Delete #{@organization}"
+    = link_to 'Edit', edit_organization_path(@organization), class: 'btn', title: "Edit #{@organization}" if current_user&.admin?
+    = link_to 'Delete', @organization, method: :delete, data: { confirm: "Delete Organization #{@organization.name}?" }, class: 'btn btn-danger', title: "Delete #{@organization}" if current_user&.admin?
 %section
   %table.table-striped
     %tr
