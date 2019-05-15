@@ -9,3 +9,5 @@
           .col-lg-12.center
             %h3= link_to a.title, a, title: "Details of #{a.title}"
             %p= link_to('edit', edit_activity_path(a), title: "Edit #{a.title}") if current_user&.admin?
+            - a.tag_list.each do |tag|
+              .btn.btn-secondary.btn-sm.active #{tag}

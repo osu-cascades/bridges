@@ -5,6 +5,7 @@ class ActivitiesController < ApplicationController
   
     def index
       @activities = Activity.all
+      puts ActsAsTaggableOn::Tag.all.inspect
     end
   
     def show; end
@@ -51,7 +52,7 @@ class ActivitiesController < ApplicationController
     end
   
     def activity_params
-      params.require(:activity).permit(:title,:who,:what,:where,:when,:how,:details)
+      params.require(:activity).permit(:title,:who,:what,:where,:when,:how,:details,:tag_list)
     end
   end
   
