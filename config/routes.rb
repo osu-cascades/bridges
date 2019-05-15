@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   end
 
   resources :organizations
+  resources :activities
 end

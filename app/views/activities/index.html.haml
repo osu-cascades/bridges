@@ -1,0 +1,11 @@
+- content_for_title('Activities')
+- content_for(:subnav) do
+  = link_to('Add Activity', new_activity_path, class: 'btn btn-primary', title: 'Add a new activity') if current_user&.admin?
+.container
+  - @activities.in_groups_of(3, false).each do |activity|
+    .row.display-flex
+      - activity.each do |a|
+        .col-lg-4.center
+          .col-lg-12.center
+            %h3= link_to a.title, a, title: "Details of #{a.title}"
+            %p= link_to('edit', edit_activity_path(a), title: "Edit #{a.title}") if current_user&.admin?
