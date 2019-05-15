@@ -1,8 +1,11 @@
 - content_for_title('Organizations')
 - content_for(:subnav) do
   = link_to('Add Organization', new_organization_path, class: 'btn btn-primary', title: 'Add a new organization') if current_user&.admin?
-%ul.indexing
-  - @organizations.each do |organization|
-    .col-md-10
-      %h3= link_to organization.name, organization, title: "Details of #{organization}"
-      %p= link_to('edit', edit_organization_path(organization), title: "Edit #{organization}") if current_user&.admin?
+.container
+  - @organizations.in_groups_of(3, false).each do |organization|
+    .row.display-flex
+      - organization.each do |o|
+        .col-lg-4.center
+          .col-lg-12.center
+            %h3= link_to o.name, o, title: "Details of #{o}"
+            %p= link_to('edit', edit_organization_path(o), title: "Edit #{o}") if current_user&.admin?
