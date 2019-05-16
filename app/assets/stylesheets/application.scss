@@ -102,6 +102,23 @@ th, td {
   margin-left: 10px;
 }
 
+.btn {
+  &:hover, &:focus {
+    background-color: lighten(#007bff, 5%);
+    border-color: lighten(#007bff, 5%);
+    color: #FFF;
+  }
+}
+
+.btn-secondary.active {
+  background-color: #007bff !important;
+  border-color: #007bff !important;
+}
+
+.subnav {
+  margin-bottom: 20px;
+}
+
 /* Authentication */
 
 body.sessions.new, body.registrations.new, body.registrations.create {
