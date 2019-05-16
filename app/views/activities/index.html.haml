@@ -6,7 +6,7 @@
     .btn.btn-primary.btn-sm.active Search
   %section.tags
     - @tags.each do |tag|
-      .btn.btn-primary.btn-sm.active #{tag}
+      = link_to tag, activities_path(tags: tag.name), method: :get, class: 'btn btn-primary btn-sm active'
 - content_for(:subnav) do
   = link_to('Add Activity', new_activity_path, class: 'btn btn-primary', title: 'Add a new activity') if current_user&.admin?
 .container

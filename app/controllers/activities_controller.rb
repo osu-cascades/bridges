@@ -4,8 +4,12 @@ class ActivitiesController < ApplicationController
     before_action :restrict_unless_admin, except: [:index, :show]
   
     def index
-      @activities = Activity.all
       @tags = ActsAsTaggableOn::Tag.all
+      if params[:tags].present?
+        @activities = Activity.tagged_with(params[:tags])
+      else
+        @activities = Activity.all
+      end
     end
   
     def show; end
