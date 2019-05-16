@@ -17,5 +17,5 @@
       = form.label :details
       = form.text_field :details, class: 'form-control'
       = form.label 'Tags'
-      = form.text_field :tag_list, class: 'form-control'
+      = form.text_field :tag_list, value: form.object.tag_list.to_s, class: 'form-control'
       = form.submit class: 'btn btn-primary'

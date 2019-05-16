@@ -27,3 +27,8 @@
     %tr
       %th Details
       %td= @activity.details
+    %tr
+      %th Tags
+      %td
+        - @activity.tag_list.each do |tag|
+          .btn.btn-secondary.btn-sm.active #{tag}

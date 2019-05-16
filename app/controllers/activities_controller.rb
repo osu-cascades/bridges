@@ -5,7 +5,7 @@ class ActivitiesController < ApplicationController
   
     def index
       @activities = Activity.all
-      puts ActsAsTaggableOn::Tag.all.inspect
+      @tags = ActsAsTaggableOn::Tag.all
     end
   
     def show; end

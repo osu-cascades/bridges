@@ -1,4 +1,12 @@
-- content_for_title('Activities')
+.center.jumbotron
+  %h1.text-center Bridging Out-of-School Time
+  %p.text-center A catalog of after school, weekend, and summer activities for children and young adults in the High Desert Education Service District.
+  %form.form-inline.search
+    %input.col-md-6.form-control{type: 'text', required: true, placeholder: 'Search...'}
+    .btn.btn-primary.btn-sm.active Search
+  %section.tags
+    - @tags.each do |tag|
+      .btn.btn-primary.btn-sm.active #{tag}
 - content_for(:subnav) do
   = link_to('Add Activity', new_activity_path, class: 'btn btn-primary', title: 'Add a new activity') if current_user&.admin?
 .container
