@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_05_15_063625) do
     t.string "how"
     t.string "details"
     t.string "title"
+    t.integer "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

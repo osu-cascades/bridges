@@ -8,6 +8,7 @@ class CreateActivities < ActiveRecord::Migration[5.2]
       t.string :how
       t.string :details
       t.string :title
+      t.integer :state
 
       t.timestamps
     end
