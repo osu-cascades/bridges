@@ -1,7 +1,7 @@
 class ActivitiesController < ApplicationController
     before_action :set_activity, only: [:show, :edit, :update, :destroy]
-    skip_before_action :authenticate_user!, only: [:index, :show]
-    before_action :restrict_unless_admin, except: [:index, :show]
+    skip_before_action :authenticate_user!, only: [:index, :show, :new, :create]
+    before_action :restrict_unless_admin, except: [:index, :show, :new, :create]
   
     def index
       @tags = ActsAsTaggableOn::Tag.all
@@ -24,6 +24,8 @@ class ActivitiesController < ApplicationController
   
     def create
       @activity = Activity.new(activity_params)
+      @activity.state = current_user&.admin? ? :active : :pending
+
       if @activity.save
         redirect_to activities_path
         flash[:success] = 'Activity was successfully created.'

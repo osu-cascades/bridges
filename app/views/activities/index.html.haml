@@ -8,7 +8,7 @@
     - @tags.each do |tag|
       = link_to tag, activities_path(tags: tag.name), method: :get, class: [ 'btn', 'btn-secondary', 'btn-sm', ('active' if params[:tags] == tag.name) ]
 - content_for(:subnav) do
-  = link_to('Add Activity', new_activity_path, class: 'btn btn-primary', title: 'Add a new activity') if current_user&.admin?
+  = link_to('Add Activity', new_activity_path, class: 'btn btn-primary', title: 'Add a new activity')
 .container
   - @activities.in_groups_of(3, false).each do |activity|
     .row.display-flex
