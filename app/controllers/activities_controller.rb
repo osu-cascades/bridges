@@ -32,7 +32,7 @@ class ActivitiesController < ApplicationController
 
       if @activity.save
         redirect_to activities_path
-        flash[:success] = 'Activity was successfully created.'
+        flash[:success] = @activity.state == :active ? 'Activity was successfully created.' : 'Activity is pending review. It will be available on the dashboard once approved.'
       else
         @activities = Activity.all
         render 'new'
