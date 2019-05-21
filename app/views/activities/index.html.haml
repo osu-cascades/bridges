@@ -1,43 +1,39 @@
-.center.jumbotron
-  %h1.text-center Bridging Out-of-School Time
-  %p.text-center A catalog of after school, weekend, and summer activities for children and young adults in the High Desert Education Service District.
-  %form.form-inline.search
-    %input.col-md-6.form-control{type: 'text', required: true, placeholder: 'Search...'}
-    .btn.btn-primary.btn-sm Search
-  %section.tags
-    - @tags.each do |tag|
-      = link_to tag, activities_path(tags: tag.name), method: :get, class: [ 'btn', 'btn-secondary', 'btn-sm', ('active' if params[:tags] == tag.name) ]
-- content_for(:subnav) do
-  = link_to('Add Activity', new_activity_path, class: 'btn btn-primary', title: 'Add a new activity')
-- if current_user&.admin?
+= javascript_pack_tag 'activities_dashboard'
+%div{ id: 'dashboard', activities: @activities.to_json, tags: @tags.to_json }
+  .center.jumbotron
+    %h1.text-center Bridging Out-of-School Time
+    %p.text-center A catalog of after school, weekend, and summer activities for children and young adults in the High Desert Education Service District.
+    %form.form-inline.search
+      %input.col-md-6.form-control{type: 'text', required: true, placeholder: 'Search...'}
+      .btn.btn-primary.btn-sm Search
+    %section.tags
+      %button{'v-for': "tag in tags", 'v-on:click': "select(tag)", 'v-bind:class': "active(tag)", class: [ 'btn', 'btn-secondary', 'btn-sm' ]} {{ tag.name }}
+  - content_for(:subnav) do
+    = link_to('Add Activity', new_activity_path, class: 'btn btn-primary', title: 'Add a new activity')
+  - if current_user&.admin?
+    .container
+      - @pending_activities.in_groups_of(3, false).each do |activity|
+        .row.display-flex
+          - activity.each do |a|
+            .col-lg-4.center
+              .col-lg-12.center.pending
+                %h3= link_to a.title, a, title: "Details of #{a.title}"
+                %p= link_to('edit', edit_activity_path(a), title: "Edit #{a.title}")
+                - a.tag_list.each do |tag|
+                  .btn.btn-secondary.btn-sm.active #{tag}
   .container
-    - @pending_activities.in_groups_of(3, false).each do |activity|
-      .row.display-flex
-        - activity.each do |a|
-          .col-lg-4.center
-            .col-lg-12.center.pending
-              %h3= link_to a.title, a, title: "Details of #{a.title}"
-              %p= link_to('edit', edit_activity_path(a), title: "Edit #{a.title}")
-              - a.tag_list.each do |tag|
-                .btn.btn-secondary.btn-sm.active #{tag}
-.container
-  - @activities.in_groups_of(3, false).each do |activity|
-    .row.display-flex
-      - activity.each do |a|
-        .col-lg-4.center
-          .col-lg-12.center
-            %h3= link_to a.title, a, title: "Details of #{a.title}"
-            %p= link_to('edit', edit_activity_path(a), title: "Edit #{a.title}") if current_user&.admin?
-            - a.tag_list.each do |tag|
-              .btn.btn-secondary.btn-sm.active #{tag}
-- if current_user&.admin?
-  .container
-    - @denied_activities.in_groups_of(3, false).each do |activity|
-      .row.display-flex
-        - activity.each do |a|
-          .col-lg-4.center
-            .col-lg-12.center.denied
-              %h3= link_to a.title, a, title: "Details of #{a.title}"
-              %p= link_to('edit', edit_activity_path(a), title: "Edit #{a.title}")
-              - a.tag_list.each do |tag|
-                .btn.btn-secondary.btn-sm.active #{tag}
+    .row.display-flex{'v-for': "activity in activities"}
+      .col-lg-4.center
+        .col-lg-12.center
+          %p {{ activity }}
+  - if current_user&.admin?
+    .container
+      - @denied_activities.in_groups_of(3, false).each do |activity|
+        .row.display-flex
+          - activity.each do |a|
+            .col-lg-4.center
+              .col-lg-12.center.denied
+                %h3= link_to a.title, a, title: "Details of #{a.title}"
+                %p= link_to('edit', edit_activity_path(a), title: "Edit #{a.title}")
+                - a.tag_list.each do |tag|
+                  .btn.btn-secondary.btn-sm.active #{tag}

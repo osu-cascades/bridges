@@ -6,13 +6,18 @@ class ActivitiesController < ApplicationController
     def index
       @tags = ActsAsTaggableOn::Tag.all
       if params[:tags].present?
-        @activities = Activity.tagged_with(params[:tags]).where(state: :active)
+        @activities = Activity.tagged_with(params[:tags], any: true).where(state: :active)
         @pending_activities = Activity.tagged_with(params[:tags]).where(state: :pending)
         @denied_activities = Activity.tagged_with(params[:tags]).where(state: :denied)
       else
         @activities = Activity.where(state: :active)
         @pending_activities = Activity.where(state: :pending)
         @denied_activities = Activity.where(state: :denied)
+      end
+
+      respond_to do |format|
+        format.html { render :index }
+        format.json { render json: @activities, status: 200 }
       end
     end
   
