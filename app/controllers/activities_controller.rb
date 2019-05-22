@@ -5,7 +5,14 @@ class ActivitiesController < ApplicationController
   
     def index
       @tags = ActsAsTaggableOn::Tag.all
-      if params[:tags].present?
+      if params[:search].present?
+        column_names = Activity.columns.map { |column| column.name if column.type == :string }.compact
+        query_string = ''
+        column_names.each_with_index do |value, index|
+          query_string += index == 0 ? "\"#{value}\" LIKE :search" : " OR \"#{value}\" LIKE :search"
+        end
+        @activities = Activity.where(query_string, {search: "%#{params[:search]}%"}).where(state: :active)
+      elsif params[:tags].present?
         @activities = Activity.tagged_with(params[:tags], any: true).where(state: :active)
         @pending_activities = Activity.tagged_with(params[:tags]).where(state: :pending)
         @denied_activities = Activity.tagged_with(params[:tags]).where(state: :denied)

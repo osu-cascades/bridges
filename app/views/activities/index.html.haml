@@ -4,7 +4,7 @@
     %h1.text-center Bridging Out-of-School Time
     %p.text-center A catalog of after school, weekend, and summer activities for children and young adults in the High Desert Education Service District.
     %form.form-inline.search
-      %input.col-md-6.form-control{type: 'text', required: true, placeholder: 'Search...'}
+      %input.col-md-6.form-control{type: 'text', required: true, placeholder: 'Search...', 'v-model': "search"}
       .btn.btn-primary.btn-sm Search
     %section.tags
       %button{'v-for': "tag in tags", 'v-on:click': "select(tag)", 'v-bind:class': "active(tag)", class: [ 'btn', 'btn-secondary', 'btn-sm' ]} {{ tag.name }}
