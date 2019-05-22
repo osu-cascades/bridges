@@ -1,8 +1,8 @@
 import Vue from 'vue/dist/vue.esm'
 import axios from 'axios';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const element = document.getElementById("dashboard")
+document.addEventListener('turbolinks:load', () => {
+  const element = document.getElementById('dashboard');
   const app = new Vue({
     el: '#dashboard',
     data: {
@@ -23,5 +23,5 @@ document.addEventListener('DOMContentLoaded', () => {
         return this.selected_tags.includes(tag.name)  ? 'active' : '';
       }
     }
-  })
-})
+  });
+});
