@@ -8,6 +8,8 @@
       .btn.btn-primary.btn-sm Search
     %section.tags
       %button{'v-for': "tag in tags", 'v-on:click': "select(tag)", 'v-bind:class': "active(tag)", class: [ 'btn', 'btn-secondary', 'btn-sm' ]} {{ tag.name }}
+    %section.tags
+      %button{'v-on:click': "clearTags", class: [ 'btn', 'btn-primary', 'btn-sm' ]} Clear Tags
   - content_for(:subnav) do
     = link_to('Add Activity', new_activity_path, class: 'btn btn-primary', title: 'Add a new activity')
   - if current_user&.admin?

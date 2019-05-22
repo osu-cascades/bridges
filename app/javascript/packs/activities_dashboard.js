@@ -19,6 +19,11 @@ document.addEventListener('turbolinks:load', () => {
         const { data } = await axios.get('/activities.json', { params: { tags: this.selected_tags }, headers: { 'Content-Type': 'application/json' } });
         this.activities = data;
       },
+      clearTags: async function () {
+        const { data } = await axios.get('/activities.json', { headers: { 'Content-Type': 'application/json' } });
+        this.activities = data;
+        this.selected_tags = [];
+      },
       active: function (tag) {
         return this.selected_tags.includes(tag.name)  ? 'active' : '';
       }
