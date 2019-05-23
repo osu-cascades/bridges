@@ -2,6 +2,10 @@ import Vue from 'vue/dist/vue.esm'
 import axios from 'axios';
 import _ from 'lodash';
 
+import ActivityCard from '../components/activity_card.vue'
+
+Vue.component('activity_card', ActivityCard)
+
 document.addEventListener('turbolinks:load', () => {
   const element = document.getElementById('dashboard');
   const app = new Vue({

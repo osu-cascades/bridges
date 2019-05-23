@@ -24,10 +24,7 @@
                 - a.tag_list.each do |tag|
                   .btn.btn-secondary.btn-sm.active #{tag}
   .container
-    .row.display-flex{'v-for': "activity in activities"}
-      .col-lg-4.center
-        .col-lg-12.center
-          %p {{ activity }}
+    %activity_card{':activities': @activities.to_json}
   - if current_user&.admin?
     .container
       - @denied_activities.in_groups_of(3, false).each do |activity|
