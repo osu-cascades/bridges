@@ -4,6 +4,8 @@ import _ from 'lodash';
 
 import ActivityCard from '../components/activity_card.vue'
 
+export const eventBus = new Vue();
+
 Vue.component('activity_card', ActivityCard)
 
 document.addEventListener('turbolinks:load', () => {
@@ -24,11 +26,13 @@ document.addEventListener('turbolinks:load', () => {
           this.selected_tags.splice(indexOfTag, 1);
         const { data } = await axios.get('/activities.json', { params: { tags: this.selected_tags }, headers: { 'Content-Type': 'application/json' } });
         this.activities = data;
+        eventBus.$emit('activities_updated', this.activities);
       },
       clearTags: async function () {
         const { data } = await axios.get('/activities.json', { headers: { 'Content-Type': 'application/json' } });
         this.activities = data;
         this.selected_tags = [];
+        eventBus.$emit('activities_updated', this.activities);
       },
       active: function (tag) {
         return this.selected_tags.includes(tag.name)  ? 'active' : '';
@@ -38,6 +42,7 @@ document.addEventListener('turbolinks:load', () => {
       search: _.debounce(async function (val) {
         const { data } = await axios.get('/activities.json', { params: { tags: this.selected_tags, search: val }, headers: { 'Content-Type': 'application/json' } });
         this.activities = data;
+        eventBus.$emit('activities_updated', this.activities);
       }, 1000)
     }
   });
