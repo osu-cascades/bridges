@@ -115,7 +115,8 @@ th, td {
 }
 
 .btn {
-  &:hover, &:focus {
+  margin: 3px;
+  &:hover {
     background-color: lighten(#007bff, 5%);
     border-color: lighten(#007bff, 5%);
     color: #FFF;
@@ -125,6 +126,25 @@ th, td {
 .btn-secondary.active {
   background-color: #007bff !important;
   border-color: #007bff !important;
+}
+
+.btn-static {
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+}
+
+.activity-card {
+  a:hover {
+    color: #0056b3 !important;
+    text-decoration: underline !important;
+    cursor: pointer;
+  }
+
+  a {
+    color: #007bff !important;
+    text-decoration: none !important;
+    background-color: transparent !important;
+  }
 }
 
 .subnav {
