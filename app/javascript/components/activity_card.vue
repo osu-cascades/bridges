@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { eventBus } from '../packs/activities_dashboard';
+import { eventBus } from '../packs/activities';
 export default {
   props: {
     activities: {
