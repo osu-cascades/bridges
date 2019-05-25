@@ -16,7 +16,7 @@
       = form.text_field :how, class: 'form-control'
       = form.label :details
       = form.text_field :details, class: 'form-control'
-      - if current_user&.admin?
+      - if current_user&.admin? && @activity.persisted?
         = form.label :state
         = form.select :state, Activity.states.keys.map {|k| [k.capitalize, k]}, {}, class: 'form-control'
       = form.label 'Tags'
