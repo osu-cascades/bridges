@@ -26,7 +26,14 @@ class ActivitiesController < ApplicationController
 
       respond_to do |format|
         format.html { render :index }
-        format.json { render json: @activities, status: 200 }
+        format.json {
+          render json: {
+            activities: @activities,
+            pending_activities: @pending_activities,
+            denied_activities: @denied_activities
+          },
+          status: 200
+        }
       end
     end
   

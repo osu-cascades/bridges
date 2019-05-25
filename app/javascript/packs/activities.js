@@ -2,7 +2,7 @@ import Vue from 'vue/dist/vue.esm'
 import _ from 'lodash';
 
 import ActivityCard from '../components/activity_card'
-import ActivitiesDashboard from '../components/activities_dashboard.vue'
+import ActivitiesDashboard from '../components/activities_dashboard'
 
 export const eventBus = new Vue();
 

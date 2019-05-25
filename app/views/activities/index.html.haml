@@ -1,3 +1,3 @@
 = javascript_pack_tag 'activities'
 %div{id: 'dashboard'}
-  %activities_dashboard{':activities': @activities.to_json, ':tags': @tags.to_json}
+  %activities_dashboard{':activities': @activities.to_json, ':pending-activities': @pending_activities.to_json, ':denied-activities': @denied_activities.to_json, ':tags': @tags.to_json, 'admin': current_user&.admin?}

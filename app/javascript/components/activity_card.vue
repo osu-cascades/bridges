@@ -2,7 +2,7 @@
   <div class="activity-card">
     <div v-for="activity in activitiesData">
       <div class="col-lg-4 center">
-        <div class="col-lg-12 center">
+        <div class="col-lg-12 center" v-bind:class="activityState">
           <h3>
             <a v-on:click="select(activity.id)" v-bind:href="`/activities/${activity.id}`">{{ activity.title }}</a>
           </h3>
@@ -21,8 +21,11 @@ import { eventBus } from '../packs/activities';
 export default {
   props: {
     activities: {
-      type: Array,
-      required: true
+      type: Array
+    },
+    activityState: {
+      type: String,
+      validator: (state) => ['pending', 'active', 'denied'].includes(state)
     }
   },
   data: function () {
@@ -31,7 +34,7 @@ export default {
     }
   },
   created: function () {
-    eventBus.$on('activities_updated', activities => {
+    eventBus.$on(`${this.activityState}_activities_updated`, activities => {
       this.activitiesData = activities
     });
   }
