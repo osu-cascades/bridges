@@ -4,7 +4,7 @@ class ActivitiesController < ApplicationController
     before_action :restrict_unless_admin, except: [:index, :show, :new, :create]
   
     def index
-      @tags = ActsAsTaggableOn::Tag.all
+      @tags = Activity.select("tags.name").where(state: :active).joins(:taggings).joins("LEFT OUTER JOIN tags on tags.id = taggings.tag_id").distinct
       @activities = Activity.all
 
       if params[:search].present?
