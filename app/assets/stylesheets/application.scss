@@ -110,8 +110,12 @@ th, td {
   justify-content: center;
 }
 
-.search > .btn {
-  margin-left: 10px;
+.tags > .btn {
+  &:hover {
+    background-color: lighten(#6c757d, 15%);
+    border-color: lighten(#6c757d, 15%);
+    color: #FFF;
+  }
 }
 
 .btn {
