@@ -13,7 +13,7 @@ class ActivitiesController < ApplicationController
         column_names.each_with_index do |value, index|
           query_string += index == 0 ? "LOWER(\"#{value}\") LIKE :search" : " OR LOWER(\"#{value}\") LIKE :search"
         end
-        @activities = @activities.where(query_string, {search: "%#{params[:search]}%"})
+        @activities = @activities.where(query_string, {search: "%#{params[:search].downcase}%"})
       end
 
       if params[:tags].present?
