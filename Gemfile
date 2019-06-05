@@ -25,6 +25,7 @@ gem 'webpacker'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -41,4 +42,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
   gem 'factory_bot_rails'
+  gem 'simplecov', require: false
 end

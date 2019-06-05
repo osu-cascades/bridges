@@ -4,6 +4,7 @@ FactoryBot.define do
     last_name { 'Builder' }
     email { 'example@example.com' }
     password { 'password' }
+    password_confirmation { 'password' }
 
     trait :admin do
       role { 'admin' }
