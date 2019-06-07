@@ -20,10 +20,13 @@
       %td= @organization.programs
     %tr
       %th Contact Number
-      %td= @organization.contact_number
+      %td
+        = link_to @organization.contact_number,  "tel:#{@organization.contact_number}"
     %tr
       %th Contact Email
-      %td= @organization.contact_email
+      %td
+        = mail_to @organization.contact_email
     %tr
       %th Website
-      %td= @organization.website
+      %td
+        = link_to @organization.website,  @organization.website
