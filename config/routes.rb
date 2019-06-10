@@ -14,4 +14,5 @@ Rails.application.routes.draw do
 
   resources :organizations
   resources :activities
+  resources :contacts, only: [:new, :create]
 end
