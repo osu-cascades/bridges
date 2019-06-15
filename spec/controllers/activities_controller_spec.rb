@@ -57,11 +57,29 @@ RSpec.describe ActivitiesController, type: :controller do
   end
 
   describe '#edit' do
-    login_admin
+    context 'logged in as admin' do
+      login_admin
 
-    it 'returns http success' do
-      get :edit, params: { id: activity.id }
-      expect(response).to have_http_status(:success)
+      it 'returns http success' do
+        get :edit, params: { id: activity.id }
+        expect(response).to have_http_status(:success)
+      end
+    end
+
+    context 'logged in as guest' do
+      login_user
+
+      it 'redirects to root' do
+        get :edit, params: { id: activity.id }
+        expect(response).to redirect_to root_path
+      end
+    end
+
+    context 'not logged in' do
+      it 'redirects to sign_in' do
+        get :edit, params: { id: activity.id }
+        expect(response).to redirect_to new_user_session_path
+      end
     end
   end
 
@@ -99,63 +117,119 @@ RSpec.describe ActivitiesController, type: :controller do
   end
 
   describe '#update' do
-    login_admin
+    context 'logged in as admin' do
+      login_admin
 
-    before do
-      @activity = create(:activity)
+      before do
+        @activity = create(:activity)
+      end
+
+      context 'with valid attributes' do
+        it 'updates activity attributes' do
+          put :update, params: { id: @activity, activity: FactoryBot.attributes_for(:activity, title: 'Tacos') }
+          @activity.reload
+          expect(@activity.title).to eq('Tacos')
+        end
+
+        it 'redirects to the updated activity' do
+          put :update, params: { id: @activity, activity: FactoryBot.attributes_for(:activity) }
+          expect(response).to redirect_to @activity
+        end
+
+        it 'produces correct flash notice' do
+          post :update, params: { id: @activity, activity: FactoryBot.attributes_for(:activity, title: 'Tacos') }
+          assert_equal 'Activity was successfully updated.', flash[:success]
+        end
+      end
+
+      context 'with invalid attributes' do
+        it 'does not update attributes' do
+          put :update, params: { id: @activity, activity: FactoryBot.attributes_for(:invalid_activity) }
+          @activity.reload
+          expect(@activity.title).to eq('Lettuce Taco Bout It FUNdraiser')
+        end
+
+        it 'does not redirect to updated activity' do
+          put :update, params: { id: @activity, activity: FactoryBot.attributes_for(:invalid_activity) }
+          expect(response).to_not redirect_to @activity
+        end
+      end
     end
 
-    context 'with valid attributes' do
-      it 'updates activity attributes' do
+    context 'logged in as guest' do
+      login_user
+
+      before do
+        @activity = create(:activity)
+      end
+
+      it 'redirects to root and does not update activity' do
         put :update, params: { id: @activity, activity: FactoryBot.attributes_for(:activity, title: 'Tacos') }
         @activity.reload
-        expect(@activity.title).to eq('Tacos')
-      end
-
-      it 'redirects to the updated activity' do
-        put :update, params: { id: @activity, activity: FactoryBot.attributes_for(:activity) }
-        expect(response).to redirect_to @activity
-      end
-
-      it 'produces correct flash notice' do
-        post :update, params: { id: @activity, activity: FactoryBot.attributes_for(:activity, title: 'Tacos') }
-        assert_equal 'Activity was successfully updated.', flash[:success]
+        expect(@activity.title).to eq('Lettuce Taco Bout It FUNdraiser')
+        expect(response).to redirect_to root_path
       end
     end
 
-    context 'with invalid attributes' do
-      it 'does not update attributes' do
-        put :update, params: { id: @activity, activity: FactoryBot.attributes_for(:invalid_activity) }
-        @activity.reload
-        expect(@activity.title).to eq('Lettuce Taco Bout It FUNdraiser')
+    context 'not logged in' do
+      before do
+        @activity = create(:activity)
       end
 
-      it 'does not redirect to updated activity' do
-        put :update, params: { id: @activity, activity: FactoryBot.attributes_for(:invalid_activity) }
-        expect(response).to_not redirect_to @activity
+      it 'redirects to sign_in and does not update activity' do
+        put :update, params: { id: @activity, activity: FactoryBot.attributes_for(:activity, title: 'Tacos') }
+        @activity.reload
+        expect(@activity.title).to eq('Lettuce Taco Bout It FUNdraiser')
+        expect(response).to redirect_to new_user_session_path
       end
     end
   end
 
   describe '#destroy' do
-    login_admin
+    context 'logged in as admin' do
+      login_admin
 
-    before do
-      @activity = create(:activity)
+      before do
+        @activity = create(:activity)
+      end
+
+      it 'deletes activity' do
+        expect { delete :destroy, params: { id: @activity } }.to change(Activity, :count).by(-1)
+      end
+
+      it 'redirects to index' do
+        delete :destroy, params: { id: @activity }
+        expect(response).to redirect_to activities_url
+      end
+
+      it 'produces correct flash notice' do
+        delete :destroy, params: { id: @activity }
+        assert_equal 'Activity was successfully destroyed.', flash[:success]
+      end
     end
 
-    it 'deletes activity' do
-      expect { delete :destroy, params: { id: @activity } }.to change(Activity, :count).by(-1)
+    context 'logged in as guest' do
+      login_user
+
+      before do
+        @activity = create(:activity)
+      end
+
+      it 'redirects to root and does not delete activity' do
+        expect { delete :destroy, params: { id: @activity } }.to change(Activity, :count).by(0)
+        expect(response).to redirect_to root_path
+      end
     end
 
-    it 'redirects to index' do
-      delete :destroy, params: { id: @activity }
-      expect(response).to redirect_to activities_url
-    end
+    context 'not logged in' do
+      before do
+        @activity = create(:activity)
+      end
 
-    it 'produces correct flash notice' do
-      delete :destroy, params: { id: @activity }
-      assert_equal 'Activity was successfully destroyed.', flash[:success]
+      it 'redirects to sign_in and does not delete activity' do
+        expect { delete :destroy, params: { id: @activity } }.to change(Activity, :count).by(0)
+        expect(response).to redirect_to new_user_session_path
+      end
     end
   end
 end
