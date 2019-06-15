@@ -15,14 +15,18 @@
     </div>
     <nav class="subnav">
       <a class="btn btn-primary" title="Add a new activity" href="/activities/new">Add Activity</a>
+      <button v-on:click="toggleView" title="Toggle view" class="btn btn-primary">View as {{ view === 'card' ? 'list' : 'cards' }}</button>
     </nav>
-    <div class="container" v-if="admin">
+    <div class="container" v-if="admin && view === 'card'">
       <ActivityCard activityState="pending" :activities="pendingActivitiesData" :admin="admin"></ActivityCard>
     </div>
-    <div class="container">
+    <div class="container" v-if="view === 'card'">
       <ActivityCard activityState="active" :activities="activitiesData" :admin="admin"></ActivityCard>
     </div>
-    <div class="container" v-if="admin">
+    <div class="container" v-if="view === 'list'">
+      <ActivityList activityState="active" :activities="activitiesData" :admin="admin"></ActivityList>
+    </div>
+    <div class="container" v-if="admin && view === 'card'">
       <ActivityCard activityState="denied" :activities="deniedActivitiesData" :admin="admin"></ActivityCard>
     </div>
   </div>
@@ -31,6 +35,7 @@
 <script>
 import { eventBus } from '../packs/activities';
 import ActivityCard from './activity_card';
+import ActivityList from './activity_list';
 import axios from 'axios';
 
 export default {
@@ -61,7 +66,8 @@ export default {
       tagsData: this.tags,
       activitiesData: this.activities,
       pendingActivitiesData: this.pendingActivities,
-      deniedActivitiesData: this.deniedActivities
+      deniedActivitiesData: this.deniedActivities,
+      view: 'card'
     }
   },
   methods: {
@@ -82,6 +88,9 @@ export default {
     },
     active: function (tag) {
       return this.selected_tags.includes(tag.name)  ? 'active' : '';
+    },
+    toggleView: function () {
+      this.view = this.view === 'card' ? 'list' : 'card';
     }
   },
   watch: {
@@ -92,7 +101,8 @@ export default {
     }, 1000)
   },
   components: {
-    ActivityCard
+    ActivityCard,
+    ActivityList
   }
 }
 </script>
