@@ -24,7 +24,7 @@ class OrganizationsController < ApplicationController
       flash[:success] = 'Organization was successfully created.'
     else
       @organizations = Organization.all
-      render 'new'
+      render :new
     end
   end
 
@@ -34,7 +34,7 @@ class OrganizationsController < ApplicationController
       flash[:success] = 'Organization was successfully updated.'
     else
       @organizations = Organization.all
-      render 'edit'
+      render :edit
     end
   end
 

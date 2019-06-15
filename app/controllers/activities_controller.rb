@@ -51,12 +51,12 @@ class ActivitiesController < ApplicationController
       @activity = Activity.new(activity_params)
       @activity.state = current_user&.admin? ? :active : :pending
 
-      if @activity.save
+      if verify_recaptcha && @activity.save
         redirect_to activities_path
         flash[:success] = @activity.active? ? 'Activity was successfully created.' : 'Activity is pending review. It will be available on the dashboard once approved.'
       else
         @activities = Activity.all
-        render 'new'
+        render :new
       end
     end
   
@@ -66,7 +66,7 @@ class ActivitiesController < ApplicationController
         flash[:success] = 'Activity was successfully updated.'
       else
         @activities = Activity.all
-        render 'edit'
+        render :edit
       end
     end
   

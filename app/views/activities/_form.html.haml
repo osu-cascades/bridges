@@ -2,23 +2,36 @@
   .col-md-6.col-md-offset-3
     = form_for(@activity, html: { multipart: true }) do |form|
       = form_errors_for(@activity)
-      = form.label :title
-      = form.text_field :title, class: 'form-control'
-      = form.label :who
-      = form.text_field :who, class: 'form-control'
-      = form.label :what
-      = form.text_field :what, class: 'form-control'
-      = form.label :where
-      = form.text_field :where, class: 'form-control'
-      = form.label :when
-      = form.text_field :when, class: 'form-control'
-      = form.label :how
-      = form.text_field :how, class: 'form-control'
-      = form.label :details
-      = form.text_field :details, class: 'form-control'
+      .form-group
+        = form.label :title
+        = form.text_field :title, class: 'form-control'
+      .form-group
+        = form.label :who
+        = form.text_field :who, class: 'form-control'
+      .form-group
+        = form.label :what
+        = form.text_field :what, class: 'form-control'
+      .form-group
+        = form.label :where
+        = form.text_field :where, class: 'form-control'
+      .form-group
+        = form.label :when
+        = form.text_field :when, class: 'form-control'
+      .form-group
+        = form.label :how
+        = form.text_field :how, class: 'form-control'
+      .form-group
+        = form.label :details
+        = form.text_field :details, class: 'form-control'
       - if current_user&.admin? && @activity.persisted?
-        = form.label :state
-        = form.select :state, Activity.states.keys.map {|k| [k.capitalize, k]}, {}, class: 'form-control'
-      = form.label 'Tags'
-      = form.text_field :tag_list, value: form.object.tag_list.to_s, class: 'form-control'
-      = form.submit class: 'btn btn-primary'
+        .form-group
+          = form.label :state
+          = form.select :state, Activity.states.keys.map {|k| [k.capitalize, k]}, {}, class: 'form-control'
+      .form-group
+        = form.label 'Tags'
+        = form.text_field :tag_list, value: form.object.tag_list.to_s, class: 'form-control'
+      - if @activity.new_record?
+        .form-group
+          = recaptcha_tags
+      .form-group
+        = form.submit class: 'btn btn-primary'

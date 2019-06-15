@@ -9,7 +9,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
 
-    if @contact.valid? and verify_recaptcha
+    if @contact.valid? && verify_recaptcha
       ContactMailer.contact(contact_params).deliver
       redirect_to root_url, notice: 'Thank you, your message has been sent.'
     else
