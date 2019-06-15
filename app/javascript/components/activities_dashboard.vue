@@ -17,13 +17,13 @@
       <a class="btn btn-primary" title="Add a new activity" href="/activities/new">Add Activity</a>
     </nav>
     <div class="container" v-if="admin">
-      <ActivityCard activityState="pending" :activities="pendingActivitiesData"></ActivityCard>
+      <ActivityCard activityState="pending" :activities="pendingActivitiesData" :admin="admin"></ActivityCard>
     </div>
     <div class="container">
-      <ActivityCard activityState="active" :activities="activitiesData"></ActivityCard>
+      <ActivityCard activityState="active" :activities="activitiesData" :admin="admin"></ActivityCard>
     </div>
     <div class="container" v-if="admin">
-      <ActivityCard activityState="denied" :activities="deniedActivitiesData"></ActivityCard>
+      <ActivityCard activityState="denied" :activities="deniedActivitiesData" :admin="admin"></ActivityCard>
     </div>
   </div>
 </template>

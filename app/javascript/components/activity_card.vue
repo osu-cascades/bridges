@@ -8,7 +8,7 @@
               <a v-on:click="select(activity.id)" v-bind:href="`/activities/${activity.id}`">{{ activity.title }}</a>
             </h3>
             <p>
-              <a v-bind:href="`/activities/${activity.id}/edit`">Edit</a>
+              <a v-if="admin" v-bind:href="`/activities/${activity.id}/edit`">Edit</a>
             </p>
             <div class="btn btn-secondary btn-sm btn-static" v-for="tag in activity.tag_list">{{ tag }}</div>
           </div>
@@ -29,6 +29,10 @@ export default {
     activityState: {
       type: String,
       validator: (state) => ['pending', 'active', 'denied'].includes(state)
+    },
+    admin: {
+      type: Boolean,
+      required: true
     }
   },
   data: function () {
