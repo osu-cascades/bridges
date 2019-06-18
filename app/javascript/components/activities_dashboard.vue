@@ -20,6 +20,9 @@
     <div class="container" v-if="admin && view === 'card'">
       <ActivityCard activityState="pending" :activities="pendingActivitiesData" :admin="admin"></ActivityCard>
     </div>
+    <div class="container" v-if="admin && view === 'list'">
+      <ActivityList activityState="pending" :activities="pendingActivitiesData" :admin="admin"></ActivityList>
+    </div>
     <div class="container" v-if="view === 'card'">
       <ActivityCard activityState="active" :activities="activitiesData" :admin="admin"></ActivityCard>
     </div>
@@ -28,6 +31,9 @@
     </div>
     <div class="container" v-if="admin && view === 'card'">
       <ActivityCard activityState="denied" :activities="deniedActivitiesData" :admin="admin"></ActivityCard>
+    </div>
+    <div class="container" v-if="admin && view === 'list'">
+      <ActivityList activityState="denied" :activities="deniedActivitiesData" :admin="admin"></ActivityList>
     </div>
   </div>
 </template>

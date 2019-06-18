@@ -3,7 +3,7 @@
     <div v-for="activityGroup in activitiesData">
       <div class="row display-flex">
         <div v-for="activity in activityGroup" class="col-lg-4 center">
-          <div class="col-lg-12 center" v-bind:class="activityState">
+          <div class="col-lg-12 center individual-card" v-bind:class="activityState">
             <h3>
               <a v-on:click="select(activity.id)" v-bind:href="`/activities/${activity.id}`">{{ activity.title }}</a>
             </h3>

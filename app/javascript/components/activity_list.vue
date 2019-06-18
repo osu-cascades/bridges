@@ -1,14 +1,18 @@
 <template>
   <div class="activity-list">
-    <ul class="list-group">
-      <div v-for="activity in activitiesData" class="col-lg-4 center">
-        <li class="list-group-item">
+    <div v-for="activity in activitiesData">
+      <div class="row p-2" v-bind:class="activityState">
+        <div class="col">
           <a v-on:click="select(activity.id)" v-bind:href="`/activities/${activity.id}`">{{ activity.title }}</a>
-          <p><a v-if="admin" v-bind:href="`/activities/${activity.id}/edit`">Edit</a></p>
+        </div>
+        <div class="col">
           <div class="btn btn-secondary btn-sm btn-static" v-for="tag in activity.tag_list">{{ tag }}</div>
-        </li>
+        </div>
+        <div class="col-1" v-if="admin">
+          <p><a v-bind:href="`/activities/${activity.id}/edit`">Edit</a></p>
+        </div>
       </div>
-    </ul>
+    </div>
   </div>
 </template>
 
