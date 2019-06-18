@@ -15,8 +15,11 @@
         = form.label :where
         = form.text_field :where, class: 'form-control'
       .form-group
-        = form.label :when
-        = form.text_field :when, class: 'form-control'
+        = form.label :when_start
+        = form.datetime_select :when_start, class: 'form-control'
+      .form-group
+        = form.label :when_end
+        = form.datetime_select :when_end, class: 'form-control'
       .form-group
         = form.label :how
         = form.text_field :how, class: 'form-control'

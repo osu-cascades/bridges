@@ -4,7 +4,8 @@ class CreateActivities < ActiveRecord::Migration[5.2]
       t.string :who
       t.string :what
       t.string :where
-      t.string :when
+      t.datetime :when_start
+      t.datetime :when_end
       t.string :how
       t.string :details
       t.string :title
