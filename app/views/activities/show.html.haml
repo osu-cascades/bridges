@@ -20,10 +20,10 @@
       %td= @activity.where
     %tr
       %th Start Date
-      %td= I18n.l @activity.when_start, format: :standard
+      %td= I18n.l @activity.when_start, format: :standard if @activity.when_start
     %tr
       %th End Date
-      %td= I18n.l @activity.when_end, format: :standard
+      %td= I18n.l @activity.when_end, format: :standard if @activity.when_end
     %tr
       %th How
       %td= @activity.how

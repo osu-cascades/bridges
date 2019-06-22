@@ -16,10 +16,10 @@
         = form.text_field :where, class: 'form-control'
       .form-group
         = form.label :when_start
-        = form.datetime_select :when_start, class: 'form-control'
+        = form.datetime_select :when_start, class: 'form-control', include_blank: true, selected: @activity.persisted? ? @activity.when_start : Time.now
       .form-group
         = form.label :when_end
-        = form.datetime_select :when_end, class: 'form-control'
+        = form.datetime_select :when_end, class: 'form-control', include_blank: true, selected: @activity.persisted? ? @activity.when_end : Time.now
       .form-group
         = form.label :how
         = form.text_field :how, class: 'form-control'
