@@ -16,7 +16,12 @@
         = form.text_field :where, class: 'form-control'
       .form-group
         = form.label :when_start
-        = form.datetime_select :when_start, class: 'form-control', include_blank: true, selected: @activity.persisted? ? @activity.when_start : Time.now
+        #datetimepicker1.input-group.date{"data-target-input": "nearest"}
+          %input.form-control.datetimepicker-input{"data-target": "#datetimepicker1", type: "text"}
+          .input-group-append{"data-target": "#datetimepicker1", "data-toggle": "datetimepicker"}
+            .input-group-text
+              %i.fa.fa-calendar
+
       .form-group
         = form.label :when_end
         = form.datetime_select :when_end, class: 'form-control', include_blank: true, selected: @activity.persisted? ? @activity.when_end : Time.now
@@ -38,3 +43,7 @@
           = recaptcha_tags
       .form-group
         = form.submit class: 'btn btn-primary'
+  :javascript
+    $(function () {
+      $('#datetimepicker1').datetimepicker();
+    });

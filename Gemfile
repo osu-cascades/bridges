@@ -21,6 +21,8 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'acts-as-taggable-on'
 gem 'webpacker'
+gem 'bootstrap4-datetime-picker-rails'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
