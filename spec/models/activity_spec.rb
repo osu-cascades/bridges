@@ -9,6 +9,13 @@ RSpec.describe User, type: :model do
     refute activity.valid?
   end
 
+  it 'validates when_start before when_end' do
+    assert activity.valid?
+    activity.when_start = Time.now
+    activity.when_end = Time.now - 1.day
+    refute activity.valid?
+  end
+
   it 'has a list of tags' do
     assert activity.has_attribute? 'tag_list'
   end
