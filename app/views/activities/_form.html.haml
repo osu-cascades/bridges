@@ -16,15 +16,18 @@
         = form.text_field :where, class: 'form-control'
       .form-group
         = form.label :when_start
-        #datetimepicker1.input-group.date{"data-target-input": "nearest"}
-          %input.form-control.datetimepicker-input{"data-target": "#datetimepicker1", type: "text"}
-          .input-group-append{"data-target": "#datetimepicker1", "data-toggle": "datetimepicker"}
+        #when-start.input-group.date{"data-target-input": "nearest"}
+          %input.form-control.datetimepicker-input{"data-target": "#when-start", type: "text", name: "activity[when_start]"}
+          .input-group-append{"data-target": "#when-start", "data-toggle": "datetimepicker"}
             .input-group-text
               %i.fa.fa-calendar
-
       .form-group
         = form.label :when_end
-        = form.datetime_select :when_end, class: 'form-control', include_blank: true, selected: @activity.persisted? ? @activity.when_end : Time.now
+        #when-end.input-group.date{"data-target-input": "nearest"}
+          %input.form-control.datetimepicker-input{"data-target": "#when-end", type: "text", name: "activity[when_end]"}
+          .input-group-append{"data-target": "#when-end", "data-toggle": "datetimepicker"}
+            .input-group-text
+              %i.fa.fa-calendar
       .form-group
         = form.label :how
         = form.text_field :how, class: 'form-control'
@@ -44,6 +47,11 @@
       .form-group
         = form.submit class: 'btn btn-primary'
   :javascript
+    const start = "#{@activity.when_start&.iso8601}"
+    const end = "#{@activity.when_end&.iso8601}"
     $(function () {
-      $('#datetimepicker1').datetimepicker();
+      $('#when-start').datetimepicker({ format: 'MM/DD/YYYY HH:mm', defaultDate: start });
+    });
+    $(function () {
+      $('#when-end').datetimepicker({ format: 'MM/DD/YYYY HH:mm', defaultDate: end });
     });
