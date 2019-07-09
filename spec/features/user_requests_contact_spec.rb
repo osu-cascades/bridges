@@ -2,11 +2,13 @@ require 'rails_helper'
 
 RSpec.feature 'Requesting contact' do
   before do
+    @organization = create(:organization)
     ActionMailer::Base.deliveries.clear
     visit new_contact_path
   end
 
   scenario 'successfully, with valid form completion' do
+    select @organization.name, from: 'contact[to]'
     fill_in 'Name', with: 'Hannah Montana'
     fill_in 'Email', with: 'hmontana@example.com'
     fill_in 'Message', with: "TOP SECRET: I'm actually Miley Cyrus with a wig on"
@@ -23,7 +25,8 @@ RSpec.feature 'Requesting contact' do
     fill_in 'Phone number', with: ''
     fill_in 'Message', with: ''
     click_on 'Submit'
-    expect(page).to have_content('The form contains 3 errors.')
+    expect(page).to have_content('The form contains 4 errors.')
+    expect(page).to have_content("To can't be blank")
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content('Email or phone number must be provided')
     expect(page).to have_content('Phone number or email must be provided')

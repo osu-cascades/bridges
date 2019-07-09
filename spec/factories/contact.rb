@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :contact do
+    to { 1 }
     name { 'Hannah Montana' }
     email { 'hmontana@example.com' }
     phone_number { '123-456-7890' }
