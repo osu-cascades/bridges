@@ -33,4 +33,12 @@ RSpec.feature 'Requesting contact' do
     expect(ActionMailer::Base.deliveries.size).to eq(0)
   end
 
+  scenario "from Organization #show prefills 'to' field" do
+    visit organization_path(@organization.id)
+    expect(page).to have_link('Email Organization')
+    click_on 'Email Organization'
+    expect(current_path).to eq('/contacts/new')
+    expect(page).to have_select('contact[to]', selected: @organization.name)
+  end
+
 end
