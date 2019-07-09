@@ -1,12 +1,15 @@
 class ContactMailer < ApplicationMailer
 
-  # default from: 'bettertogethercentraloregon.org'
-  default from: 'no-reply@test.com'
-  CONTACT_RECIPIENT_EMAIL = ENV['CONTACT_RECIPIENT_EMAIL']
+  default from: 'no-reply@bettertogethercentraloregon.org'
 
   def contact(contact)
     @contact = contact
-    mail(to: CONTACT_RECIPIENT_EMAIL, subject: 'Bridges Contact Request')
+
+    contact_recipient_email = Rails.env.production? ?
+      Organization.where(id: @contact.fetch(:to)).pluck(:contact_email) :
+      ENV['CONTACT_RECIPIENT_EMAIL']
+
+    mail(to: contact_recipient_email, subject: 'Bridges Contact Request')
   end
 
 end

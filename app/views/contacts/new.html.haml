@@ -5,6 +5,10 @@
     = form_for @contact do |f|
       = form_errors_for(@contact)
       .form-group
+        = f.label :to
+        .br
+        = f.collection_select :to, Organization.where.not(contact_email: [nil, '']), :id, :name, prompt: 'Select...'
+      .form-group
         = f.label :name
         = f.text_field :name, class: 'form-control'
       .form-group
