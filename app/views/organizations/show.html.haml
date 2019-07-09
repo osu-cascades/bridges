@@ -2,7 +2,7 @@
 - content_for(:subnav) do
   = link_to '« Back to organizations', organizations_path, class: 'btn btn-primary', title: 'List of all organizations'
   .btn-group
-    = link_to 'Edit', edit_organization_path(@organization), class: 'btn btn-primary', title: "Edit #{@organization}" if current_user&.admin?
+    = link_to 'Edit', edit_organization_path(@organization), class: 'btn btn-primary', title: "Edit #{@organization.name}" if current_user&.admin?
     = link_to 'Delete', @organization, method: :delete, data: { confirm: "Delete Organization #{@organization.name}?" }, class: 'btn btn-danger', title: "Delete #{@organization}" if current_user&.admin?
 %section
   %table.table-striped
@@ -30,3 +30,4 @@
       %th Website
       %td
         = link_to @organization.website,  @organization.website
+= link_to 'Email Organization', new_contact_path({ to: @organization.id }), class: 'btn btn-primary email-organization', title: "Email #{@organization.name}" if @organization.contact_email.present?

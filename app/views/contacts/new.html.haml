@@ -7,7 +7,8 @@
       .form-group
         = f.label :to
         .br
-        = f.collection_select :to, Organization.where.not(contact_email: [nil, '']), :id, :name, prompt: 'Select...'
+        - default = params[:to] ? { selected: params[:to] } : { prompt: 'Select...' }
+        = f.collection_select :to, Organization.where.not(contact_email: [nil, '']), :id, :name, **default
       .form-group
         = f.label :name
         = f.text_field :name, class: 'form-control'
