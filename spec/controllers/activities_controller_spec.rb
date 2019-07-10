@@ -23,7 +23,7 @@ RSpec.describe ActivitiesController, type: :controller do
       end
 
       it 'returns activities based on search parameter' do
-        @other_activity.details = 'Cool beans will be provided'
+        @other_activity.description = 'Cool beans will be provided'
         @other_activity.save
         get :index, params: { search: 'beans', format: :json }
         expect(response).to have_http_status(:success)
@@ -31,7 +31,7 @@ RSpec.describe ActivitiesController, type: :controller do
       end
 
       it 'is case insensitive' do
-        @other_activity.details = 'Cool bEaNS of all sizes will be provided'
+        @other_activity.description = 'Cool bEaNS of all sizes will be provided'
         @other_activity.save
         get :index, params: { search: 'BEANS', format: :json }
         expect(response).to have_http_status(:success)

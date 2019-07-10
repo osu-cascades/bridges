@@ -8,7 +8,7 @@ class ActivitiesController < ApplicationController
       @activities = Activity.all
 
       if params[:search].present?
-        column_names = Activity.columns.map { |column| column.name if column.type == :string }.compact
+        column_names = Activity.columns.map { |column| column.name if [:string, :text].include? column.type }.compact
         query_string = ''
         column_names.each_with_index do |value, index|
           query_string += index == 0 ? "LOWER(\"#{value}\") LIKE :search" : " OR LOWER(\"#{value}\") LIKE :search"
