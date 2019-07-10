@@ -10,14 +10,8 @@
       %th Title
       %td= @activity.title
     %tr
-      %th Who
-      %td= @activity.who
-    %tr
-      %th What
-      %td= @activity.what
-    %tr
-      %th Where
-      %td= @activity.where
+      %th Location
+      %td= @activity.location
     %tr
       %th Start Date
       %td= I18n.l @activity.when_start, format: :standard if @activity.when_start
@@ -25,11 +19,17 @@
       %th End Date
       %td= I18n.l @activity.when_end, format: :standard if @activity.when_end
     %tr
-      %th How
-      %td= @activity.how
+      %th Description
+      %td= @activity.description
     %tr
-      %th Details
-      %td= @activity.details
+      %th Contact Name
+      %td= @activity.contact_name
+    %tr
+      %th Contact Number
+      %td= @activity.contact_number
+    %tr
+      %th Contact Email
+      %td= @activity.contact_email
     %tr
       %th Tags
       %td
