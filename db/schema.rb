@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 2019_06_21_235457) do
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
-    t.string "who"
-    t.string "what"
-    t.string "where"
+    t.string "title"
     t.datetime "when_start"
     t.datetime "when_end"
-    t.string "how"
-    t.string "details"
-    t.string "title"
+    t.text "description"
+    t.string "location"
+    t.string "contact_name"
+    t.string "contact_number"
+    t.string "contact_email"
     t.integer "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
