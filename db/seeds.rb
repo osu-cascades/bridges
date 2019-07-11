@@ -35,7 +35,8 @@ organizations = [
     programs: "In-school",
     contact_number: "541-389-2748",
     contact_email: "",
-    website: "http://www.academyatsisters.org"
+    website: "http://www.academyatsisters.org",
+    state: :active
   },
   {
     name: "Assistance League of Bend",
@@ -44,7 +45,8 @@ organizations = [
     programs: "Afterschool or non-school days",
     contact_number: "541-389-2075",
     contact_email: "info@assistanceleaguebend.com",
-    website: "https://www.assistanceleague.org"
+    website: "https://www.assistanceleague.org",
+    state: :active
   },
   {
     name: "Base Camp Studio",
@@ -53,7 +55,8 @@ organizations = [
     programs: "Afterschool or non-school days",
     contact_number: "503-953-2175",
     contact_email: "hello@basecampstudio.org",
-    website: "https://basecampstudio.org"
+    website: "https://basecampstudio.org",
+    state: :active
   },
   {
     name: "Bend Parks and Rec",
@@ -62,7 +65,8 @@ organizations = [
     programs: "Afterschool or non-school days",
     contact_number: "541-389-7275",
     contact_email: "kim@bendparksandrec.org",
-    website: "https://bendparksandrec.org"
+    website: "https://bendparksandrec.org",
+    state: :active
   },
   {
     name: "Bend Science Station",
@@ -71,7 +75,8 @@ organizations = [
     programs: "Afterschool or during the summer",
     contact_number: "541-330-0433",
     contact_email: "",
-    website: "https://www.bendsciencestation.com"
+    website: "https://www.bendsciencestation.com",
+    state: :active
   },
   {
     name: "Big Brothers Big Sisters of Central Oregon",
@@ -80,7 +85,8 @@ organizations = [
     programs: "Afterschool or non-school days",
     contact_number: "541-312-6047",
     contact_email: "info@bbbsco.org",
-    website: "http://www.bbbsco.org"
+    website: "http://www.bbbsco.org",
+    state: :active
   },
   {
     name: "Boy Scouts",
@@ -89,7 +95,8 @@ organizations = [
     programs: "Afterschool or non-school days",
     contact_number: "",
     contact_email: "",
-    website: "https://www.craterlakecouncil.org"
+    website: "https://www.craterlakecouncil.org",
+    state: :active
   },
   {
     name: "Caldera Arts",
@@ -98,7 +105,8 @@ organizations = [
     programs: "Weekends/Summer",
     contact_number: "541-595-0956",
     contact_email: "Caldera@CalderaArts.org",
-    website: "http://calderaarts.org"
+    website: "http://calderaarts.org",
+    state: :active
   },
   {
     name: "Cascade Youth and Family Center",
@@ -107,7 +115,8 @@ organizations = [
     programs: "",
     contact_number: "541-382-0934",
     contact_email: "cyfc@jbarj.org",
-    website: "http://cascadeyouthandfamilycenter.org"
+    website: "http://cascadeyouthandfamilycenter.org",
+    state: :active
   },
   {
     name: "Central Oregon Disability Support Network",
@@ -116,7 +125,8 @@ organizations = [
     programs: "Afterschool or non-school days",
     contact_number: "541-548-8559",
     contact_email: "",
-    website: "https://ocdd.org"
+    website: "https://ocdd.org",
+    state: :active
   },
   {
     name: "Children's Forest",
@@ -125,7 +135,8 @@ organizations = [
     programs: "Weekends or non-school days",
     contact_number: "541-383-5592",
     contact_email: "katie@childrensforestco.org",
-    website: "http://www.childrensforestco.org"
+    website: "http://www.childrensforestco.org",
+    state: :active
   },
   {
     name: "Childrens Museum of Central Oregon",
@@ -134,7 +145,8 @@ organizations = [
     programs: "In-school programs or summer camps",
     contact_number: "",
     contact_email: "info@childrensmuseumco.org",
-    website: "http://www.childrensmuseumcentraloregon.org"
+    website: "http://www.childrensmuseumcentraloregon.org",
+    state: :active
   },
   {
     name: "Circle of Friends",
@@ -143,7 +155,8 @@ organizations = [
     programs: "Afterschool or non-school days",
     contact_number: "541-588-6445",
     contact_email: "info@circleorfriendsoregon.org",
-    website: "http://circleoffriendsoregon.org"
+    website: "http://circleoffriendsoregon.org",
+    state: :active
   },
   {
     name: "Crook County 4H",
@@ -152,7 +165,8 @@ organizations = [
     programs: "In-school programs or afterschool",
     contact_number: "",
     contact_email: "",
-    website: "https://extension.oregonstate.edu/4h/crook"
+    website: "https://extension.oregonstate.edu/4h/crook",
+    state: :active
   },
   {
     name: "Crook County After the Bell",
@@ -161,7 +175,8 @@ organizations = [
     programs: "Afterschool or non-school days",
     contact_number: "541-233-4501",
     contact_email: "",
-    website: "https://childcarecenter.us/provider_detail/crook_county_after_the_bell_prineville_or"
+    website: "https://childcarecenter.us/provider_detail/crook_county_after_the_bell_prineville_or",
+    state: :active
   },
   {
     name: "Crook County for the Children",
@@ -170,7 +185,8 @@ organizations = [
     programs: "",
     contact_number: "541-416-1827",
     contact_email: "",
-    website: ""
+    website: "",
+    state: :active
   },
   {
     name: "Deschutes Children's Foundation",
@@ -179,7 +195,8 @@ organizations = [
     programs: "",
     contact_number: "541-388-3101",
     contact_email: "",
-    website: "https://www.deschuteschildrensfoundation.org"
+    website: "https://www.deschuteschildrensfoundation.org",
+    state: :active
   },
   {
     name: "Deschutes County 4H",
@@ -188,7 +205,8 @@ organizations = [
     programs: "In-school programs or afterschool",
     contact_number: "541-548-6088",
     contact_email: "",
-    website: "http://deschutes4h.com"
+    website: "http://deschutes4h.com",
+    state: :active
   },
   {
     name: "Discover Your Forest",
@@ -197,7 +215,8 @@ organizations = [
     programs: "In-school programs or afterschool",
     contact_number: "541-383-4771",
     contact_email: "info@discoveryourforest.org",
-    website: "http://discoveryourforest.org"
+    website: "http://discoveryourforest.org",
+    state: :active
   },
   {
     name: "Friends of the Children",
@@ -206,7 +225,8 @@ organizations = [
     programs: "Afterschool or non-school days",
     contact_number: "541-668-6836",
     contact_email: "info@friendscentraloregon.org",
-    website: "https://friendscentraloregon.org"
+    website: "https://friendscentraloregon.org",
+    state: :active
   },
   {
     name: "Girl Scouts",
@@ -215,7 +235,8 @@ organizations = [
     programs: "Afterschool or non-school days",
     contact_number: "800-338-5248",
     contact_email: "",
-    website: "http://www.girlscoutsosw.org"
+    website: "http://www.girlscoutsosw.org",
+    state: :active
   },
   {
     name: "Healing Reins",
@@ -224,7 +245,8 @@ organizations = [
     programs: "Non-school days",
     contact_number: "541-382-9410",
     contact_email: "",
-    website: "https://healingreins.org"
+    website: "https://healingreins.org",
+    state: :active
   },
   {
     name: "J Bar J Learning Center",
@@ -233,7 +255,8 @@ organizations = [
     programs: "",
     contact_number: "541-389-1409",
     contact_email: "pprice@jbarj.org",
-    website: "http://www.jbarj.org/j-bar-j-boys-ranch/j-bar-j-learning-center"
+    website: "http://www.jbarj.org/j-bar-j-boys-ranch/j-bar-j-learning-center",
+    state: :active
   },
   {
     name: "Kids Club of Jefferson County",
@@ -242,7 +265,8 @@ organizations = [
     programs: "Afterschool or non-school days",
     contact_number: "541-475-7028",
     contact_email: "kidsclub@509j.net",
-    website: "https://jckidsclub.com"
+    website: "https://jckidsclub.com",
+    state: :active
   },
   {
     name: "Kids in the Game",
@@ -251,7 +275,8 @@ organizations = [
     programs: "In-school programs or afterschool",
     contact_number: "541-508-3966",
     contact_email: "",
-    website: "https://kidsinthegame.org"
+    website: "https://kidsinthegame.org",
+    state: :active
   },
   {
     name: "Oregon Adaptive Sports",
@@ -260,7 +285,8 @@ organizations = [
     programs: "Non-school days",
     contact_number: "541-306-4774",
     contact_email: "info@oregonadaptivesports.org",
-    website: "http://oregonadaptivesports.org"
+    website: "http://oregonadaptivesports.org",
+    state: :active
   },
   {
     name: "Crook County Parks & Rec",
@@ -269,7 +295,8 @@ organizations = [
     programs: "Afterschool or non-school days",
     contact_number: "541-447-1209",
     contact_email: "Info@CCPRD.org",
-    website: "http://ccprd.org"
+    website: "http://ccprd.org",
+    state: :active
   },
   {
     name: "Redmond Parks and Rec",
@@ -278,7 +305,8 @@ organizations = [
     programs: "Afterschool or non-school days",
     contact_number: "541-548-7275",
     contact_email: "raprd@raprd.org",
-    website: "https://www.raprd.org"
+    website: "https://www.raprd.org",
+    state: :active
   },
   {
     name: "Samara Learning Center",
@@ -287,7 +315,8 @@ organizations = [
     programs: "In-school programs or non-school days",
     contact_number: "541-419-3324",
     contact_email: "",
-    website: ""
+    website: "",
+    state: :active
   },
   {
     name: "The Landing",
@@ -296,7 +325,8 @@ organizations = [
     programs: "Afterschool or non-school days",
     contact_number: "458-231-1843",
     contact_email: "",
-    website: "http://centraloregonyouth.org"
+    website: "http://centraloregonyouth.org",
+    state: :active
   },
   {
     name: "Together for Children",
@@ -305,7 +335,8 @@ organizations = [
     programs: "",
     contact_number: "541-420-2611",
     contact_email: "",
-    website: "http://www.together-for-children.org"
+    website: "http://www.together-for-children.org",
+    state: :active
   },
   {
     name: "Warm Springs Boys and Girls Club",
@@ -314,7 +345,8 @@ organizations = [
     programs: "Afterschool or non-school days",
     contact_number: "(541) 553-1161",
     contact_email: "",
-    website: "warmsprings-nsn.gov"
+    website: "warmsprings-nsn.gov",
+    state: :active
   },
   {
     name: "Heart of Oregon Corps",
@@ -323,7 +355,8 @@ organizations = [
     programs: "",
     contact_number: "541-633-7834",
     contact_email: "",
-    website: "http://heartoforegon.org"
+    website: "http://heartoforegon.org",
+    state: :active
   },
   {
     name: "SMART",
@@ -332,7 +365,8 @@ organizations = [
     programs: "",
     contact_number: "541-797-7726",
     contact_email: "",
-    website: "https://www.getsmartoregon.org/about-smart/local-offices/central-area"
+    website: "https://www.getsmartoregon.org/about-smart/local-offices/central-area",
+    state: :active
   }
 ]
 
