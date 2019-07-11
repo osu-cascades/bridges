@@ -30,16 +30,16 @@ RSpec.describe OrganizationsController, type: :controller do
     context 'logged in as guest' do
       login_user
 
-      it 'redirects to root' do
+      it 'returns http success' do
         get :new
-        expect(response).to redirect_to root_path
+        expect(response).to have_http_status(:success)
       end
     end
 
     context 'not logged in' do
-      it 'redirects to sign_in' do
+      it 'returns http success' do
         get :new
-        expect(response).to redirect_to new_user_session_path
+        expect(response).to have_http_status(:success)
       end
     end
   end
@@ -108,18 +108,18 @@ RSpec.describe OrganizationsController, type: :controller do
     context 'logged in as guest' do
       login_user
 
-      it 'redirects to root and does not create activity' do
+      it 'redirects to index and creates activity' do
         organization_params = FactoryBot.attributes_for(:organization)
-        expect { post :create, params: { organization: organization_params } }.to change(Organization, :count).by(0)
-        expect(response).to redirect_to root_path
+        expect { post :create, params: { organization: organization_params } }.to change(Organization, :count).by(1)
+        expect(response).to redirect_to organizations_path
       end
     end
 
     context 'not logged in' do
-      it 'redirects to sign_in and does not create activity' do
+      it 'redirects to index and creates activity' do
         organization_params = FactoryBot.attributes_for(:organization)
-        expect { post :create, params: { organization: organization_params } }.to change(Organization, :count).by(0)
-        expect(response).to redirect_to new_user_session_path
+        expect { post :create, params: { organization: organization_params } }.to change(Organization, :count).by(1)
+        expect(response).to redirect_to organizations_path
       end
     end
   end
