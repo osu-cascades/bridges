@@ -1,6 +1,6 @@
 - content_for_title('Organizations')
 - content_for(:subnav) do
-  = link_to('Add Organization', new_organization_path, class: 'btn btn-primary', title: 'Add a new organization') if current_user&.admin?
+  = link_to('Add Organization', new_organization_path, class: 'btn btn-primary', title: 'Add a new organization')
 .container
   - @organizations.in_groups_of(3, false).each do |organization|
     .row.display-flex

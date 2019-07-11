@@ -1,10 +1,10 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :restrict_unless_admin, except: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :new, :create]
+  before_action :restrict_unless_admin, except: [:index, :show, :new, :create]
 
   def index
-    @organizations = Organization.all
+    @organizations = Organization.where(state: :active)
   end
 
   def show; end
@@ -19,9 +19,11 @@ class OrganizationsController < ApplicationController
 
   def create
     @organization = Organization.new(organization_params)
-    if @organization.save
+    @organization.state = current_user&.admin? ? :active : :pending
+
+    if verify_recaptcha && @organization.save
       redirect_to organizations_path
-      flash[:success] = 'Organization was successfully created.'
+      flash[:success] = @organization.active? ? 'Organization was successfully created.' : 'Organization is pending review. It will be available on the dashboard once approved.'
     else
       @organizations = Organization.all
       render :new
