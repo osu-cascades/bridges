@@ -5,6 +5,8 @@ class OrganizationsController < ApplicationController
 
   def index
     @organizations = Organization.where(state: :active)
+    @pending_organizations = Organization.where(state: :pending)
+    @denied_organizations = Organization.where(state: :denied)
   end
 
   def show; end
@@ -53,6 +55,6 @@ class OrganizationsController < ApplicationController
   end
 
   def organization_params
-    params.require(:organization).permit(:name,:location,:ages_served,:programs,:contact_number,:contact_email,:website)
+    params.require(:organization).permit(:name,:location,:ages_served,:programs,:contact_number,:contact_email,:website,:state)
   end
 end
