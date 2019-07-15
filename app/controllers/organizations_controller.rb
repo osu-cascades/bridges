@@ -4,6 +4,7 @@ class OrganizationsController < ApplicationController
   before_action :restrict_unless_admin, except: [:index, :show, :new, :create]
 
   def index
+    @tags = Organization.select("tags.name").where(state: :active).joins(:taggings).joins("LEFT OUTER JOIN tags on tags.id = taggings.tag_id").distinct
     @organizations = Organization.where(state: :active)
     @pending_organizations = Organization.where(state: :pending)
     @denied_organizations = Organization.where(state: :denied)
@@ -55,6 +56,6 @@ class OrganizationsController < ApplicationController
   end
 
   def organization_params
-    params.require(:organization).permit(:name,:location,:ages_served,:programs,:contact_number,:contact_email,:website,:state)
+    params.require(:organization).permit(:name,:location,:ages_served,:programs,:contact_number,:contact_email,:website,:state,:tag_list)
   end
 end

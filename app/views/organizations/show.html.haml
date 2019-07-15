@@ -30,4 +30,9 @@
       %th Website
       %td
         = link_to @organization.website,  @organization.website
+    %tr
+      %th Tags
+      %td
+        - @organization.tag_list.each do |tag|
+          .btn.btn-secondary.btn-sm.btn-static #{tag}
 = link_to 'Email Organization', new_contact_path({ to: @organization.id }), class: 'btn btn-primary email-organization', title: "Email #{@organization.name}" if @organization.contact_email.present?

@@ -27,6 +27,9 @@
         .form-group
           = form.label :state
           = form.select :state, Organization.states.keys.map {|k| [k.capitalize, k]}, {}, class: 'form-control'
+      .form-group
+        = form.label 'Tags'
+        = form.text_field :tag_list, value: form.object.tag_list.to_s, class: 'form-control'
       - if @organization.new_record?
         .form-group
           = recaptcha_tags
