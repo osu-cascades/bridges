@@ -5,7 +5,7 @@
         <div v-for="organization in organizationGroup" class="col-lg-4 center">
           <div class="col-lg-12 center individual-card" v-bind:class="organizationState">
             <h3>
-              <a v-on:click="select(organization.id)" v-bind:href="`/organizations/${organization.id}`">{{ organization.name }}</a>
+              <a v-bind:href="`/organizations/${organization.id}`">{{ organization.name }}</a>
             </h3>
             <p>
               <a v-if="admin" v-bind:href="`/organizations/${organization.id}/edit`">Edit</a>

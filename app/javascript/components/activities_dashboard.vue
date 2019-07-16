@@ -1,18 +1,6 @@
 <template>
   <div class="activities-dashboard">
-    <div class="jumbotron center">
-      <h1 class="text-center">Bridging Out-of-School Time</h1>
-      <p class="text-center">A catalog of after school, weekend, and summer activities for children and young adults in the High Desert Education Service District.</p>
-      <form class="form-inline search">
-        <input class="col-md-6 form-control" type="text" placeholder="Search..." v-model="search"></input>
-      </form>
-      <div class="section tags">
-        <button v-for="tag in tagsData" v-on:click="select(tag)" v-bind:class="active(tag)" class="btn btn-secondary btn-sm">{{ tag.name }}</button>
-      </div>
-      <div class="section tags">
-        <button v-on:click="clearTags" class="btn btn-primary btn-sm">Clear Tags</button>
-      </div>
-    </div>
+    <DashboardHeader model="activities" :tags="tagsData"></DashboardHeader>
     <nav class="subnav">
       <a class="btn btn-primary" title="Add a new activity" href="/activities/new">Add Activity</a>
       <button v-on:click="toggleView" title="Toggle view" class="btn btn-primary">View as {{ view === 'card' ? 'list' : 'cards' }}</button>
@@ -42,6 +30,7 @@
 import { eventBus } from '../packs/activities';
 import ActivityCard from './activity_card';
 import ActivityList from './activity_list';
+import DashboardHeader from './dashboard_header';
 import axios from 'axios';
 
 export default {
@@ -108,7 +97,8 @@ export default {
   },
   components: {
     ActivityCard,
-    ActivityList
+    ActivityList,
+    DashboardHeader
   }
 }
 </script>
