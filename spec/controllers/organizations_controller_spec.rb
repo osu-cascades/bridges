@@ -8,6 +8,36 @@ RSpec.describe OrganizationsController, type: :controller do
       get :index
       expect(response).to have_http_status(:success)
     end
+
+    context 'with filter parameters' do
+      before do
+        @bend_organization = create(:organization, tag_list: 'bend', state: :active)
+        @redmond_organization = create(:organization, tag_list: 'redmond', state: :active)
+        @sisters_organization = create(:organization, tag_list: 'sisters', state: :active)
+      end
+
+      it 'returns organizations based on tags parameter' do
+        get :index, params: { tags: ['bend', 'redmond'], format: :json }
+        expect(response).to have_http_status(:success)
+        expect(JSON.parse(response.body)['organizations'].length).to eq(2)
+      end
+
+      it 'returns organizations based on search parameter' do
+        @sisters_organization.programs = 'After school activities'
+        @sisters_organization.save
+        get :index, params: { search: 'school', format: :json }
+        expect(response).to have_http_status(:success)
+        expect(JSON.parse(response.body)['organizations'].length).to eq(1)
+      end
+
+      it 'is case insensitive' do
+        @sisters_organization.programs = 'After sChOOL activities are COOL'
+        @sisters_organization.save
+        get :index, params: { search: 'SCHOOL', format: :json }
+        expect(response).to have_http_status(:success)
+        expect(JSON.parse(response.body)['organizations'].length).to eq(1)
+      end
+    end
   end
 
   describe '#show' do
