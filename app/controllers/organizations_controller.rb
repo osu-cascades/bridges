@@ -5,9 +5,36 @@ class OrganizationsController < ApplicationController
 
   def index
     @tags = Organization.select("tags.name").where(state: :active).joins(:taggings).joins("LEFT OUTER JOIN tags on tags.id = taggings.tag_id").distinct
-    @organizations = Organization.where(state: :active)
-    @pending_organizations = Organization.where(state: :pending)
-    @denied_organizations = Organization.where(state: :denied)
+    @organizations = Organization.all
+
+    if params[:search].present?
+      column_names = Organization.columns.map { |column| column.name if [:string, :text].include? column.type }.compact
+      query_string = ''
+      column_names.each_with_index do |value, index|
+        query_string += index == 0 ? "LOWER(\"#{value}\") LIKE :search" : " OR LOWER(\"#{value}\") LIKE :search"
+      end
+      @organizations = @organizations.where(query_string, {search: "%#{params[:search].downcase}%"})
+    end
+
+    if params[:tags].present?
+      @organizations = @organizations.tagged_with(params[:tags], any: true)
+    end
+
+    @pending_organizations = @organizations.where(state: :pending)
+    @denied_organizations = @organizations.where(state: :denied)
+    @organizations = @organizations.where(state: :active)
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json {
+        render json: {
+          organizations: @organizations,
+          pending_organizations: @pending_organizations,
+          denied_organizations: @denied_organizations
+        },
+        status: 200
+      }
+    end
   end
 
   def show; end
