@@ -1,3 +1,3 @@
-= javascript_pack_tag 'organizations'
+= javascript_pack_tag 'models'
 %div{id: 'dashboard'}
-  %organizations_dashboard{':organizations': @organizations.to_json, ':pending-organizations': @pending_organizations.to_json, ':denied-organizations': @denied_organizations.to_json, ':tags': @tags.to_json, 'admin': current_user&.admin?}
+  %models_dashboard{':models': @organizations.to_json, ':pending-models': @pending_organizations.to_json, ':denied-models': @denied_organizations.to_json, ':tags': @tags.to_json, 'admin': current_user&.admin?, 'model-singular': 'organization', 'model-plural': 'organizations', 'model-display-title': 'name'}

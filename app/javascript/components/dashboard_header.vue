@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { eventBus } from '../packs/activities';
+import { eventBus } from '../packs/models';
 import axios from 'axios';
 
 export default {

@@ -1,3 +1,3 @@
-= javascript_pack_tag 'activities'
+= javascript_pack_tag 'models'
 %div{id: 'dashboard'}
-  %activities_dashboard{':activities': @activities.to_json, ':pending-activities': @pending_activities.to_json, ':denied-activities': @denied_activities.to_json, ':tags': @tags.to_json, 'admin': current_user&.admin?}
+  %models_dashboard{':models': @activities.to_json, ':pending-models': @pending_activities.to_json, ':denied-models': @denied_activities.to_json, ':tags': @tags.to_json, 'admin': current_user&.admin?, 'model-singular': 'activity', 'model-plural': 'activities', 'model-display-title': 'title'}
