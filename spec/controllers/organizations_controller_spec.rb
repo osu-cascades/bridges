@@ -9,6 +9,18 @@ RSpec.describe OrganizationsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
+    it 'orders organizations by name' do
+      @organization_c = create(:organization, name: 'Corn', state: :active)
+      @organization_a = create(:organization, name: 'Avocado', state: :active)
+      @organization_b = create(:organization, name: 'Biscuit', state: :active)
+
+      get :index, params: { format: :json }
+      organizations = JSON.parse(response.body)['organizations']
+      expect(organizations[0].fetch('name')).to eq('Avocado')
+      expect(organizations[1].fetch('name')).to eq('Biscuit')
+      expect(organizations[2].fetch('name')).to eq('Corn')
+    end
+
     context 'with filter parameters' do
       before do
         @bend_organization = create(:organization, tag_list: 'bend', state: :active)
