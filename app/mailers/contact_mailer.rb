@@ -1,6 +1,6 @@
 class ContactMailer < ApplicationMailer
 
-  default from: 'no-reply@bettertogethercentraloregon.org'
+  default from: 'no-reply@hdesd-bridges.com'
 
   def contact(contact)
     @contact = contact
@@ -9,7 +9,7 @@ class ContactMailer < ApplicationMailer
       Organization.where(id: @contact.fetch(:to)).pluck(:contact_email) :
       ENV['CONTACT_RECIPIENT_EMAIL']
 
-    mail(to: contact_recipient_email, subject: 'Bridges Contact Request')
+    mail(to: contact_recipient_email, subject: 'Bridges Database Inquiry')
   end
 
 end
