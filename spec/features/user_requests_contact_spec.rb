@@ -16,7 +16,7 @@ RSpec.feature 'Requesting contact' do
     expect(page).to have_content('Thank you, your message has been sent.')
     expect(ActionMailer::Base.deliveries.size).to eq(1)
     email = ActionMailer::Base.deliveries.first
-    expect(email.subject).to eq('Bridges Contact Request')
+    expect(email.subject).to eq('Bridges Database Inquiry')
   end
 
   scenario 'failure, with invalid form completion' do
