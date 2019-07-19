@@ -7,6 +7,9 @@
             <h3>
               <a v-bind:href="`/${modelPlural}/${model.id}`">{{ model[modelDisplayTitle] }}</a>
             </h3>
+            <div v-if="modelDisplayAttributes" v-for="attribute in modelDisplayAttributes">
+              <p>{{ attribute }}: {{ model[`${attribute}`] }}</p>
+            </div>
             <p>
               <a v-if="admin" v-bind:href="`/${modelPlural}/${model.id}/edit`">Edit</a>
             </p>
@@ -41,6 +44,10 @@ export default {
     modelDisplayTitle: {
       type: String,
       required: true
+    },
+    modelDisplayAttributes: {
+      type: Array,
+      required: false
     }
   },
   data: function () {

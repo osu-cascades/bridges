@@ -5,6 +5,9 @@
         <div class="col">
           <a v-bind:href="`/${modelPlural}/${model.id}`">{{ model[modelDisplayTitle] }}</a>
         </div>
+        <div v-if="modelDisplayAttributes" v-for="attribute in modelDisplayAttributes">
+          <div class="col">{{ attribute }}: {{ model[`${attribute}`] }}</div>
+        </div>
         <div class="col">
           <div class="btn btn-secondary btn-sm btn-static" v-for="tag in model.tag_list">{{ tag }}</div>
         </div>
@@ -39,6 +42,10 @@ export default {
     modelDisplayTitle: {
       type: String,
       required: true
+    },
+    modelDisplayAttributes: {
+      type: Array,
+      required: false
     }
   },
   data: function () {

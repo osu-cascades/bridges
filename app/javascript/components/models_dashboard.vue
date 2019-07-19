@@ -6,22 +6,22 @@
       <button v-on:click="toggleView" title="Toggle view" class="btn btn-primary">View as {{ view === 'card' ? 'list' : 'cards' }}</button>
     </nav>
     <div class="container" v-if="admin && view === 'card'">
-      <ModelCard :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="pending" :models="pendingModelsData" :admin="admin"></ModelCard>
+      <ModelCard :modelDisplayAttributes="modelDisplayAttributes" :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="pending" :models="pendingModelsData" :admin="admin"></ModelCard>
     </div>
     <div class="container" v-if="admin && view === 'list'">
-      <ModelList :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="pending" :models="pendingModelsData" :admin="admin"></ModelList>
+      <ModelList :modelDisplayAttributes="modelDisplayAttributes" :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="pending" :models="pendingModelsData" :admin="admin"></ModelList>
     </div>
     <div class="container" v-if="view === 'card'">
-      <ModelCard :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="active" :models="modelsData" :admin="admin"></ModelCard>
+      <ModelCard :modelDisplayAttributes="modelDisplayAttributes" :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="active" :models="modelsData" :admin="admin"></ModelCard>
     </div>
     <div class="container" v-if="view === 'list'">
-      <ModelList :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="active" :models="modelsData" :admin="admin"></ModelList>
+      <ModelList :modelDisplayAttributes="modelDisplayAttributes" :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="active" :models="modelsData" :admin="admin"></ModelList>
     </div>
     <div class="container" v-if="admin && view === 'card'">
-      <ModelCard :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="denied" :models="deniedModelsData" :admin="admin"></ModelCard>
+      <ModelCard :modelDisplayAttributes="modelDisplayAttributes" :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="denied" :models="deniedModelsData" :admin="admin"></ModelCard>
     </div>
     <div class="container" v-if="admin && view === 'list'">
-      <ModelList :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="denied" :models="deniedModelsData" :admin="admin"></ModelList>
+      <ModelList :modelDisplayAttributes="modelDisplayAttributes" :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="denied" :models="deniedModelsData" :admin="admin"></ModelList>
     </div>
   </div>
 </template>
@@ -64,6 +64,10 @@ export default {
     modelDisplayTitle: {
       type: String,
       required: true
+    },
+    modelDisplayAttributes: {
+      type: Array,
+      required: false
     }
   },
   data: function () {
