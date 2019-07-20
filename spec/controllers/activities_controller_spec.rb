@@ -9,6 +9,11 @@ RSpec.describe ActivitiesController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
+    it 'sets display attributes to when_start and location' do
+      get :index, params: { format: :json }
+      expect(JSON.parse(response.body)['display_attributes'].to_hash.symbolize_keys).to eq({ when_start: 'Start', location: 'Location' })
+    end
+
     context 'with filter parameters' do
       before do
         @free_activity = create(:activity, tag_list: 'free', state: :active)
