@@ -8,14 +8,17 @@
       .form-group
         = form.label :location
         = form.text_field :location, class: 'form-control'
-      .form-group
+      .btn-group
+        = content_tag 'a', 'recurring', onclick: 'hideTime();', class: 'btn btn-primary', id: 'recurring'
+        = content_tag 'a', 'onetime', onclick: 'showTime();', class: 'btn btn-primary', id: 'onetime'
+      .form-group{id: 'start'}
         = form.label :when_start
         #when-start.input-group.date{"data-target-input": "nearest"}
           %input.form-control.datetimepicker-input{"data-target": "#when-start", type: "text", name: "activity[when_start]"}
           .input-group-append{"data-target": "#when-start", "data-toggle": "datetimepicker"}
             .input-group-text
               %i.fa.fa-calendar
-      .form-group
+      .form-group{id: 'end'}
         = form.label :when_end
         #when-end.input-group.date{"data-target-input": "nearest"}
           %input.form-control.datetimepicker-input{"data-target": "#when-end", type: "text", name: "activity[when_end]"}
@@ -47,6 +50,20 @@
       .form-group
         = form.submit class: 'btn btn-primary'
   :javascript
+    const showTime = () => {
+      console.log('show')
+      $("#start").show();
+      $("#end").show();
+      $("#onetime").addClass('active');
+      $("#recurring").removeClass('active');
+    }
+    const hideTime = () => {
+      console.log('hide')
+      $("#start").hide();
+      $("#end").hide();
+      $("#recurring").addClass('active');
+      $("#onetime").removeClass('active');
+    }
     const start = "#{@activity.when_start&.iso8601}"
     const end = "#{@activity.when_end&.iso8601}"
     $(function () {
