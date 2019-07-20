@@ -74,7 +74,7 @@ export default {
     },
     getLogo: function (value) {
       try {
-        const url = require(`../../assets/images/${value.toLowerCase().replace(/[^A-Za-z0-9\s]/g,'').replace(/ /g, '_')}.jpg`);
+        const url = require(`images/${value.toLowerCase().replace(/[^A-Za-z0-9\s]/g,'').replace(/\s+/g, '_')}`);
         return url;
       } catch (err) {
         return null;
