@@ -9,19 +9,19 @@
       <ModelCard :modelDisplayAttributes="modelDisplayAttributes" :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="pending" :models="pendingModelsData" :admin="admin"></ModelCard>
     </div>
     <div class="container" v-if="admin && view === 'list'">
-      <ModelList :modelDisplayAttributes="modelDisplayAttributes" :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="pending" :models="pendingModelsData" :admin="admin"></ModelList>
+      <ModelList :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="pending" :models="pendingModelsData" :admin="admin"></ModelList>
     </div>
     <div class="container" v-if="view === 'card'">
       <ModelCard :modelDisplayAttributes="modelDisplayAttributes" :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="active" :models="modelsData" :admin="admin"></ModelCard>
     </div>
     <div class="container" v-if="view === 'list'">
-      <ModelList :modelDisplayAttributes="modelDisplayAttributes" :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="active" :models="modelsData" :admin="admin"></ModelList>
+      <ModelList :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="active" :models="modelsData" :admin="admin"></ModelList>
     </div>
     <div class="container" v-if="admin && view === 'card'">
       <ModelCard :modelDisplayAttributes="modelDisplayAttributes" :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="denied" :models="deniedModelsData" :admin="admin"></ModelCard>
     </div>
     <div class="container" v-if="admin && view === 'list'">
-      <ModelList :modelDisplayAttributes="modelDisplayAttributes" :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="denied" :models="deniedModelsData" :admin="admin"></ModelList>
+      <ModelList :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" modelState="denied" :models="deniedModelsData" :admin="admin"></ModelList>
     </div>
   </div>
 </template>
