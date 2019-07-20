@@ -4,18 +4,23 @@
       <div class="row display-flex">
         <div v-for="model in modelGroup" class="col-lg-4 center">
           <div class="col-lg-12 center individual-card" v-bind:class="modelState">
-            <h3>
-              <a v-bind:href="`/${modelPlural}/${model.id}`">{{ model[modelDisplayTitle] }}</a>
-            </h3>
-            <div v-if="modelDisplayAttributes">
-              <div v-for="entry in Object.entries(modelDisplayAttributes)">
-                <p v-if="model[entry[0]]">{{ entry[1] }}: {{ format(model[entry[0]]) }}</p>
-              </div>
+            <div v-if="displayLogo" class="logo">
+              <img v-bind:src="getLogo(model.name)" v-bind:alt="model.name" />
             </div>
-            <p>
-              <a v-if="admin" v-bind:href="`/${modelPlural}/${model.id}/edit`">Edit</a>
-            </p>
-            <div class="btn btn-secondary btn-sm btn-static" v-for="tag in model.tag_list">{{ tag }}</div>
+            <div class="info">
+              <h3>
+                <a v-bind:href="`/${modelPlural}/${model.id}`">{{ model[modelDisplayTitle] }}</a>
+              </h3>
+              <div v-if="modelDisplayAttributes">
+                <div v-for="entry in Object.entries(modelDisplayAttributes)">
+                  <p v-if="model[entry[0]]">{{ entry[1] }}: {{ format(model[entry[0]]) }}</p>
+                </div>
+              </div>
+              <p>
+                <a v-if="admin" v-bind:href="`/${modelPlural}/${model.id}/edit`">Edit</a>
+              </p>
+              <div class="btn btn-secondary btn-sm btn-static" v-for="tag in model.tag_list">{{ tag }}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -55,7 +60,8 @@ export default {
   },
   data: function () {
     return {
-      modelsData: _.chunk(this.models, 3)
+      modelsData: _.chunk(this.models, 3),
+      displayLogo: this.modelPlural == 'organizations'
     }
   },
   methods: {
@@ -65,6 +71,14 @@ export default {
         return formatted.format('MMMM Do YYYY, h:mm a');
       }
       return value;
+    },
+    getLogo: function (value) {
+      try {
+        const url = require(`../../assets/images/${value.toLowerCase().replace(/[^A-Za-z0-9\s]/g,'').replace(/ /g, '_')}.jpg`);
+        return url;
+      } catch (err) {
+        return null;
+      }
     }
   },
   created: function () {

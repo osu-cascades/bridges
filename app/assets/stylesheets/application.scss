@@ -99,6 +99,7 @@ th, td {
 .individual-card {
   padding: 15px;
   margin-bottom: 30px;
+  display: flex;
 }
 
 .pending {
@@ -116,6 +117,15 @@ th, td {
 .tags {
   padding: 10px 10px 0px 10px;
   text-align: center;
+}
+
+.logo {
+  max-width: 100px;
+  margin-right: 20px;
+
+  img {
+    max-width: 100px;
+  }
 }
 
 .search {
