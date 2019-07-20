@@ -66,7 +66,7 @@ export default {
       required: true
     },
     modelDisplayAttributes: {
-      type: Array,
+      type: Object,
       required: false
     }
   },

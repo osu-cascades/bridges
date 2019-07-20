@@ -5,8 +5,10 @@
         <div class="col">
           <a v-bind:href="`/${modelPlural}/${model.id}`">{{ model[modelDisplayTitle] }}</a>
         </div>
-        <div v-if="modelDisplayAttributes" v-for="attribute in modelDisplayAttributes">
-          <div class="col">{{ attribute }}: {{ model[`${attribute}`] }}</div>
+        <div v-if="modelDisplayAttributes" class="col">
+          <div v-for="entry in Object.entries(modelDisplayAttributes)">
+            <div v-if="model[entry[0]]">{{ entry[1] }}: {{ format(model[entry[0]]) }}</div>
+          </div>
         </div>
         <div class="col">
           <div class="btn btn-secondary btn-sm btn-static" v-for="tag in model.tag_list">{{ tag }}</div>
@@ -21,6 +23,7 @@
 
 <script>
 import _ from 'lodash';
+import moment from 'moment';
 import { eventBus } from '../packs/models';
 export default {
   props: {
@@ -44,13 +47,22 @@ export default {
       required: true
     },
     modelDisplayAttributes: {
-      type: Array,
+      type: Object,
       required: false
     }
   },
   data: function () {
     return {
       modelsData: this.models
+    }
+  },
+  methods: {
+    format: function (value) {
+      const formatted = moment(value);
+      if (formatted._isValid) {
+        return formatted.format('MMMM Do YYYY, h:mm a');
+      }
+      return value;
     }
   },
   created: function () {

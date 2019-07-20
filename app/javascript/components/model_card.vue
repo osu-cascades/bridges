@@ -7,8 +7,10 @@
             <h3>
               <a v-bind:href="`/${modelPlural}/${model.id}`">{{ model[modelDisplayTitle] }}</a>
             </h3>
-            <div v-if="modelDisplayAttributes" v-for="attribute in modelDisplayAttributes">
-              <p>{{ attribute }}: {{ model[`${attribute}`] }}</p>
+            <div v-if="modelDisplayAttributes">
+              <div v-for="entry in Object.entries(modelDisplayAttributes)">
+                <p v-if="model[entry[0]]">{{ entry[1] }}: {{ format(model[entry[0]]) }}</p>
+              </div>
             </div>
             <p>
               <a v-if="admin" v-bind:href="`/${modelPlural}/${model.id}/edit`">Edit</a>
@@ -23,6 +25,7 @@
 
 <script>
 import _ from 'lodash';
+import moment from 'moment';
 import { eventBus } from '../packs/models';
 export default {
   props: {
@@ -46,13 +49,22 @@ export default {
       required: true
     },
     modelDisplayAttributes: {
-      type: Array,
+      type: Object,
       required: false
     }
   },
   data: function () {
     return {
       modelsData: _.chunk(this.models, 3)
+    }
+  },
+  methods: {
+    format: function (value) {
+      const formatted = moment(value);
+      if (formatted._isValid) {
+        return formatted.format('MMMM Do YYYY, h:mm a');
+      }
+      return value;
     }
   },
   created: function () {
