@@ -13,7 +13,7 @@
               </h3>
               <div v-if="modelDisplayAttributes">
                 <div v-for="entry in Object.entries(modelDisplayAttributes)">
-                  <p v-if="model[entry[0]]">{{ entry[1] }}: {{ format(model[entry[0]]) }}</p>
+                  <p class="model-detail" v-if="model[entry[0]]">{{ entry[1] }}: {{ format(model[entry[0]]) }}</p>
                 </div>
               </div>
               <p>
