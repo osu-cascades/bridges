@@ -10,6 +10,7 @@ class CreateActivities < ActiveRecord::Migration[5.2]
       t.string :contact_number
       t.string :contact_email
       t.integer :state
+      t.boolean :recurring
 
       t.timestamps
     end

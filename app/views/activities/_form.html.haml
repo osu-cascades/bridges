@@ -8,9 +8,12 @@
       .form-group
         = form.label :location
         = form.text_field :location, class: 'form-control'
-      .btn-group
-        = content_tag 'a', 'recurring', onclick: 'hideTime();', class: 'btn btn-primary', id: 'recurring'
-        = content_tag 'a', 'onetime', onclick: 'showTime();', class: 'btn btn-primary', id: 'onetime'
+      .form-group
+        = form.label 'Time'
+        .btn-group{id: 'toggle'}
+          = content_tag 'a', 'onetime', onclick: 'showTime();', class: 'btn btn-primary active', id: 'onetime'
+          = form.hidden_field :recurring, value: false, id: 'is-recurring'
+          = content_tag 'a', 'recurring', onclick: 'hideTime();', class: 'btn btn-primary', id: 'recurring'
       .form-group{id: 'start'}
         = form.label :when_start
         #when-start.input-group.date{"data-target-input": "nearest"}
@@ -56,6 +59,7 @@
       $("#end").show();
       $("#onetime").addClass('active');
       $("#recurring").removeClass('active');
+      $("#is-recurring").val(false);
     }
     const hideTime = () => {
       console.log('hide')
@@ -63,6 +67,7 @@
       $("#end").hide();
       $("#recurring").addClass('active');
       $("#onetime").removeClass('active');
+      $("#is-recurring").val(true);
     }
     const start = "#{@activity.when_start&.iso8601}"
     const end = "#{@activity.when_end&.iso8601}"

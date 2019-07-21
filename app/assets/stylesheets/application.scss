@@ -170,6 +170,11 @@ th, td {
   }
 }
 
+#recurring, #onetime {
+  color: white;
+  cursor: pointer;
+}
+
 .model-detail {
   margin-bottom: 0.5rem;
   font-weight: 100;
