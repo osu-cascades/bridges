@@ -14,6 +14,7 @@
               <div v-if="modelDisplayAttributes">
                 <div v-for="entry in Object.entries(modelDisplayAttributes)">
                   <p class="model-detail" v-if="model[entry[0]]">{{ entry[1] }}: {{ format(model[entry[0]]) }}</p>
+                  <p class="model-detail" v-if="model['recurring'] && entry[0] == 'when_start'">Time: Recurring</p>
                 </div>
               </div>
               <p>

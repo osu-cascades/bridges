@@ -12,12 +12,16 @@
     %tr
       %th Location
       %td= @activity.location
-    %tr
-      %th Start Date
-      %td= I18n.l @activity.when_start, format: :standard if @activity.when_start
-    %tr
-      %th End Date
-      %td= I18n.l @activity.when_end, format: :standard if @activity.when_end
+    - if @activity.recurring?
+      %th Time
+      %td Recurring
+    - else
+      %tr
+        %th Start Date
+        %td= I18n.l @activity.when_start, format: :standard if @activity.when_start
+      %tr
+        %th End Date
+        %td= I18n.l @activity.when_end, format: :standard if @activity.when_end
     %tr
       %th Description
       %td= @activity.description
