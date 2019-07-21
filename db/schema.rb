@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_06_21_235457) do
     t.string "contact_number"
     t.string "contact_email"
     t.integer "state"
-    t.boolean "recurring"
+    t.boolean "ongoing"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

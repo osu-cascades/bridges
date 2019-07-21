@@ -12,9 +12,9 @@
     %tr
       %th Location
       %td= @activity.location
-    - if @activity.recurring?
+    - if @activity.ongoing?
       %th Time
-      %td Recurring
+      %td Ongoing
     - else
       %tr
         %th Start Date
