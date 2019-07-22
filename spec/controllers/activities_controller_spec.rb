@@ -11,7 +11,7 @@ RSpec.describe ActivitiesController, type: :controller do
 
     it 'sets display attributes to when_start and location' do
       get :index, params: { format: :json }
-      expect(JSON.parse(response.body)['display_attributes'].to_hash.symbolize_keys).to eq({ when_start: 'Start', location: 'Location' })
+      expect(JSON.parse(response.body)['display_attributes'].to_hash.symbolize_keys).to eq({ when_start: 'Time', location: 'Location' })
     end
 
     context 'with filter parameters' do

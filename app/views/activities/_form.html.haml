@@ -11,17 +11,17 @@
       .form-group
         = form.label 'Time'
         .btn-group{id: 'toggle'}
-          = content_tag 'a', 'onetime', onclick: 'showTime();', class: 'btn btn-primary active', id: 'onetime'
-          = form.hidden_field :ongoing, value: false, id: 'is-ongoing'
-          = content_tag 'a', 'ongoing', onclick: 'hideTime();', class: 'btn btn-primary', id: 'ongoing'
-      .form-group{id: 'start'}
+          = content_tag 'a', 'one-time', onclick: 'showTime();', class: [('btn btn-primary'), ('active' if [nil, false].include? @activity.ongoing)], id: 'onetime'
+          = form.hidden_field :ongoing, value: @activity.ongoing || false, id: 'is-ongoing'
+          = content_tag 'a', 'ongoing', onclick: 'hideTime();', class: [('btn btn-primary'), ('active' if @activity.ongoing)], id: 'ongoing'
+      .form-group{id: 'start', class: ('hide' if @activity.ongoing)}
         = form.label :when_start
         #when-start.input-group.date{"data-target-input": "nearest"}
           %input.form-control.datetimepicker-input{"data-target": "#when-start", type: "text", name: "activity[when_start]"}
           .input-group-append{"data-target": "#when-start", "data-toggle": "datetimepicker"}
             .input-group-text
               %i.fa.fa-calendar
-      .form-group{id: 'end'}
+      .form-group{id: 'end', class: ('hide' if @activity.ongoing)}
         = form.label :when_end
         #when-end.input-group.date{"data-target-input": "nearest"}
           %input.form-control.datetimepicker-input{"data-target": "#when-end", type: "text", name: "activity[when_end]"}
@@ -54,17 +54,15 @@
         = form.submit class: 'btn btn-primary'
   :javascript
     const showTime = () => {
-      console.log('show')
-      $("#start").show();
-      $("#end").show();
+      $("#start").removeClass('hide');
+      $("#end").removeClass('hide');
       $("#onetime").addClass('active');
       $("#ongoing").removeClass('active');
       $("#is-ongoing").val(false);
     }
     const hideTime = () => {
-      console.log('hide')
-      $("#start").hide();
-      $("#end").hide();
+      $("#start").addClass('hide');
+      $("#end").addClass('hide');
       $("#ongoing").addClass('active');
       $("#onetime").removeClass('active');
       $("#is-ongoing").val(true);
