@@ -5,7 +5,7 @@ class ContactMailer < ApplicationMailer
   def contact(contact)
     @contact = contact
 
-    contact_recipient_email = Rails.env.production? ?
+    contact_recipient_email = ENV['SEND_EMAIL'] ?
       Organization.where(id: @contact.fetch(:to)).pluck(:contact_email) :
       ENV['CONTACT_RECIPIENT_EMAIL']
 
