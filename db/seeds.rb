@@ -190,7 +190,7 @@ organizations = [
   },
   {
     name: "Deschutes Children's Foundation",
-    location: "Bend, Redmond and La Pine",
+    location: "Bend, Redmond, and La Pine",
     ages_served: "",
     programs: "",
     contact_number: "541-388-3101",
@@ -289,7 +289,7 @@ organizations = [
     state: :active
   },
   {
-    name: "Crook County Parks & Rec",
+    name: "Crook County Parks and Rec",
     location: "Powell Butte and Prineville",
     ages_served: "Pre-K - 12",
     programs: "Afterschool or non-school days",
@@ -366,6 +366,86 @@ organizations = [
     contact_number: "541-797-7726",
     contact_email: "",
     website: "https://www.getsmartoregon.org/about-smart/local-offices/central-area",
+    state: :active
+  },
+  {
+    name: "REACH Redmond",
+    location: "Redmond",
+    ages_served: "5 - 17",
+    programs: "Afterschool, school breaks, and summer",
+    contact_number: "541-504-9060",
+    contact_email: "info@reachredmond.org",
+    website: "http://reachredmond.org/",
+    state: :active
+  },
+  {
+    name: "Boys and Girls Club of Bend",
+    location: "Bend",
+    ages_served: "5 - 18",
+    programs: "Afterschool, school breaks, and summer",
+    contact_number: "541-617-2877",
+    contact_email: "info@bgcbend.org",
+    website: "https://www.bgcbend.org/",
+    state: :active
+  },
+  {
+    name: "After School Buddies",
+    location: "Bend",
+    ages_served: "Elementary/Middle",
+    programs: "Afterschool, school breaks, and summer",
+    contact_number: "541 390-3046",
+    contact_email: "afterschoolbuddies@gmail.com",
+    website: "http://www.afterschoolbuddies.org/",
+    state: :active
+  },
+  {
+    name: "Crook County Kids Club",
+    location: "Prineville",
+    ages_served: "Elementary",
+    programs: "Afterschool, school breaks, and summer",
+    contact_number: "541-447-7661",
+    contact_email: "director@crookcountykids.org",
+    website: "http://cckids.snappages.com/",
+    state: :active
+  },
+  {
+    name: "Camp Fire Central Oregon",
+    location: "Central Oregon",
+    ages_served: "5 - 18",
+    programs: "Camps, afterschool, school breaks, and summer",
+    contact_number: "541-382-4682",
+    contact_email: "info@campfireco.org",
+    website: "https://campfireco.org/",
+    state: :active
+  },
+  {
+    name: "OSU Open Campus: Juntos",
+    location: "Central Oregon",
+    ages_served: "Grades 8 - 12",
+    programs: "Family engagement, camps, and college visits",
+    contact_number: "Deschutes: 541-212-4884, Crook/Jefferson: 541-550-6966",
+    contact_email: "Ruth.Jones@oregonstate.edu",
+    website: "http://opencampus.oregonstate.edu/programs/juntos/",
+    state: :active
+  },
+  {
+    name: "ASPIRE",
+    location: "Central Oregon",
+    ages_served: "Grades 8 - 12",
+    programs: "Mentoring",
+    contact_number: "541-515-4513",
+    contact_email: "Stacey.Stonesifer@hecc.oregon.gov",
+    website: "https://www.aspireoregon.org/",
+    state: :active
+  },
+  {
+    name: "Deschutes Public library",
+    location: "Deschutes",
+    ages_served: "All ages",
+    programs: "library, story time, and classes",
+    contact_number: "",
+    contact_email: "",
+    website: "https://www.deschuteslibrary.org/",
     state: :active
   }
 ]
