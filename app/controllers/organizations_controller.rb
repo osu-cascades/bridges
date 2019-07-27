@@ -49,6 +49,7 @@ class OrganizationsController < ApplicationController
 
   def create
     @organization = Organization.new(organization_params)
+    @organization.logo_url = url_for(@organization.logo)
     @organization.state = current_user&.admin? ? :active : :pending
 
     if verify_recaptcha && @organization.save

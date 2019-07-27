@@ -5,7 +5,7 @@
         <div v-for="model in modelGroup" class="col-lg-4 center">
           <div class="col-lg-12 center individual-card" v-bind:class="modelState">
             <div v-if="displayLogo" class="logo">
-              <img v-bind:src="getLogo(model.name)" v-bind:alt="model.name" />
+              <img v-bind:src="model.logo_url" v-bind:alt="model.name" />
             </div>
             <div class="info">
               <h3>
