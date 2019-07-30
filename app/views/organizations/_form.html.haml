@@ -28,8 +28,11 @@
           = form.label :state
           = form.select :state, Organization.states.keys.map {|k| [k.capitalize, k]}, {}, class: 'form-control'
       .form-group
-        = form.label 'Logo'
-        = form.file_field :logo
+        = form.label :logo
+        %div{class: 'custom-file'}
+          %label{for: 'organization_logo', class: 'custom-file-label text-truncate'}
+            = @organization.logo.attached? ? @organization.logo.filename.to_s : 'Choose file'
+          = form.file_field :logo, class: 'custom-file-input'
       .form-group
         = form.label 'Tags'
         = form.text_field :tag_list, value: form.object.tag_list.to_s, class: 'form-control'
@@ -38,3 +41,8 @@
           = recaptcha_tags
       .form-group
         = form.submit class: 'btn btn-primary'
+  :javascript
+    $('.custom-file-input').on('change', function() {
+      let fileName = $(this).val().split('\\').pop();
+      $('.custom-file-label').addClass('selected').text(fileName);
+    });
