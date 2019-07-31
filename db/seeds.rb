@@ -343,7 +343,7 @@ organizations = [
     location: "Warm Springs",
     ages_served: "K - 12",
     programs: "Afterschool or non-school days",
-    contact_number: "(541) 553-1161",
+    contact_number: "541-553-1161",
     contact_email: "",
     website: "warmsprings-nsn.gov",
     state: :active
@@ -393,7 +393,7 @@ organizations = [
     location: "Bend",
     ages_served: "Elementary/Middle",
     programs: "Afterschool, school breaks, and summer",
-    contact_number: "541 390-3046",
+    contact_number: "541-390-3046",
     contact_email: "afterschoolbuddies@gmail.com",
     website: "http://www.afterschoolbuddies.org/",
     state: :active
@@ -439,10 +439,10 @@ organizations = [
     state: :active
   },
   {
-    name: "Deschutes Public library",
+    name: "Deschutes Public Library",
     location: "Deschutes",
     ages_served: "All ages",
-    programs: "library, story time, and classes",
+    programs: "Library, story time, and classes",
     contact_number: "",
     contact_email: "",
     website: "https://www.deschuteslibrary.org/",
