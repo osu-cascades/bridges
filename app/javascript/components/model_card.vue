@@ -72,14 +72,6 @@ export default {
         return formatted.format('MMMM Do YYYY, h:mm a');
       }
       return value;
-    },
-    getLogo: function (value) {
-      try {
-        const url = require(`images/${value.toLowerCase().replace(/[^A-Za-z0-9\s]/g,'').replace(/\s+/g, '_')}`);
-        return url;
-      } catch (err) {
-        return null;
-      }
     }
   },
   created: function () {
