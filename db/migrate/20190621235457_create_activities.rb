@@ -11,6 +11,7 @@ class CreateActivities < ActiveRecord::Migration[5.2]
       t.string :contact_email
       t.integer :state
       t.boolean :ongoing
+      t.string :organization_name
 
       t.timestamps
     end

@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2019_07_26_044209) do
     t.string "contact_email"
     t.integer "state"
     t.boolean "ongoing"
+    t.string "organization_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

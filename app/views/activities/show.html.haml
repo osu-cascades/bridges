@@ -29,6 +29,10 @@
       %tr
         %th Description
         %td= @activity.description
+    - if !@activity.organization_name.empty?
+      %tr
+        %th Organization
+        %td= @activity.organization_name
     - if !@activity.contact_name.empty?
       %tr
         %th Contact Name
