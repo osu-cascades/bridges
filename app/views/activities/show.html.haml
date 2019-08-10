@@ -9,33 +9,41 @@
     %tr
       %th Title
       %td= @activity.title
-    %tr
-      %th Location
-      %td= @activity.location
+    - if !@activity.location.empty?
+      %tr
+        %th Location
+        %td= @activity.location
     - if @activity.ongoing?
       %th Time
       %td Ongoing
     - else
+      - if !@activity.when_start.nil?
+        %tr
+          %th Start Date
+          %td= I18n.l @activity.when_start, format: :standard if @activity.when_start
+      - if !@activity.when_end.nil?
+        %tr
+          %th End Date
+          %td= I18n.l @activity.when_end, format: :standard if @activity.when_end
+    - if !@activity.description.empty?
       %tr
-        %th Start Date
-        %td= I18n.l @activity.when_start, format: :standard if @activity.when_start
+        %th Description
+        %td= @activity.description
+    - if !@activity.contact_name.empty?
       %tr
-        %th End Date
-        %td= I18n.l @activity.when_end, format: :standard if @activity.when_end
-    %tr
-      %th Description
-      %td= @activity.description
-    %tr
-      %th Contact Name
-      %td= @activity.contact_name
-    %tr
-      %th Contact Number
-      %td= @activity.contact_number
-    %tr
-      %th Contact Email
-      %td= @activity.contact_email
-    %tr
-      %th Tags
-      %td
-        - @activity.tag_list.each do |tag|
-          .btn.btn-secondary.btn-sm.btn-static #{tag}
+        %th Contact Name
+        %td= @activity.contact_name
+    - if !@activity.contact_number.empty?
+      %tr
+        %th Contact Number
+        %td= @activity.contact_number
+    - if !@activity.contact_email.empty?
+      %tr
+        %th Contact Email
+        %td= @activity.contact_email
+    - if !@activity.tag_list.empty?
+      %tr
+        %th Tags
+        %td
+          - @activity.tag_list.each do |tag|
+            .btn.btn-secondary.btn-sm.btn-static #{tag}
