@@ -29,6 +29,26 @@ select {
   margin-top: 20px !important;
 }
 
+input::-webkit-input-placeholder {
+  color: #A9A9A9 !important;
+}
+
+input::-moz-placeholder {
+  color: #A9A9A9 !important;
+}
+
+input::-ms-placeholder {
+  color: #A9A9A9 !important;
+}
+
+input::placeholder {
+  color: #A9A9A9 !important;
+}
+
+.jumbotron {
+  padding: 1.5rem 1rem;
+}
+
 footer {
   position: absolute;
   bottom: 0;
