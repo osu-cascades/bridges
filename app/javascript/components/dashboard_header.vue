@@ -44,7 +44,7 @@ export default {
       indexOfTag === -1 ?
         this.selected_tags.push(tag.name) :
         this.selected_tags.splice(indexOfTag, 1);
-      const { data } = await axios.get(`/${this.model}.json`, { params: { tags: this.selected_tags }, headers: { 'Content-Type': 'application/json' } });
+      const { data } = await axios.get(`/${this.model}.json`, { params: { tags: this.selected_tags, search: this.search }, headers: { 'Content-Type': 'application/json' } });
       this[`${this.model}Data`] = data[this.model];
       eventBus.$emit(`active_${this.model}_updated`, this[`${this.model}Data`]);
     },
