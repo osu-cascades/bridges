@@ -16,7 +16,7 @@
     - if !@organization.description.blank?
       %tr
         %th Description
-        %td= @organization.description
+        %td= simple_format(@organization.description)
     - if !@organization.ages_served.blank?
       %tr
         %th Ages Served

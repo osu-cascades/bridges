@@ -25,6 +25,10 @@ select {
   width: 100%;
 }
 
+textarea {
+  white-space: pre-wrap;
+}
+
 .email-organization {
   margin-top: 20px !important;
 }

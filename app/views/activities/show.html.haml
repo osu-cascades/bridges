@@ -28,7 +28,7 @@
     - if !@activity.description.empty?
       %tr
         %th Description
-        %td= @activity.description
+        %td= simple_format(@activity.description)
     - if !@activity.organization_name.empty?
       %tr
         %th Organization
