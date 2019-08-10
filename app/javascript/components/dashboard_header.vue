@@ -10,7 +10,7 @@
         <button v-for="tag in tagsData" v-on:click="select(tag)" v-bind:class="active(tag)" class="btn btn-secondary btn-sm">{{ tag.name }}</button>
       </div>
       <div class="section tags">
-        <button v-on:click="clearTags" class="btn btn-primary btn-sm">Clear Tags</button>
+        <button v-on:click="clearSearch" class="btn btn-primary btn-sm">Clear Search</button>
       </div>
     </div>
   </div>
@@ -48,7 +48,7 @@ export default {
       this[`${this.model}Data`] = data[this.model];
       eventBus.$emit(`active_${this.model}_updated`, this[`${this.model}Data`]);
     },
-    clearTags: async function () {
+    clearSearch: async function () {
       const { data } = await axios.get(`/${this.model}.json`, { headers: { 'Content-Type': 'application/json' } });
       this.search = '';
       this[`${this.model}Data`] = data[this.model];
