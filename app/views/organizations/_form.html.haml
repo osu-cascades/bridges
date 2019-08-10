@@ -6,6 +6,9 @@
         = form.label :name
         = form.text_field :name, class: 'form-control'
       .form-group
+        = form.label :description
+        = form.text_area :description, rows: 6, class: 'form-control'
+      .form-group
         = form.label :location
         = form.text_field :location, class: 'form-control'
       .form-group

@@ -13,6 +13,10 @@
       %tr
         %th Location
         %td= @organization.location
+    - if !@organization.description.blank?
+      %tr
+        %th Description
+        %td= @organization.description
     - if !@organization.ages_served.blank?
       %tr
         %th Ages Served

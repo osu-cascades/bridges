@@ -9,6 +9,7 @@ class CreateOrganizations < ActiveRecord::Migration[5.2]
       t.string :contact_email
       t.string :website
       t.string :logo_url
+      t.text :description
 
       t.timestamps
     end

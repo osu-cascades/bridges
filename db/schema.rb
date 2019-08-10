@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_07_26_044209) do
     t.string "contact_email"
     t.string "website"
     t.string "logo_url"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
