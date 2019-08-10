@@ -19,10 +19,15 @@ gem 'recaptcha', require: 'recaptcha/rails'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+gem 'acts-as-taggable-on'
+gem 'webpacker'
+gem 'bootstrap4-datetime-picker-rails'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -32,10 +37,12 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'guard'
   gem 'guard-minitest'
+  gem 'letter_opener'
 end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
+  gem 'factory_bot_rails'
+  gem 'simplecov', require: false
 end

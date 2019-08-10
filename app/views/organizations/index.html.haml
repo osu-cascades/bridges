@@ -1,0 +1,3 @@
+= javascript_pack_tag 'models'
+%div{id: 'dashboard'}
+  %models_dashboard{':models': @organizations.to_json, ':pending-models': @pending_organizations.to_json, ':denied-models': @denied_organizations.to_json, ':tags': @tags.to_json, 'admin': current_user&.admin?, 'model-singular': 'organization', 'model-plural': 'organizations', 'model-display-title': 'name'}

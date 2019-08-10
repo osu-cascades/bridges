@@ -1,0 +1,48 @@
+.row
+  .col-md-6.col-md-offset-3
+    = form_for(@organization, html: { multipart: true }) do |form|
+      = form_errors_for(@organization)
+      .form-group
+        = form.label :name
+        = form.text_field :name, class: 'form-control'
+      .form-group
+        = form.label :location
+        = form.text_field :location, class: 'form-control'
+      .form-group
+        = form.label :ages_served
+        = form.text_field :ages_served, class: 'form-control'
+      .form-group
+        = form.label :programs
+        = form.text_field :programs, class: 'form-control'
+      .form-group
+        = form.label :contact_number
+        = form.text_field :contact_number, class: 'form-control'
+      .form-group
+        = form.label :contact_email
+        = form.text_field :contact_email, class: 'form-control'
+      .form-group
+        = form.label :website
+        = form.text_field :website, class: 'form-control'
+      - if current_user&.admin? && @organization.persisted?
+        .form-group
+          = form.label :state
+          = form.select :state, Organization.states.keys.map {|k| [k.capitalize, k]}, {}, class: 'form-control'
+      .form-group
+        = form.label :logo
+        %div{class: 'custom-file'}
+          %label{for: 'organization_logo', class: 'custom-file-label text-truncate'}
+            = @organization.logo.attached? ? @organization.logo.filename.to_s : 'Choose file'
+          = form.file_field :logo, class: 'custom-file-input'
+      .form-group
+        = form.label 'Tags'
+        = form.text_field :tag_list, value: form.object.tag_list.to_s, class: 'form-control'
+      - if @organization.new_record?
+        .form-group
+          = recaptcha_tags
+      .form-group
+        = form.submit class: 'btn btn-primary'
+  :javascript
+    $('.custom-file-input').on('change', function() {
+      let fileName = $(this).val().split('\\').pop();
+      $('.custom-file-label').addClass('selected').text(fileName);
+    });

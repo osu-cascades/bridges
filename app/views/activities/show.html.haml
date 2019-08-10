@@ -1,0 +1,41 @@
+- content_for_title("Activity #{@activity.title}")
+- content_for(:subnav) do
+  = link_to '« Back to activities', activities_path, class: 'btn btn-primary', title: 'List of all activities'
+  .btn-group
+    = link_to 'Edit', edit_activity_path(@activity), class: 'btn btn-primary', title: "Edit #{@activity}" if current_user&.admin?
+    = link_to 'Delete', @activity, method: :delete, data: { confirm: "Delete Activity #{@activity.title}?" }, class: 'btn btn-danger', title: "Delete #{@activity}" if current_user&.admin?
+%section
+  %table.table-striped
+    %tr
+      %th Title
+      %td= @activity.title
+    %tr
+      %th Location
+      %td= @activity.location
+    - if @activity.ongoing?
+      %th Time
+      %td Ongoing
+    - else
+      %tr
+        %th Start Date
+        %td= I18n.l @activity.when_start, format: :standard if @activity.when_start
+      %tr
+        %th End Date
+        %td= I18n.l @activity.when_end, format: :standard if @activity.when_end
+    %tr
+      %th Description
+      %td= @activity.description
+    %tr
+      %th Contact Name
+      %td= @activity.contact_name
+    %tr
+      %th Contact Number
+      %td= @activity.contact_number
+    %tr
+      %th Contact Email
+      %td= @activity.contact_email
+    %tr
+      %th Tags
+      %td
+        - @activity.tag_list.each do |tag|
+          .btn.btn-secondary.btn-sm.btn-static #{tag}

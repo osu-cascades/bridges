@@ -1,0 +1,77 @@
+.row
+  .col-md-6.col-md-offset-3
+    = form_for(@activity, html: { multipart: true }) do |form|
+      = form_errors_for(@activity)
+      .form-group
+        = form.label :title
+        = form.text_field :title, class: 'form-control'
+      .form-group
+        = form.label :location
+        = form.text_field :location, class: 'form-control'
+      .form-group
+        = form.label 'Time'
+        .btn-group{id: 'toggle'}
+          = content_tag 'a', 'one-time', onclick: 'showTime();', class: [('btn btn-primary'), ('active' if [nil, false].include? @activity.ongoing)], id: 'onetime'
+          = form.hidden_field :ongoing, value: @activity.ongoing || false, id: 'is-ongoing'
+          = content_tag 'a', 'ongoing', onclick: 'hideTime();', class: [('btn btn-primary'), ('active' if @activity.ongoing)], id: 'ongoing'
+      .form-group{id: 'start', class: ('hide' if @activity.ongoing)}
+        = form.label :when_start
+        #when-start.input-group.date{"data-target-input": "nearest"}
+          %input.form-control.datetimepicker-input{"data-target": "#when-start", type: "text", name: "activity[when_start]"}
+          .input-group-append{"data-target": "#when-start", "data-toggle": "datetimepicker"}
+            .input-group-text
+              %i.fa.fa-calendar
+      .form-group{id: 'end', class: ('hide' if @activity.ongoing)}
+        = form.label :when_end
+        #when-end.input-group.date{"data-target-input": "nearest"}
+          %input.form-control.datetimepicker-input{"data-target": "#when-end", type: "text", name: "activity[when_end]"}
+          .input-group-append{"data-target": "#when-end", "data-toggle": "datetimepicker"}
+            .input-group-text
+              %i.fa.fa-calendar
+      .form-group
+        = form.label :description
+        = form.text_area :description, rows: 6, class: 'form-control'
+      .form-group
+        = form.label :contact_name
+        = form.text_field :contact_name, class: 'form-control'
+      .form-group
+        = form.label :contact_number
+        = form.text_field :contact_number, class: 'form-control'
+      .form-group
+        = form.label :contact_email
+        = form.text_field :contact_email, class: 'form-control'
+      - if current_user&.admin? && @activity.persisted?
+        .form-group
+          = form.label :state
+          = form.select :state, Activity.states.keys.map {|k| [k.capitalize, k]}, {}, class: 'form-control'
+      .form-group
+        = form.label 'Tags'
+        = form.text_field :tag_list, value: form.object.tag_list.to_s, class: 'form-control'
+      - if @activity.new_record?
+        .form-group
+          = recaptcha_tags
+      .form-group
+        = form.submit class: 'btn btn-primary'
+  :javascript
+    const showTime = () => {
+      $("#start").removeClass('hide');
+      $("#end").removeClass('hide');
+      $("#onetime").addClass('active');
+      $("#ongoing").removeClass('active');
+      $("#is-ongoing").val(false);
+    }
+    const hideTime = () => {
+      $("#start").addClass('hide');
+      $("#end").addClass('hide');
+      $("#ongoing").addClass('active');
+      $("#onetime").removeClass('active');
+      $("#is-ongoing").val(true);
+    }
+    const start = "#{@activity.when_start&.iso8601}"
+    const end = "#{@activity.when_end&.iso8601}"
+    $(function () {
+      $('#when-start').datetimepicker({ format: 'MM/DD/YYYY HH:mm', defaultDate: start });
+    });
+    $(function () {
+      $('#when-end').datetimepicker({ format: 'MM/DD/YYYY HH:mm', defaultDate: end });
+    });

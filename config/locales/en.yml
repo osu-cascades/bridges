@@ -30,4 +30,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      activity:
+        when_start: "Start date"
+        when_end: "End date"
+  time:
+    formats:
+      standard: "%Y-%m-%d %H:%M"

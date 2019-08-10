@@ -1,0 +1,15 @@
+= "Hello #{@contact.fetch(:to_name)},"
+%br/
+%p A visitor to https://hdesd-bridges.herokuapp.com/ would like more information regarding your organization/event. You can reach them at:
+= "Date: #{Time.now.strftime('%m/%d/%Y %H:%M')}"
+%br/
+= "Name: #{@contact.fetch(:name)}"
+%br/
+= "Email: #{@contact.fetch(:email)}"
+%br/
+= "Phone number: #{@contact.fetch(:phone_number)}"
+%br/
+= "Message: #{@contact.fetch(:message)}"
+%br/
+%p Thank you for supporting families in our community!
+%p Your friends at https://hdesd-bridges.herokuapp.com/

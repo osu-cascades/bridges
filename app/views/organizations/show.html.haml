@@ -1,0 +1,41 @@
+- content_for_title("Organization #{@organization.name}")
+- content_for(:subnav) do
+  = link_to '« Back to organizations', organizations_path, class: 'btn btn-primary', title: 'List of all organizations'
+  .btn-group
+    = link_to 'Edit', edit_organization_path(@organization), class: 'btn btn-primary', title: "Edit #{@organization.name}" if current_user&.admin?
+    = link_to 'Delete', @organization, method: :delete, data: { confirm: "Delete Organization #{@organization.name}?" }, class: 'btn btn-danger', title: "Delete #{@organization}" if current_user&.admin?
+%section
+  %table.table-striped
+    %tr
+      %th Name
+      %td= @organization.name
+    %tr
+      %th Location
+      %td= @organization.location
+    %tr
+      %th Ages Served
+      %td= @organization.ages_served
+    %tr
+      %th Programs
+      %td= @organization.programs
+    %tr
+      %th Contact Number
+      %td
+        - phone_numbers = @organization.contact_number.split(', ')
+        - phone_numbers.each do |phone_number|
+          = link_to phone_number,  "tel:#{phone_number[/\d{3}-\d{3}-\d{4}/,0]}"
+          %br
+    %tr
+      %th Contact Email
+      %td
+        = mail_to @organization.contact_email
+    %tr
+      %th Website
+      %td
+        = link_to @organization.website,  @organization.website
+    %tr
+      %th Tags
+      %td
+        - @organization.tag_list.each do |tag|
+          .btn.btn-secondary.btn-sm.btn-static #{tag}
+= link_to 'Email Organization', new_contact_path({ to: @organization.id }), class: 'btn btn-primary email-organization', title: "Email #{@organization.name}" if @organization.contact_email.present?

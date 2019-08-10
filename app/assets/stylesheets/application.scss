@@ -3,6 +3,8 @@
  *= require_self
  */
 @import "bootstrap";
+@import "tempusdominus-bootstrap-4";
+@import "font-awesome";
 
 html {
   position: relative;
@@ -16,6 +18,15 @@ body {
 
 main {
   margin-bottom: 5rem;
+}
+
+select {
+  height: calc(1.5em + 0.75rem + 2px);
+  width: 100%;
+}
+
+.email-organization {
+  margin-top: 20px !important;
 }
 
 footer {
@@ -73,6 +84,108 @@ footer {
     margin-top: 1rem;
     width: auto;
   }
+}
+
+th, td {
+  padding: 15px;
+}
+
+.col-lg-12 {
+  background-color: #eeeeee;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+.individual-card {
+  padding: 15px;
+  margin-bottom: 30px;
+  display: flex;
+}
+
+.pending {
+  background-color: #F9E79F;
+}
+
+.denied {
+  background-color: #F5B7B1;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.tags {
+  padding: 10px 10px 0px 10px;
+  text-align: center;
+}
+
+.logo {
+  max-width: 100px;
+  margin-right: 20px;
+
+  img {
+    max-width: 100px;
+    max-height: 100px;
+    font-size: 12px;
+  }
+}
+
+.search {
+  justify-content: center;
+}
+
+.tags > .btn {
+  &:hover {
+    background-color: lighten(#6c757d, 15%);
+    border-color: lighten(#6c757d, 15%);
+    color: #FFF;
+  }
+}
+
+.btn {
+  margin: 3px;
+}
+
+.btn-secondary.active {
+  background-color: #007bff !important;
+  border-color: #007bff !important;
+}
+
+.btn-static {
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+}
+
+.model-card {
+  a:hover {
+    color: #0056b3 !important;
+    text-decoration: underline !important;
+    cursor: pointer;
+  }
+
+  a {
+    color: #007bff !important;
+    text-decoration: none !important;
+    background-color: transparent !important;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+#ongoing, #onetime {
+  color: white;
+  cursor: pointer;
+}
+
+.model-detail {
+  margin-bottom: 0.5rem;
+  font-weight: 100;
+}
+
+.subnav {
+  margin-bottom: 20px;
 }
 
 /* Authentication */
