@@ -10,9 +10,9 @@ RSpec.describe OrganizationsController, type: :controller do
     end
 
     it 'orders organizations by name' do
-      @organization_c = create(:organization, name: 'Corn', state: :active)
-      @organization_a = create(:organization, name: 'Avocado', state: :active)
-      @organization_b = create(:organization, name: 'Biscuit', state: :active)
+      @organization_c = create(:organization, name: 'Corn')
+      @organization_a = create(:organization, name: 'Avocado')
+      @organization_b = create(:organization, name: 'Biscuit')
 
       get :index, params: { format: :json }
       organizations = JSON.parse(response.body)['organizations']
@@ -23,9 +23,9 @@ RSpec.describe OrganizationsController, type: :controller do
 
     context 'with filter parameters' do
       before do
-        @bend_organization = create(:organization, tag_list: 'bend', state: :active)
-        @redmond_organization = create(:organization, tag_list: 'redmond', state: :active)
-        @sisters_organization = create(:organization, tag_list: 'sisters', state: :active)
+        @bend_organization = create(:organization, tag_list: 'bend')
+        @redmond_organization = create(:organization, tag_list: 'redmond')
+        @sisters_organization = create(:organization, tag_list: 'sisters')
       end
 
       it 'returns organizations based on tags parameter' do
@@ -72,16 +72,16 @@ RSpec.describe OrganizationsController, type: :controller do
     context 'logged in as guest' do
       login_user
 
-      it 'returns http success' do
+      it 'redirects to root' do
         get :new
-        expect(response).to have_http_status(:success)
+        expect(response).to redirect_to root_path
       end
     end
 
     context 'not logged in' do
-      it 'returns http success' do
+      it 'redirects to sign_in' do
         get :new
-        expect(response).to have_http_status(:success)
+        expect(response).to redirect_to new_user_session_path
       end
     end
   end
@@ -150,18 +150,18 @@ RSpec.describe OrganizationsController, type: :controller do
     context 'logged in as guest' do
       login_user
 
-      it 'redirects to index and creates activity' do
+      it 'redirects to root and does not create organization' do
         organization_params = FactoryBot.attributes_for(:organization)
-        expect { post :create, params: { organization: organization_params } }.to change(Organization, :count).by(1)
-        expect(response).to redirect_to organizations_path
+        expect { post :create, params: { organization: organization_params } }.to change(Organization, :count).by(0)
+        expect(response).to redirect_to root_path
       end
     end
 
     context 'not logged in' do
-      it 'redirects to index and creates activity' do
+      it 'redirects to sign_in and does not create organization' do
         organization_params = FactoryBot.attributes_for(:organization)
-        expect { post :create, params: { organization: organization_params } }.to change(Organization, :count).by(1)
-        expect(response).to redirect_to organizations_path
+        expect { post :create, params: { organization: organization_params } }.to change(Organization, :count).by(0)
+        expect(response).to redirect_to new_user_session_path
       end
     end
   end
