@@ -23,10 +23,6 @@
       .form-group
         = form.label :website
         = form.text_field :website, class: 'form-control'
-      - if current_user&.admin? && @organization.persisted?
-        .form-group
-          = form.label :state
-          = form.select :state, Organization.states.keys.map {|k| [k.capitalize, k]}, {}, class: 'form-control'
       .form-group
         = form.label :logo
         %div{class: 'custom-file'}
@@ -36,9 +32,6 @@
       .form-group
         = form.label 'Tags'
         = form.text_field :tag_list, value: form.object.tag_list.to_s, class: 'form-control'
-      - if @organization.new_record?
-        .form-group
-          = recaptcha_tags
       .form-group
         = form.submit class: 'btn btn-primary'
   :javascript

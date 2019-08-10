@@ -5,5 +5,4 @@ class Organization < ApplicationRecord
   ActsAsTaggableOn.remove_unused_tags = true
 
   validates_presence_of :name
-  enum state: [:pending, :active, :denied]
 end

@@ -1,10 +1,10 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show, :new, :create]
-  before_action :restrict_unless_admin, except: [:index, :show, :new, :create]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :restrict_unless_admin, except: [:index, :show]
 
   def index
-    @tags = Organization.select("tags.name").where(state: :active).joins(:taggings).joins("LEFT OUTER JOIN tags on tags.id = taggings.tag_id").distinct
+    @tags = Organization.select("tags.name").joins(:taggings).joins("LEFT OUTER JOIN tags on tags.id = taggings.tag_id").distinct
     @organizations = Organization.order(:name)
 
     if params[:search].present?
@@ -20,17 +20,11 @@ class OrganizationsController < ApplicationController
       @organizations = @organizations.tagged_with(params[:tags], any: true)
     end
 
-    @pending_organizations = @organizations.where(state: :pending)
-    @denied_organizations = @organizations.where(state: :denied)
-    @organizations = @organizations.where(state: :active)
-
     respond_to do |format|
       format.html { render :index }
       format.json {
         render json: {
-          organizations: @organizations,
-          pending_organizations: @pending_organizations,
-          denied_organizations: @denied_organizations
+          organizations: @organizations
         },
         status: 200
       }
@@ -50,11 +44,10 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
     @organization.logo_url = @organization.logo.attached? ? url_for(@organization.logo) : nil
-    @organization.state = current_user&.admin? ? :active : :pending
 
-    if verify_recaptcha && @organization.save
+    if @organization.save
       redirect_to organizations_path
-      flash[:success] = @organization.active? ? 'Organization was successfully created.' : 'Organization is pending review. It will be available on the dashboard once approved.'
+      flash[:success] = 'Organization was successfully created.'
     else
       @organizations = Organization.all
       render :new

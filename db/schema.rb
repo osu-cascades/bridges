@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2019_07_26_044209) do
     t.string "contact_number"
     t.string "contact_email"
     t.string "website"
-    t.integer "state"
     t.string "logo_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
