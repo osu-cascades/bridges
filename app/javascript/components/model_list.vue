@@ -19,7 +19,6 @@
 <script>
 import _ from 'lodash';
 import moment from 'moment';
-import { eventBus } from '../packs/models';
 export default {
   props: {
     models: {
@@ -47,10 +46,10 @@ export default {
       modelsData: this.models
     }
   },
-  created: function () {
-    eventBus.$on(`${this.modelState}_${this.modelPlural}_updated`, models => {
-      this.modelsData = models
-    });
+  watch: {
+    models(newValue) {
+      this.modelsData = newValue;
+    }
   }
 }
 </script>

@@ -32,7 +32,6 @@
 <script>
 import _ from 'lodash';
 import moment from 'moment';
-import { eventBus } from '../packs/models';
 export default {
   props: {
     models: {
@@ -65,6 +64,11 @@ export default {
       displayLogo: this.modelPlural == 'organizations'
     }
   },
+  watch: {
+    models(newValue) {
+      this.modelsData = _.chunk(newValue, 3);
+    }
+  },
   methods: {
     format: function (value) {
       const formatted = moment(value);
@@ -73,11 +77,6 @@ export default {
       }
       return value;
     }
-  },
-  created: function () {
-    eventBus.$on(`${this.modelState}_${this.modelPlural}_updated`, models => {
-      this.modelsData = _.chunk(models, 3)
-    });
   }
 }
 </script>

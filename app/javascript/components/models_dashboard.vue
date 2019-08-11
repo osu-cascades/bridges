@@ -84,6 +84,11 @@ export default {
       this.view = this.view === 'card' ? 'list' : 'card';
     }
   },
+  created: function () {
+    eventBus.$on(`active_${this.modelPlural}_updated`, models => {
+      this.modelsData = models;
+    });
+  },
   components: {
     ModelCard,
     ModelList,
