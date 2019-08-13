@@ -53,6 +53,16 @@ input::placeholder {
   padding: 1.5rem 1rem;
 }
 
+.card-columns {
+  @media (min-width: 1200px) {
+    column-count: 3;
+  }
+
+  @media (max-width: 1200px) {
+    column-count: 2;
+  }
+}
+
 footer {
   position: absolute;
   bottom: 0;
@@ -99,6 +109,7 @@ footer {
 
 .field_with_errors .form-control {
   @extend .is-invalid;
+  border-color: #c0504d;
 }
 
 .form-container {
@@ -124,14 +135,75 @@ th, td {
   padding: 15px;
   margin-bottom: 30px;
   display: flex;
+  border-radius: 0.3rem;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+.individual-row {
+  border-radius: 0.3rem;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+.input-group-text {
+  background-color: #965A92 !important;
+  border-color: #965A92 !important;
+
+  .fa-calendar {
+    color: #fff;
+  }
+
+  &:hover {
+    background-color: #804d7c !important;
+    border-color: #804d7c !important;
+  }
+}
+.bootstrap-datetimepicker-widget table td span.active,
+.bootstrap-datetimepicker-widget table td.active,
+.bootstrap-datetimepicker-widget table td.active:hover {
+  background-color: #965A92;
+}
+
+.custom-file-label::after {
+  background-color: #965A92;
+  color: #fff;
+}
+
+.custom-file-input {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.bootstrap-datetimepicker-widget table td.today:before {
+  border-bottom-color: #965A92;
+}
+
+.bootstrap-datetimepicker-widget {
+  .fa-calendar {
+    color: #965A92;
+  }
+
+  .fa-clock-o {
+    color: #965A92;
+  }
 }
 
 .pending {
-  background-color: #F9E79F;
+  background-color: lighten(#F79648, 15%);
+  opacity: 0.9;
 }
 
 .denied {
-  background-color: #F5B7B1;
+  background-color: lighten(#c0504d, 25%);
+  opacity: 0.9;
 }
 
 .text-center {
@@ -161,8 +233,8 @@ th, td {
 .tags > .btn {
   &:hover {
     color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc;
+    background-color: #804d7c;
+    border-color: #804d7c;
   }
 }
 
@@ -170,25 +242,35 @@ th, td {
   margin: 3px;
 }
 
-.btn-secondary.active {
-  background-color: #007bff !important;
-  border-color: #007bff !important;
+.tags {
+  .btn-secondary.active, .btn-primary {
+    background-color: #965A92 !important;
+    border-color: #965A92 !important;
+
+    &:hover {
+      background-color: #804d7c !important;
+      border-color: #804d7c !important;
+    }
+
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
 }
 
+
 .btn-static {
-  background-color: #6c757d !important;
-  border-color: #6c757d !important;
+  background-color: #965A92 !important;
+  border-color: #965A92 !important;
 }
 
 .model-card {
   a:hover {
-    color: #0056b3 !important;
     text-decoration: underline !important;
     cursor: pointer;
   }
 
   a {
-    color: #007bff !important;
     text-decoration: none !important;
     background-color: transparent !important;
   }
@@ -201,6 +283,41 @@ th, td {
 #ongoing, #onetime {
   color: white;
   cursor: pointer;
+  background-color: #F79648 !important;
+  border-color: #F79648 !important;
+
+  &:hover {
+    background-color: #f5740a !important;
+    border-color: #f5740a !important;
+  }
+}
+
+#toggle {
+  .active {
+    background-color: #f5740a !important;
+    border-color: #f5740a !important;
+  }
+}
+
+input[type="submit"],
+.email-organization {
+  background-color: #9bbb59;
+  border-color: #9bbb59;
+  color: #fff;
+
+  &:hover,
+  &:active {
+    background-color: #83a343 !important;
+    border-color: #83a343 !important;
+  }
+}
+
+a {
+  color: #49ACC6;
+
+  &:hover {
+    color: #3797ae;
+  }
 }
 
 .model-detail {
@@ -210,10 +327,58 @@ th, td {
 
 .subnav {
   margin-bottom: 20px;
+
+  .btn {
+    background-color: #9bbb59;
+    border-color: #9bbb59;
+    color: #fff;
+
+    &:hover,
+    &:active {
+      background-color: #83a343 !important;
+      border-color: #83a343 !important;
+    }
+  }
 }
 
 .bg-dark {
-  color: #3a3a3e
+  color: #3a3a3e;
+}
+
+.nav-link {
+  background-color: #49ACC6;
+  border-color: #49ACC6;
+  color: #ffffff !important;
+  border-radius: 3px;
+  margin: 5px;
+  padding-left: 0.5rem !important;
+
+  &:hover {
+    background-color: #3a3a3e;
+    box-shadow: 0 0 0 1px #49ACC6;
+  }
+}
+
+.btn-danger {
+  background-color: #c0504d !important;
+  border-color: #c0504d !important;
+  color: #fff;
+
+  &:hover {
+    background-color: #aa3f3c !important;
+    border-color: #aa3f3c !important;
+  }
+}
+
+.btn-edit {
+  background-color: #F79648 !important;
+  border-color: #F79648 !important;
+  color: #fff;
+
+  &:hover {
+    background-color: #f5740a !important;
+    border-color: #f5740a !important;
+  }
 }
 
 /* Authentication */
