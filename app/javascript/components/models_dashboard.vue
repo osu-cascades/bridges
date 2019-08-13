@@ -6,10 +6,10 @@
       <button v-on:click="toggleView" title="Toggle view" class="btn btn-primary">View as {{ view === 'card' ? 'list' : 'cards' }}</button>
     </nav>
     <div v-for="state in modelStates">
-      <div class="container" v-if="admin && view === 'card'">
+      <div class="container" v-if="(admin || state === 'active') && view === 'card'">
         <ModelCard :modelDisplayAttributes="modelDisplayAttributes" :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" :modelState="state" :models="bindData(state)" :admin="admin"></ModelCard>
       </div>
-      <div class="container" v-if="admin && view === 'list'">
+      <div class="container" v-if="(admin || state === 'active') && view === 'list'">
         <ModelList :modelDisplayTitle="modelDisplayTitle" :modelPlural="modelPlural" :modelState="state" :models="bindData(state)" :admin="admin"></ModelList>
       </div>
     </div>
