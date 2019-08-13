@@ -5,49 +5,61 @@
     = link_to 'Edit', edit_activity_path(@activity), class: 'btn btn-primary', title: "Edit #{@activity}" if current_user&.admin?
     = link_to 'Delete', @activity, method: :delete, data: { confirm: "Delete Activity #{@activity.title}?" }, class: 'btn btn-danger', title: "Delete #{@activity}" if current_user&.admin?
 %section
-  %table.table-striped
-    %tr
-      %th Title
-      %td= @activity.title
+  %div.card-columns
+    %div.card
+      %div.card-body
+        %h5.card-title Title
+        %p.card-text= @activity.title
     - if !@activity.location.empty?
-      %tr
-        %th Location
-        %td= @activity.location
+      %div.card
+        %div.card-body
+          %h5.card-title Location
+          %p.card-text= @activity.location
     - if @activity.ongoing?
-      %th Time
-      %td Ongoing
+      %div.card
+        %div.card-body
+          %h5.card-title Time
+          %p.card-text Ongoing
     - else
       - if !@activity.when_start.nil?
-        %tr
-          %th Start Date
-          %td= I18n.l @activity.when_start, format: :standard if @activity.when_start
+        %div.card
+          %div.card-body
+            %h5.card-title Start Date
+            %p.card-text= I18n.l @activity.when_start, format: :standard if @activity.when_start
       - if !@activity.when_end.nil?
-        %tr
-          %th End Date
-          %td= I18n.l @activity.when_end, format: :standard if @activity.when_end
+        %div.card
+          %div.card-body
+            %h5.card-title End Date
+            %p.card-text= I18n.l @activity.when_end, format: :standard if @activity.when_end
     - if !@activity.description.empty?
-      %tr
-        %th Description
-        %td= simple_format(@activity.description)
+      %div.card
+        %div.card-body
+          %h5.card-title Description
+          %p.card-text= simple_format(@activity.description)
     - if !@activity.organization_name.empty?
-      %tr
-        %th Organization
-        %td= @activity.organization_name
+      %div.card
+        %div.card-body
+          %h5.card-title Organization
+          %p.card-text= @activity.organization_name
     - if !@activity.contact_name.empty?
-      %tr
-        %th Contact Name
-        %td= @activity.contact_name
+      %div.card
+        %div.card-body
+          %h5.card-title Contact Name
+          %p.card-text= @activity.contact_name
     - if !@activity.contact_number.empty?
-      %tr
-        %th Contact Number
-        %td= @activity.contact_number
+      %div.card
+        %div.card-body
+          %h5.card-title Contact Number
+          %p.card-text= @activity.contact_number
     - if !@activity.contact_email.empty?
-      %tr
-        %th Contact Email
-        %td= @activity.contact_email
+      %div.card
+        %div.card-body
+          %h5.card-title Contact Email
+          %p.card-text= @activity.contact_email
     - if !@activity.tag_list.empty?
-      %tr
-        %th Tags
-        %td
-          - @activity.tag_list.each do |tag|
-            .btn.btn-secondary.btn-sm.btn-static #{tag}
+      %div.card
+        %div.card-body
+          %h5.card-title Tags
+          %p.card-text
+            - @activity.tag_list.each do |tag|
+              .btn.btn-secondary.btn-sm.btn-static #{tag}
