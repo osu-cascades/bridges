@@ -92,6 +92,29 @@ footer {
   }
 }
 
+.alert-success {
+  color: #fff;
+  background-color: #9bbb59;
+  border-color: #9bbb59;
+  opacity: 0.85;
+
+  .close:hover {
+    color: #fff;
+  }
+}
+
+.alert-warning {
+  color: #fff;
+  background-color: #F79648;
+  border-color: #F79648;
+  opacity: 0.85;
+
+  .close:hover {
+    color: #fff;
+  }
+}
+
+
 #error_explanation {
   @extend .alert;
   @extend .alert-warning;
@@ -394,7 +417,7 @@ body.sessions.new, body.registrations.new, body.registrations.create {
 
 .form-auth {
   width: 100%;
-  max-width: 430px;
+  max-width: 500px;
   padding: 15px;
   margin: auto;
   .form-control {
@@ -408,13 +431,9 @@ body.sessions.new, body.registrations.new, body.registrations.create {
   }
   input[type="email"] {
     margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
   }
   input[type="password"] {
     margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
   }
   .g-recaptcha {
     display: inline-block;
@@ -422,5 +441,5 @@ body.sessions.new, body.registrations.new, body.registrations.create {
 }
 
 .form-signin {
-  max-width: 330px;
+  max-width: 500px;
 }

@@ -1,10 +1,10 @@
-.container-auth.text-center
-  %h1.h3.font-weight-normal Please sign in
+.text-center
+  %h1 Sign In
   = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-auth form-signin'}) do |f|
     = f.label :email, class: 'sr-only'
-    = f.email_field :email, autofocus: true,  required: true, autocomplete: 'email', placeholder: 'Email address', class: 'form-control'
+    = f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: 'Email address', class: 'form-control'
     = f.label :password, class: 'sr-only'
-    = f.password_field :password, required: true, autocomplete: 'current-password', placeholder: 'Password', class: 'form-control'
+    = f.password_field :password, autocomplete: 'current-password', placeholder: 'Password', class: 'form-control'
     - if devise_mapping.rememberable?
       .mb-3
         = f.check_box :remember_me
