@@ -1,9 +1,9 @@
 <template>
   <div class="model-list">
     <div v-for="model in modelsData">
-      <div class="row p-2" v-bind:class="modelState">
+      <div class="row p-2 individual-row" v-bind:class="modelState" v-on:click="select(model.id)">
         <div class="col">
-          <a v-bind:href="`/${modelPlural}/${model.id}`">{{ model[modelDisplayTitle] }}</a>
+          <p>{{ model[modelDisplayTitle] }}</p>
         </div>
         <div class="col">
           <div class="btn btn-secondary btn-sm btn-static" v-for="tag in model.tag_list">{{ tag }}</div>
@@ -44,6 +44,11 @@ export default {
   data: function () {
     return {
       modelsData: this.models
+    }
+  },
+  methods: {
+    select: function (id) {
+      window.location.href = `/${this.modelPlural}/${id}`
     }
   },
   watch: {
