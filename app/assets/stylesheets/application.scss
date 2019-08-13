@@ -65,11 +65,11 @@ input::placeholder {
 }
 
 footer {
+  padding: 20px;
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 61px;
-  line-height: 60px;
+  line-height: 25px;
   border-top: 1px solid $gray-400;
   background-color: #F0F0F0;
   nav {
@@ -189,6 +189,7 @@ th, td {
     border-color: #804d7c !important;
   }
 }
+
 .bootstrap-datetimepicker-widget table td span.active,
 .bootstrap-datetimepicker-widget table td.active,
 .bootstrap-datetimepicker-widget table td.active:hover {

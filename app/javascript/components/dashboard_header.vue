@@ -10,7 +10,7 @@
         <button v-for="tag in tagsData" v-on:click="select(tag)" v-bind:class="active(tag)" class="btn btn-secondary btn-sm">{{ tag.name }}</button>
       </div>
       <div class="section tags">
-        <button v-on:click="clearSearch" class="btn btn-primary btn-sm">Clear Search</button>
+        <button v-on:click="clearSearch" class="btn btn-primary btn-sm">Clear search</button>
       </div>
     </div>
   </div>
