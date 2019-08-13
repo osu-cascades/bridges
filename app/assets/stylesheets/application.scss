@@ -160,9 +160,9 @@ th, td {
 
 .tags > .btn {
   &:hover {
-    background-color: lighten(#6c757d, 15%);
-    border-color: lighten(#6c757d, 15%);
-    color: #FFF;
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
   }
 }
 
@@ -210,6 +210,10 @@ th, td {
 
 .subnav {
   margin-bottom: 20px;
+}
+
+.bg-dark {
+  color: #3a3a3e
 }
 
 /* Authentication */
