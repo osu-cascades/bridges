@@ -1,9 +1,26 @@
-- if editable_by_user?(@user, current_user)
-  = link_to 'Edit Profile', edit_user_path(@user), class: 'btn btn-primary float-right'
-%h1= @user
-
-%p= @user.email
-%p= "An #{@user.status} user with the #{@user.role} role."
-%p= "Signed in #{@user.sign_in_count} times since #{@user.created_at.localtime.to_s(:short)}."
-- if @user.current_sign_in_at
-  %p= "Last signed in at #{@user.current_sign_in_at.localtime.to_s(:short)} from #{@user.current_sign_in_ip}."
+- content_for_title("#{@user}")
+- content_for(:subnav) do
+  - if editable_by_user?(@user, current_user)
+    = link_to 'Edit Profile', edit_user_path(@user), class: 'btn btn-primary'
+%section
+  %div.card-columns
+    %div.card
+      %div.card-body
+        %h5.card-title Email
+        %p.card-text= @user.email
+    %div.card
+      %div.card-body
+        %h5.card-title Role
+        %p.card-text= @user.role
+    %div.card
+      %div.card-body
+        %h5.card-title Status
+        %p.card-text= @user.status
+    %div.card
+      %div.card-body
+        %h5.card-title Created
+        %p.card-text= I18n.l @user.created_at, format: :standard if @user.created_at
+    %div.card
+      %div.card-body
+        %h5.card-title Sign In Count
+        %p.card-text= @user.sign_in_count

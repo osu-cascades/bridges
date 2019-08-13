@@ -1,10 +1,12 @@
-= link_to 'New User', new_user_path, class: 'btn btn-primary float-right'
 %h1 Users
+
+- content_for(:subnav) do
+  = link_to('New User', new_user_path, class: 'btn btn-primary', title: 'Add a new user')
 
 %table.table.table-hover
   %thead
     %tr
-      %th{scope: 'col'} id
+      %th{scope: 'col'} ID
       %th{scope: 'col'} Name
       %th{scope: 'col'} Email Address
       %th{scope: 'col'} Role
