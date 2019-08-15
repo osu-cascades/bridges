@@ -2,8 +2,8 @@
   <div class="models-dashboard">
     <DashboardHeader :model="modelPlural" :tags="tagsData"></DashboardHeader>
     <nav class="subnav">
-      <a class="btn btn-primary" v-if="admin || modelSingular === 'activity'" v-bind:title="`Add a new ${modelSingular}`" v-bind:href="`/${modelPlural}/new`">Add {{ modelSingular }}</a>
-      <button v-on:click="toggleView" title="Toggle view" class="btn btn-primary">View as {{ view === 'card' ? 'list' : 'cards' }}</button>
+      <a class="btn btn-green" v-if="admin || modelSingular === 'activity'" v-bind:title="`Add a new ${modelSingular}`" v-bind:href="`/${modelPlural}/new`">Add {{ modelSingular }}</a>
+      <button v-on:click="toggleView" title="Toggle view" class="btn btn-green">View as {{ view === 'card' ? 'list' : 'cards' }}</button>
     </nav>
     <div v-for="state in modelStates">
       <div class="container" v-if="(admin || state === 'active') && view === 'card'">

@@ -6,5 +6,5 @@
       .col
         = form.label :email, class: 'sr-only'
         = form.email_field :email, autofocus: true, autocomplete: 'email', placeholder: 'Email', class: 'form-control'
-    = form.submit "Send me reset password instructions", class: 'btn btn-lg btn-primary btn-block'
+    = form.submit "Send me reset password instructions", class: 'btn btn-lg btn-block'
   .mt-4= render 'devise/shared/links'

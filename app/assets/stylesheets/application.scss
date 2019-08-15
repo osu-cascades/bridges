@@ -12,6 +12,10 @@ html {
 }
 
 body {
+  &:focus {
+    box-shadow: none !important;
+  }
+
   padding-top: 5rem;
   margin-bottom: 60px;
   font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -114,7 +118,6 @@ footer {
   }
 }
 
-
 #error_explanation {
   @extend .alert;
   @extend .alert-warning;
@@ -176,17 +179,64 @@ th, td {
   }
 }
 
-.input-group-text {
+.btn-purple {
+  color: #fff !important;
   background-color: #965A92 !important;
   border-color: #965A92 !important;
 
-  .fa-calendar {
-    color: #fff;
-  }
-
-  &:hover {
+  &:hover,
+  &:active {
     background-color: #804d7c !important;
     border-color: #804d7c !important;
+  }
+}
+
+.btn-orange {
+  color: #fff !important;
+  background-color: #F79648 !important;
+  border-color: #F79648 !important;
+
+  &:hover,
+  &:active {
+    background-color: #f5740a !important;
+    border-color: #f5740a !important;
+  }
+}
+
+.btn-green,
+input[type="submit"],
+.email-organization {
+  color: #fff !important;
+  background-color: #9bbb59 !important;
+  border-color: #9bbb59 !important;
+
+  &:hover,
+  &:active {
+    background-color: #83a343 !important;
+    border-color: #83a343 !important;
+  }
+}
+
+.btn-red {
+  color: #fff !important;
+  background-color: #c0504d !important;
+  border-color: #c0504d !important;
+
+  &:hover {
+    background-color: #aa3f3c !important;
+    border-color: #aa3f3c !important;
+  }
+}
+
+.btn-group {
+  .btn {
+    margin: 3px;
+  }
+}
+
+.input-group-text {
+  .fa-calendar {
+    color: #fff;
   }
 }
 
@@ -235,11 +285,6 @@ th, td {
   text-align: center;
 }
 
-.tags {
-  padding: 10px 10px 0px 10px;
-  text-align: center;
-}
-
 .logo {
   max-width: 100px;
   margin-right: 20px;
@@ -255,38 +300,37 @@ th, td {
   justify-content: center;
 }
 
-.tags > .btn {
-  &:hover {
-    color: #fff;
-    background-color: #804d7c;
-    border-color: #804d7c;
-  }
-}
-
-.btn {
-  margin: 3px;
-}
-
 .tags {
-  .btn-secondary.active, .btn-primary {
+  padding: 10px 10px 0px 10px;
+  text-align: center;
+
+  .btn {
+    margin: 3px;
+
+    &:hover {
+      color: #fff;
+      background-color: #804d7c;
+      border-color: #804d7c;
+    }
+  }
+
+  .btn-secondary.active,
+  .btn-primary {
     background-color: #965A92 !important;
     border-color: #965A92 !important;
 
-    &:hover {
+    &:hover,
+    &:active {
       background-color: #804d7c !important;
       border-color: #804d7c !important;
     }
-
-    &:focus {
-      box-shadow: none !important;
-    }
   }
 }
-
 
 .btn-static {
   background-color: #965A92 !important;
   border-color: #965A92 !important;
+  margin: 3px;
 }
 
 .model-card {
@@ -306,34 +350,13 @@ th, td {
 }
 
 #ongoing, #onetime {
-  color: white;
   cursor: pointer;
-  background-color: #F79648 !important;
-  border-color: #F79648 !important;
-
-  &:hover {
-    background-color: #f5740a !important;
-    border-color: #f5740a !important;
-  }
 }
 
 #toggle {
   .active {
     background-color: #f5740a !important;
     border-color: #f5740a !important;
-  }
-}
-
-input[type="submit"],
-.email-organization {
-  background-color: #9bbb59;
-  border-color: #9bbb59;
-  color: #fff;
-
-  &:hover,
-  &:active {
-    background-color: #83a343 !important;
-    border-color: #83a343 !important;
   }
 }
 
@@ -347,23 +370,11 @@ a {
 
 .model-detail {
   margin-bottom: 0.5rem;
-  font-weight: 100;
+  font-weight: 200;
 }
 
 .subnav {
   margin-bottom: 20px;
-
-  .btn {
-    background-color: #9bbb59;
-    border-color: #9bbb59;
-    color: #fff;
-
-    &:hover,
-    &:active {
-      background-color: #83a343 !important;
-      border-color: #83a343 !important;
-    }
-  }
 }
 
 .bg-dark {
@@ -374,35 +385,13 @@ a {
   background-color: #49ACC6;
   border-color: #49ACC6;
   color: #ffffff !important;
-  border-radius: 3px;
-  margin: 5px;
+  border-radius: 0.3rem;
+  margin: 3px;
   padding-left: 0.5rem !important;
 
   &:hover {
     background-color: #3a3a3e;
     box-shadow: 0 0 0 1px #49ACC6;
-  }
-}
-
-.btn-danger {
-  background-color: #c0504d !important;
-  border-color: #c0504d !important;
-  color: #fff;
-
-  &:hover {
-    background-color: #aa3f3c !important;
-    border-color: #aa3f3c !important;
-  }
-}
-
-.btn-edit {
-  background-color: #F79648 !important;
-  border-color: #F79648 !important;
-  color: #fff;
-
-  &:hover {
-    background-color: #f5740a !important;
-    border-color: #f5740a !important;
   }
 }
 

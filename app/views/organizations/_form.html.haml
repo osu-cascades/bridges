@@ -36,7 +36,7 @@
         = form.label 'Tags'
         = form.text_field :tag_list, value: form.object.tag_list.to_s, class: 'form-control'
       .form-group
-        = form.submit class: 'btn btn-primary'
+        = form.submit class: 'btn'
   :javascript
     $('.custom-file-input').on('change', function() {
       let fileName = $(this).val().split('\\').pop();

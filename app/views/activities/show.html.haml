@@ -1,9 +1,9 @@
 - content_for_title("Activity #{@activity.title}")
 - content_for(:subnav) do
-  = link_to '« Back to activities', activities_path, class: 'btn btn-primary', title: 'List of all activities'
+  = link_to '« Back to activities', activities_path, class: 'btn btn-green', title: 'List of all activities'
   .btn-group
-    = link_to 'Edit', edit_activity_path(@activity), class: 'btn btn-primary btn-edit', title: "Edit #{@activity}" if current_user&.admin?
-    = link_to 'Delete', @activity, method: :delete, data: { confirm: "Delete Activity #{@activity.title}?" }, class: 'btn btn-danger', title: "Delete #{@activity}" if current_user&.admin?
+    = link_to 'Edit', edit_activity_path(@activity), class: 'btn btn-orange', title: "Edit #{@activity}" if current_user&.admin?
+    = link_to 'Delete', @activity, method: :delete, data: { confirm: "Delete Activity #{@activity.title}?" }, class: 'btn btn-red', title: "Delete #{@activity}" if current_user&.admin?
 %section
   %div.card-columns
     %div.card

@@ -21,8 +21,8 @@
     .form-group
       = f.check_box :active
       = f.label :active
-  = f.submit 'Save', class: 'form-control btn btn-primary'
+  = f.submit 'Save', class: 'form-control btn'
   - if ['edit', 'update'].include? action_name
     %h3.mt-5 Update Password
     = render 'form_password_fields', f: f
-    = f.submit 'Save new password', class: 'form-control btn btn-secondary'
+    = f.submit 'Save new password', class: 'form-control btn'
