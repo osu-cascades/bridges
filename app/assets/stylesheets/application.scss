@@ -58,6 +58,22 @@ input::placeholder {
   padding: 1.5rem 1rem;
 }
 
+.user-table {
+  display: flex;
+}
+
+.user-table {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.user-list {
+  @media (min-width: 767px) {
+    display: none;
+  }
+}
+
 .card-columns {
   @media (min-width: 1200px) {
     column-count: 3;

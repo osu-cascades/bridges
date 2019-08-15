@@ -1,28 +1,45 @@
 %h1 Users
 
 - content_for(:subnav) do
-  = link_to('New user', new_user_path, class: 'btn btn-primary', title: 'Add a new user')
+  = link_to('New user', new_user_path, class: 'btn btn-green', title: 'Add a new user')
 
-%table.table.table-hover
-  %thead
-    %tr
-      %th{scope: 'col'} ID
-      %th{scope: 'col'} Name
-      %th{scope: 'col'} Email Address
-      %th{scope: 'col'} Role
-      %th{scope: 'col'} Status
-      %th{scope: 'col'} Last Seen
-      %th
-  %tbody
-    - @users.each do |user|
+%div.user-table
+  %table.table.table-hover
+    %thead
       %tr
-        %th{scope: 'row'}= user.id
-        %td= link_to user, user
-        %td= user.email
-        %td= user.role
-        %td= user.status
-        %td= user.last_sign_in_at&.localtime&.to_s(:short)
-        %td
-          = link_to 'Edit', edit_user_path(user), class: 'btn btn-light btn-sm mr-4'
-          - unless current_user == user
-            = link_to 'Delete', "/admin/users/#{user.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn text-danger btn-sm'
+        %th{scope: 'col'} ID
+        %th{scope: 'col'} Name
+        %th{scope: 'col'} Email Address
+        %th{scope: 'col'} Role
+        %th{scope: 'col'} Status
+        %th{scope: 'col'} Last Seen
+        %th
+    %tbody
+      - @users.each do |user|
+        %tr
+          %th{scope: 'row'}= user.id
+          %td= link_to user, user
+          %td= user.email
+          %td= user.role.capitalize
+          %td= user.status.capitalize
+          %td= user.last_sign_in_at&.localtime&.to_s(:short)
+          %td
+            = link_to 'Edit', edit_user_path(user), class: 'btn btn-orange btn-sm mr-2'
+            - unless current_user == user
+              = link_to 'Delete', "/admin/users/#{user.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-red'
+%div.user-list
+  %table.table.table-hover
+    %thead
+      %tr
+        %th{scope: 'col'} ID
+        %th{scope: 'col'} Name
+        %th
+    %tbody
+      - @users.each do |user|
+        %tr
+          %th{scope: 'row'}= user.id
+          %td= link_to user, user
+          %td
+            = link_to 'Edit', edit_user_path(user), class: 'btn btn-orange btn-sm mr-2'
+            - unless current_user == user
+              = link_to 'Delete', "/admin/users/#{user.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-red'
