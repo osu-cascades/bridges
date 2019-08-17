@@ -47,7 +47,6 @@ class OrganizationsController < ApplicationController
 
   def create
     @organization = Organization.new(organization_params)
-    @organization.logo_url = @organization.logo.attached? ? url_for(@organization.logo) : nil
 
     if @organization.save
       redirect_to organizations_path
@@ -62,7 +61,6 @@ class OrganizationsController < ApplicationController
     if @organization.update(organization_params)
       @organization.logo.purge if (@organization.logo.attached? && params[:logo])
       @organization.logo.attach(params[:logo]) if (params[:logo])
-      @organization.logo_url = @organization.logo.attached? ? url_for(@organization.logo) : nil
       @organization.save
       redirect_to @organization
       flash[:success] = 'Organization was successfully updated.'
