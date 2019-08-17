@@ -20,6 +20,10 @@ class OrganizationsController < ApplicationController
       @organizations = @organizations.tagged_with(params[:tags], any: true)
     end
 
+    @organizations = @organizations.map { |organization|
+      organization.as_json.merge({ image_url: organization.logo.attached? ? url_for(organization.logo) : nil })
+    }
+
     respond_to do |format|
       format.html { render :index }
       format.json {
