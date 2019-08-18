@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     select: function (id) {
-      window.location.href = `/${this.modelPlural}/${id}`
+      window.location.href = `/${this.modelPlural}/${id}`;
     }
   },
   watch: {
