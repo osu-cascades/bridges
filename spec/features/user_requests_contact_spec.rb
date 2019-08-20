@@ -35,8 +35,8 @@ RSpec.feature 'Requesting contact' do
 
   scenario "from Organization #show prefills 'to' field" do
     visit organization_path(@organization.id)
-    expect(page).to have_link('Email Organization')
-    click_on 'Email Organization'
+    expect(page).to have_link('Email organization')
+    click_on 'Email organization'
     expect(current_path).to eq('/contacts/new')
     expect(page).to have_select('contact[to]', selected: @organization.name)
   end
