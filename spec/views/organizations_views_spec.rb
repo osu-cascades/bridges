@@ -93,7 +93,7 @@ end
 
 RSpec.describe 'organizations/edit.html.haml' do
   it 'displays form' do
-    organization = build(
+    organization = create(
       :organization,
       description: 'We talk about tacos and other food-related subject matter',
       tag_list: ['tacos', 'free']
@@ -131,6 +131,6 @@ RSpec.describe 'organizations/edit.html.haml' do
     expect(rendered).to have_selector('label', text: 'Tags')
     expect(rendered).to have_selector('input[type="text"][name="organization[tag_list]"]')
     expect(rendered).to have_field('organization[tag_list]', with: organization.tag_list.to_s)
-    expect(rendered).to have_selector('input[type="submit"][value="Create Organization"]')
+    expect(rendered).to have_selector('input[type="submit"][value="Update Organization"]')
   end
 end

@@ -6,6 +6,7 @@ FactoryBot.define do
     contact_name { 'Howard' }
     contact_email { 'howard@example.com' }
     contact_number { '123-456-7890' }
+    organization_name { 'Taco Tuesday' }
     description { "Come support 'Lettuce Taco Bout It' at this FUNdraiser" }
     title { 'Lettuce Taco Bout It FUNdraiser' }
   end
