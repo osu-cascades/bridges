@@ -5,11 +5,14 @@
 %br/
 = "Name: #{@contact.fetch(:name)}"
 %br/
-= "Email: #{@contact.fetch(:email)}"
-%br/
-= "Phone number: #{@contact.fetch(:phone_number)}"
-%br/
-= "Message: #{@contact.fetch(:message)}"
-%br/
+- if @contact.fetch(:email)
+    = "Email: #{@contact.fetch(:email)}"
+    %br/
+- if @contact.fetch(:phone_number)
+    = "Phone number: #{@contact.fetch(:phone_number)}"
+    %br/
+- if @contact.fetch(:message)
+    = "Message: #{@contact.fetch(:message)}"
+    %br/
 %p Thank you for supporting families in our community!
 %p Your friends at https://hdesd-bridges.herokuapp.com/
