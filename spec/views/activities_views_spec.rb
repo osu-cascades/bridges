@@ -138,7 +138,7 @@ RSpec.describe 'activities/edit.html.haml' do
     expect(rendered).to have_selector('input[type="submit"][value="Update Activity"]')
   end
 
-  it 'hide start and end and set ongoing as active', :focus do
+  it 'hide start and end and set ongoing as active' do
     activity = create(:activity, tag_list: ['tacos', 'free'], ongoing: true)
     assign(:activity, activity)
 
