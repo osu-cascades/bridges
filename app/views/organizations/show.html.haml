@@ -37,7 +37,7 @@
           %p.card-text
             - phone_numbers = @organization.contact_number.split(', ')
             - phone_numbers.each do |phone_number|
-              = link_to phone_number,  "tel:#{phone_number[/\d{3}-\d{3}-\d{4}/,0]}"
+              = link_to phone_number,  "tel:#{phone_number[/\d{3}-?\d{3}-?\d{4}/,0]}"
               %br
     - if !@organization.contact_email.blank?
       %div.card

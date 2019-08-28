@@ -50,12 +50,12 @@
       %div.card
         %div.card-body
           %h5.card-title Contact Number
-          %p.card-text= @activity.contact_number
+          %p.card-text= link_to @activity.contact_number, "tel:#{@activity.contact_number[/\d{3}-?\d{3}-?\d{4}/,0]}"
     - if !@activity.contact_email.empty?
       %div.card
         %div.card-body
           %h5.card-title Contact Email
-          %p.card-text= @activity.contact_email
+          %p.card-text= mail_to @activity.contact_email
     - if !@activity.tag_list.empty?
       %div.card
         %div.card-body
