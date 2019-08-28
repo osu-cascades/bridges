@@ -9,7 +9,7 @@
           <div class="btn btn-secondary btn-sm btn-static" v-for="tag in model.tag_list">{{ tag }}</div>
         </div>
         <div class="col-1 align-column center-column" v-if="admin">
-          <div v-bind:href="`/${modelPlural}/${model.id}/edit`" class="btn btn-blue btn-sm">Edit</div>
+          <div v-on:click.stop="edit(model.id)" class="btn btn-blue btn-sm">Edit</div>
         </div>
       </div>
     </div>
@@ -49,6 +49,9 @@ export default {
   methods: {
     select: function (id) {
       window.location.href = `/${this.modelPlural}/${id}`;
+    },
+    edit: function (id) {
+      window.location.href = `/${this.modelPlural}/${id}/edit`
     }
   },
   watch: {

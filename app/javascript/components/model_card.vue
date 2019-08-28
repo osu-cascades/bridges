@@ -17,9 +17,10 @@
                   <p class="model-detail" v-else-if="model[entry[0]]">{{ entry[1] }}: {{ format(model[entry[0]]) }}</p>
                 </div>
               </div>
-              <p>
-                <a v-if="admin" v-bind:href="`/${modelPlural}/${model.id}/edit`">Edit</a>
-              </p>
+              <div v-if="admin">
+                <div v-on:click.stop="edit(model.id)" class="btn btn-blue btn-sm">Edit</div>
+                </br>
+              </div>
               <div class="btn btn-secondary btn-sm btn-static" v-for="tag in model.tag_list">{{ tag }}</div>
             </div>
           </div>
@@ -72,6 +73,9 @@ export default {
   methods: {
     select: function (id) {
       window.location.href = `/${this.modelPlural}/${id}`
+    },
+    edit: function (id) {
+      window.location.href = `/${this.modelPlural}/${id}/edit`
     },
     format: function (value) {
       const formatted = moment(value);
