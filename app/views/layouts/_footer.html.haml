@@ -1,6 +1,9 @@
 %footer
-  .text-muted
-    %nav
-      %ul
-        %li= link_to 'Better Together Central Oregon', 'http://bettertogethercentraloregon.org/'
-      %span © 2019 Bridges. All rights reserved.
+  .row
+    .col-3.text-center
+      .footer-logo
+        = link_to 'http://bettertogethercentraloregon.org' do
+          = image_tag 'better_together_logo.png'
+          %h2.text-light Better Together
+    .col.text-right.align-self-center
+      %span.text-light © 2019 Bridges. All rights reserved.
