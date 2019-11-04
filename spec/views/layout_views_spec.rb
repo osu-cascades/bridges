@@ -4,7 +4,6 @@ RSpec.describe 'layouts/_navbar.html.haml' do
   it 'displays navbar links' do
     render
 
-    expect(rendered).to have_link('Bridges', href: root_url)
     expect(rendered).to have_link('Organizations', href: organizations_path)
     expect(rendered).to have_link('Activities', href: activities_path)
     expect(rendered).to have_link('Contact Us', href: new_contact_path)
@@ -20,7 +19,6 @@ RSpec.describe 'layouts/_navbar.html.haml' do
 
     render
 
-    expect(rendered).to have_link('Bridges', href: root_url)
     expect(rendered).to have_link('Organizations', href: organizations_path)
     expect(rendered).to have_link('Activities', href: activities_path)
     expect(rendered).to have_link('Contact Us', href: new_contact_path)
