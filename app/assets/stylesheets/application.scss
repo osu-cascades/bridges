@@ -12,13 +12,13 @@ html {
 }
 
 body {
+  background-color: #F0F0F0;
   &:focus {
     box-shadow: none !important;
   }
 
-  padding-top: 5rem;
+  padding-top: 6rem;
   margin-bottom: 60px;
-  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 main {
@@ -64,7 +64,7 @@ input::placeholder {
 
 .jumbotron {
   padding: 1.5rem 1rem;
-  background-color: #49ACC6;
+  background-color: #FFFFFF;
   color: black;
 }
 
@@ -111,7 +111,7 @@ footer {
   width: 100%;
   line-height: 25px;
   border-top: 1px solid $gray-400;
-  background-color: #F0F0F0;
+  background-color: rgb(60, 61, 65);
   nav {
     display: inline;
     ul {
@@ -376,6 +376,12 @@ input[type="submit"],
   }
 }
 
+.dashboard-header h1, .dashboard-header p {
+  font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
+  color: #333;
+  font-weight: 500;
+}
+
 .search {
   justify-content: center;
 }
@@ -462,16 +468,12 @@ a {
 }
 
 .nav-link {
-  background-color: #965A92;
-  border-color: #965A92;
-  color: #ffffff !important;
-  border-radius: 0.3rem;
-  margin: 3px;
-  padding-left: 0.5rem !important;
-
+  color: #FFFFFF !important;
+  margin-left: 4rem;
+  font-size: 1.4em;
   &:hover {
-    background-color: #3a3a3e;
-    box-shadow: 0 0 0 1px #965A92;
+    background-color: #965A92;
+    border-radius: 0.3rem;
   }
 }
 

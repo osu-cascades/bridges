@@ -1,10 +1,10 @@
 <template>
   <div class="dashboard-header">
+    <h1 class="text-center">Bridging Out-of-School Time</h1>
+    <p class="text-center">A catalog of after school, weekend, and summer activities for children and young adults in Central Oregon.</p>
     <div class="jumbotron center">
-      <h1 class="text-center">Bridging Out-of-School Time</h1>
-      <p class="text-center">A catalog of after school, weekend, and summer activities for children and young adults in Central Oregon.</p>
       <form class="form-inline search">
-        <input class="col-md-6 form-control" type="text" placeholder="Search... After school? Age 8? Sports?" v-model="search" v-on:keydown.enter.prevent></input>
+        <input class="col-md-6 form-control form-control-lg" type="text" placeholder="Search... After school? Age 8? Sports?" v-model="search" v-on:keydown.enter.prevent></input>
       </form>
       <div class="section tags">
         <button v-for="tag in tagsData" v-on:click="select(tag)" v-bind:class="active(tag)" class="btn btn-secondary btn-sm">{{ tag.name }}</button>
