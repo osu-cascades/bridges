@@ -7,8 +7,8 @@ A catalog of after school, weekend and summer activities for children and young 
 ### Prerequisites
 * PostgreSQL
     * `brew install postgresql`
-* Ruby 2.6.3
-    * `rvm use ruby-2.6.3`
+* Ruby 2.6.5
+    * `rvm use ruby-2.6.5`
 
 ### Getting Started
 * Clone the repository
@@ -74,4 +74,4 @@ _REMOTE = staging or production_
     * `heroku pg:psql --remote REMOTE`
 
 ---
-&copy; 2019 High Desert Education Service District. By Nathaniel Pierce and Yong Bakos.
+&copy; 2019 Hanna Bennet, Nathaniel Pierce and Yong Bakos. On behalf of High Desert Education Service District.
