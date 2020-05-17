@@ -24,4 +24,11 @@ RSpec.describe Organization, type: :model do
     specify { expect(organization).to have_many(:users) }
   end
 
+  describe '#to_s' do
+    it 'is the organization name' do
+      result = organization.name
+      expect(result.to_s).to eq(result)
+    end
+  end
+
 end
