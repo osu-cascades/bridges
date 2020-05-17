@@ -12,6 +12,8 @@ RSpec.describe Organization, type: :model do
     specify { expect(organization).to respond_to(:contact_email) }
     specify { expect(organization).to respond_to(:website) }
     specify { expect(organization).to respond_to(:description) }
+    specify { expect(organization).to respond_to(:logo) }
+    specify { expect(organization).to respond_to(:tags) }
   end
 
   describe 'validations' do
