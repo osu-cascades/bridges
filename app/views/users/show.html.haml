@@ -6,6 +6,10 @@
   %div.card-columns
     %div.card
       %div.card-body
+        %h5.card-title Organization
+        %p.card-text= @user.organization.presence || "(#{Organization::NAME_FOR_NONE})"
+    %div.card
+      %div.card-body
         %h5.card-title Email
         %p.card-text= @user.email
     %div.card

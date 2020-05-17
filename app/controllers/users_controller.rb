@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @organizations = Organization.all
   end
 
   def create
@@ -72,7 +73,7 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password,
-        :password_confirmation, :role, :active)
+        :password_confirmation, :organization_id, :role, :active)
     end
 
     def user_params_without_role_or_active

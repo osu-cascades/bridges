@@ -14,6 +14,9 @@
     %h3.mt-5 Initial Password
     = render 'form_password_fields', f: f
   - if current_user.admin?
+    %h3.mt-5 Organization
+    = f.label :organization_id, 'Organization'
+    = f.select :organization_id, @organizations.map {|o| [o.name, o.id]}, {include_blank: "(#{Organization::NAME_FOR_NONE})"}, class: 'form-control'
     %h3.mt-5 Role and Status
     .form-group
       = f.label :role
