@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { create :user }
+  let(:user) { build(:user) }
 
   describe 'attributes' do
-    let(:user) { build(:user) }
     specify { expect(user).to respond_to(:email) }
     specify { expect(user).to respond_to(:first_name) }
     specify { expect(user).to respond_to(:last_name) }
@@ -13,7 +12,6 @@ RSpec.describe User, type: :model do
   end
 
   describe 'validations' do
-    let(:user) { build(:user) }
     specify { expect(user).to validate_presence_of(:first_name) }
     specify { expect(user).to validate_presence_of(:last_name) }
   end
@@ -60,6 +58,7 @@ RSpec.describe User, type: :model do
 
   describe '#name_was' do
     it 'retains the original full name during a name change' do
+      user = create(:user)
       original_full_name = "#{user.first_name} #{user.last_name}"
       user.first_name = 'CHANGED'
       expect(original_full_name).to eq(user.name_was)
