@@ -16,6 +16,10 @@ RSpec.describe User, type: :model do
     specify { expect(user).to validate_presence_of(:last_name) }
   end
 
+  describe 'associations' do
+    specify { expect(user).to belong_to(:organization).optional }
+  end
+
   it 'has a default role of guest' do
     new_user = User.new
     expect(new_user.role).to eq('guest')

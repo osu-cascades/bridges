@@ -9,6 +9,8 @@ class User < ApplicationRecord
   validates_presence_of :last_name
   validates :active, inclusion: { in: [true, false] }
 
+  belongs_to :organization, optional: true
+
   default_scope { order(:last_name) }
   scope :active, -> { where(active: true) }
   scope :deactivated, -> { where(active: false) }
