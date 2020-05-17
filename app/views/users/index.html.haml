@@ -1,7 +1,7 @@
 %h1 Users
 
 - content_for(:subnav) do
-  = link_to('New user', new_user_path, class: 'btn btn-green', title: 'Add a new user')
+  = link_to('Add new user', new_user_path, class: 'btn btn-primary float-right', title: 'Add a new user')
 
 %div.user-table
   %table.table.table-hover
@@ -24,9 +24,9 @@
           %td= user.status.capitalize
           %td= user.last_sign_in_at&.localtime&.to_s(:short)
           %td
-            = link_to 'Edit', edit_user_path(user), class: 'btn btn-orange btn-sm mr-2'
+            = link_to 'Edit', edit_user_path(user), class: 'btn btn-outline-primary btn-sm mr-2'
             - unless current_user == user
-              = link_to 'Delete', "/admin/users/#{user.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-red'
+              = link_to 'Delete', "/admin/users/#{user.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-danger'
 %div.user-list
   %table.table.table-hover
     %thead
