@@ -7,8 +7,9 @@
   %table.table.table-hover
     %thead
       %tr
-        %th{scope: 'col'} ID
+        %th{scope: 'col'} id
         %th{scope: 'col'} Name
+        %th{scope: 'col'} Organization
         %th{scope: 'col'} Email Address
         %th{scope: 'col'} Role
         %th{scope: 'col'} Status
@@ -17,8 +18,9 @@
     %tbody
       - @users.each do |user|
         %tr
-          %th{scope: 'row'}= user.id
+          %td{scope: 'row'}= user.id
           %td= link_to user, user
+          %td= organization_link(user.organization)
           %td= user.email
           %td= user.role.capitalize
           %td= user.status.capitalize
@@ -31,15 +33,15 @@
   %table.table.table-hover
     %thead
       %tr
-        %th{scope: 'col'} ID
+        %th{scope: 'col'} id
         %th{scope: 'col'} Name
         %th
     %tbody
       - @users.each do |user|
         %tr
-          %th{scope: 'row'}= user.id
+          %td{scope: 'row'}= user.id
           %td= link_to user, user
           %td
-            = link_to 'Edit', edit_user_path(user), class: 'btn btn-orange btn-sm mr-2'
+            = link_to 'Edit', edit_user_path(user), class: 'btn btn-outline-primary btn-sm mr-2'
             - unless current_user == user
-              = link_to 'Delete', "/admin/users/#{user.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-red'
+              = link_to 'Delete', "/admin/users/#{user.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-danger'

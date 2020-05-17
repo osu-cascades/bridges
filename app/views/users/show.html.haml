@@ -7,7 +7,11 @@
     %div.card
       %div.card-body
         %h5.card-title Organization
-        %p.card-text= @user.organization.presence || "(#{Organization::NAME_FOR_NONE})"
+        %p.card-text
+          - if @user.organization
+            = organization_link(@user.organization)
+          - else
+            (#{Organization::NAME_FOR_NONE})
     %div.card
       %div.card-body
         %h5.card-title Email
