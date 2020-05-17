@@ -48,3 +48,7 @@ group :test do
   gem 'shoulda-matchers', '~> 4.3.0'
   gem 'simplecov', require: false
 end
+
+group :production do
+  gem 'airbrake', '~> 10.0.3'
+end

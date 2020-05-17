@@ -46,6 +46,10 @@ GEM
       activerecord (>= 5.0, < 6.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    airbrake (10.0.3)
+      airbrake-ruby (~> 4.13)
+    airbrake-ruby (4.14.1)
+      rbtree3 (~> 0.5)
     arel (9.0.0)
     autoprefixer-rails (9.7.5)
       execjs
@@ -236,6 +240,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rbtree3 (0.6.0)
     recaptcha (5.4.1)
       json
     regexp_parser (1.7.0)
@@ -338,6 +343,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
+  airbrake (~> 10.0.3)
   aws-sdk-s3
   bootsnap (>= 1.1.0)
   bootstrap (>= 4.4.1)
