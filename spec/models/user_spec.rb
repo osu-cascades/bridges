@@ -3,6 +3,15 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:user) { create :user }
 
+  describe 'attributes' do
+    let(:user) { build(:user) }
+    specify { expect(user).to respond_to(:email) }
+    specify { expect(user).to respond_to(:first_name) }
+    specify { expect(user).to respond_to(:last_name) }
+    specify { expect(user).to respond_to(:role) }
+    specify { expect(user).to respond_to(:active) }
+  end
+
   it 'has a required first name' do
     assert user.valid?
     user.first_name = ''
