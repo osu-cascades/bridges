@@ -45,5 +45,6 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'webdrivers'
   gem 'factory_bot_rails'
+  gem 'shoulda-matchers', '~> 4.3.0'
   gem 'simplecov', require: false
 end

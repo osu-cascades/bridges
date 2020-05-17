@@ -30,3 +30,10 @@ RSpec.configure do |config|
   config.extend ControllerMacros, type: :controller
   # https://github.com/rails/webpacker/issues/59
 end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
