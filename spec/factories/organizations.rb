@@ -1,12 +1,12 @@
 FactoryBot.define do
   factory :organization do
-    name { 'Lettuce Taco Bout It' }
-    location { 'Bend' }
+    name { 'Fake Organization' }
+    location { 'Fake Location' }
     ages_served { '15 - 18' }
-    programs { 'Summer camps' }
+    programs { 'Fake Programs' }
     contact_number { '123-456-7890' }
-    contact_email { 'lettuce@tacos.com' }
-    website { 'http://lettuce-taco-bout-it.com' }
+    contact_email { 'fake@fake.com' }
+    website { 'http://fake.com' }
   end
 
   factory :invalid_organization, parent: :organization do |organization|
