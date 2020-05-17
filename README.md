@@ -5,12 +5,14 @@ A catalog of after school, weekend and summer activities for children and young 
 ## Development
 
 ### Prerequisites
+
 * PostgreSQL
-    * `brew install postgresql`
+    * Use [Postgres.app](https://postgresapp.com) or `brew install postgresql`
 * Ruby 2.6.5
-    * `rvm use ruby-2.6.5`
+    * `rvm use ruby-2.6.6`
 
 ### Getting Started
+
 * Clone the repository
     * `git clone https://github.com/osu-cascades/bridges.git`
 * Install the dependencies
@@ -21,7 +23,7 @@ A catalog of after school, weekend and summer activities for children and young 
 * Create a `.env` file following the format in [.env.example](./.env.example)
     * Obtain reCAPTCHA credentials following [these basic steps](https://developers.google.com/recaptcha/intro#overview)
 * Ensure Postgres server is running
-    * `brew services start postgres`
+    * Run Postgres.app or `brew services start postgres`
 * Set up the database
     * `rails db:setup`
     * `rails db:migrate`
@@ -30,9 +32,10 @@ A catalog of after school, weekend and summer activities for children and young 
     * `rspec`
     *  View the test coverage at `./coverage/index.html`
 * Run the application
-    * `rails s`
+    * `rails server`
 
 ## Heroku
+
 * The application is hosted on Heroku in both a staging and production environment
     * Staging: https://hdesd-bridges-staging.herokuapp.com
     * Production: https://hdesd-bridges.herokuapp.com
@@ -74,4 +77,4 @@ _REMOTE = staging or production_
     * `heroku pg:psql --remote REMOTE`
 
 ---
-&copy; 2019 Hanna Bennet, Nathaniel Pierce and Yong Bakos. On behalf of High Desert Education Service District.
+&copy; 2019 Hanna Bennet, Nathaniel Pierce and Yong Bakos. On behalf of Bridges, Better Together, and High Desert Education Service District.
