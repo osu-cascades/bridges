@@ -112,11 +112,11 @@ Airbrake.configure do |c|
   # https://github.com/airbrake/airbrake-ruby#root_directory
   c.root_directory = Rails.root
   # https://github.com/airbrake/airbrake-ruby#logger
-  c.logger = Airbrake::Rails.logger
+  c.logger = Rails.logger
   # https://github.com/airbrake/airbrake-ruby#environment
-  c.environment = Rails.env
+  c.environment = ENV['AIRBRAKE_ENV']
   # https://github.com/airbrake/airbrake-ruby#ignore_environments
-  c.ignore_environments = %w[test]
+  c.ignore_environments = %w[development test]
   # https://github.com/airbrake/airbrake-ruby#blacklist_keys
   c.blacklist_keys = [/password/i, /authorization/i]
   # Read more: https://goo.gl/gqQ1xS
