@@ -16,7 +16,6 @@ RSpec.describe User, type: :model do
     let(:user) { build(:user) }
     specify { expect(user).to validate_presence_of(:first_name) }
     specify { expect(user).to validate_presence_of(:last_name) }
-    specify { expect(user).to validate_inclusion_of(:active).in_array([true, false]) }
   end
 
   it 'has a string representation of first_name last_name' do
