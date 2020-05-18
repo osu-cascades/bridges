@@ -3,6 +3,20 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:activity) { create :activity }
 
+  describe 'attributes' do
+    specify { expect(activity).to respond_to(:url) }
+  end
+
+  describe 'validations' do
+    it 'url format' do
+      expect(activity).to allow_value('http://fake.com').for(:url)
+      expect(activity).to allow_value('https://fake.com').for(:url)
+      expect(activity).to allow_value(nil).for(:url)
+      expect(activity).to_not allow_value(' ').for(:url)
+      expect(activity).to_not allow_value('FAKE').for(:url)
+    end
+  end
+
   it 'has a required title' do
     assert activity.valid?
     activity.title = ''
