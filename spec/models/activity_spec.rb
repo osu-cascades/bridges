@@ -12,7 +12,6 @@ RSpec.describe User, type: :model do
       expect(activity).to allow_value('http://fake.com').for(:url)
       expect(activity).to allow_value('https://fake.com').for(:url)
       expect(activity).to allow_value(nil).for(:url)
-      expect(activity).to_not allow_value(' ').for(:url)
       expect(activity).to_not allow_value('FAKE').for(:url)
     end
   end

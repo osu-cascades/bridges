@@ -5,7 +5,10 @@ class Activity < ApplicationRecord
   ActsAsTaggableOn.remove_unused_tags = true
 
   validates :title, presence: true
-  validates :url, format: { with: URI.regexp(['http', 'https']) }, if: :url
+  validates :url, format: {
+    with: URI.regexp(['http', 'https']),
+    message: 'must start with http or https'
+  }, if: -> { url.present? }
   validate :end_date_after_start_date
 
   enum state: [:pending, :active, :denied]
