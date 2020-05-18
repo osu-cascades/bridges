@@ -36,6 +36,11 @@
         %div.card-body
           %h5.card-title Description
           %p.card-text= simple_format(@activity.description)
+    - unless @activity.url.blank?
+      %div.card
+        %div.card-body
+          %h5.card-title Registration Link
+          %p.card-text= link_to('Registration Information', @activity.url)
     - if !@activity.organization_name.empty?
       %div.card
         %div.card-body
