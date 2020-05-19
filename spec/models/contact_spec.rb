@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Contact, type: :model do
-  let(:contact) { build :contact }
+  let(:contact) { build(:contact) }
 
   it 'has a required name' do
     assert contact.valid?
