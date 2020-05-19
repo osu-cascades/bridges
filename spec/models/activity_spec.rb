@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:activity) { create :activity }
+  let(:activity) { build(:activity) }
 
   describe 'attributes' do
     specify { expect(activity).to respond_to(:title) }
