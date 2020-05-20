@@ -7,7 +7,7 @@ RSpec.describe 'contact_mailer/contact.html.haml' do
 
     render
 
-    expect(rendered).to have_content('Hello TMZ,')
+    expect(rendered).to have_content("Hello #{contact.to_name},")
     expect(rendered).to have_content('A visitor to https://hdesd-bridges.herokuapp.com/ would like more information regarding your organization/event. You can reach them at:')
     expect(rendered).to have_content('Date:')
     expect(rendered).to have_content("Name: #{contact.name}")
@@ -24,7 +24,7 @@ RSpec.describe 'contact_mailer/contact.html.haml' do
 
     render
 
-    expect(rendered).to have_content('Hello TMZ,')
+    expect(rendered).to have_content("Hello #{contact.to_name},")
     expect(rendered).to have_content('A visitor to https://hdesd-bridges.herokuapp.com/ would like more information regarding your organization/event. You can reach them at:')
     expect(rendered).to have_content('Date:')
     expect(rendered).to have_content("Name: #{contact.name}")
