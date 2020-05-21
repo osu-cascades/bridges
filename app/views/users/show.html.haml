@@ -1,34 +1,22 @@
-- content_for_title("#{@user}")
+- content_for_title(@user.to_s)
+
 - content_for(:subnav) do
   - if editable_by_user?(@user, current_user)
     = link_to 'Edit profile', edit_user_path(@user), class: 'btn btn-primary float-right'
-%section
-  %div.card-columns
-    %div.card
-      %div.card-body
-        %h5.card-title Organization
-        %p.card-text
-          - if @user.organization
-            = organization_link(@user.organization)
-          - else
-            (#{Organization::NAME_FOR_NONE})
-    %div.card
-      %div.card-body
-        %h5.card-title Email
-        %p.card-text= @user.email
-    %div.card
-      %div.card-body
-        %h5.card-title Role
-        %p.card-text= @user.role.capitalize
-    %div.card
-      %div.card-body
-        %h5.card-title Status
-        %p.card-text= @user.status.capitalize
-    %div.card
-      %div.card-body
-        %h5.card-title Created
-        %p.card-text= I18n.l @user.created_at, format: :standard if @user.created_at
-    %div.card
-      %div.card-body
-        %h5.card-title Sign In Count
-        %p.card-text= @user.sign_in_count
+
+%section.mt-5
+  %dl.row
+    %dt.col-3 Name
+    %dd.col-9= @user
+    %dt.col-3 Organization
+    %dd.col-9= @user.organization ? organization_link(@user.organization) : Organization::NAME_FOR_NONE
+    %dt.col-3 Email
+    %dd.col-9= @user.email
+    %dt.col-3 Role
+    %dd.col-9= @user.role.capitalize
+    %dt.col-3 Status
+    %dd.col-9= @user.status.capitalize
+    %dt.col-3 Created
+    %dd.col-9= I18n.l @user.created_at, format: :standard if @user.created_at
+    %dt.col-3 Sign-In Count
+    %dd.col-9= @user.sign_in_count
