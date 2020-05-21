@@ -1,69 +1,35 @@
-- content_for_title("#{@activity.title}")
+- content_for_title(@activity.title)
+
 - content_for(:subnav) do
-  = link_to '« Back to activities', activities_path, class: 'btn btn-green', title: 'List of all activities'
-  .btn-group
-    = link_to 'Edit', edit_activity_path(@activity), class: 'btn btn-orange', title: "Edit #{@activity.title}" if current_user&.admin?
-    = link_to 'Delete', @activity, method: :delete, data: { confirm: "Delete Activity #{@activity.title}?" }, class: 'btn btn-red', title: "Delete #{@activity.title}" if current_user&.admin?
-%section
-  %div.card-columns
-    %div.card
-      %div.card-body
-        %h5.card-title Title
-        %p.card-text= @activity.title
-    - if !@activity.location.empty?
-      %div.card
-        %div.card-body
-          %h5.card-title Location
-          %p.card-text= @activity.location
-    - if @activity.ongoing?
-      %div.card
-        %div.card-body
-          %h5.card-title Time
-          %p.card-text Ongoing
-    - else
-      - if !@activity.when_start.nil?
-        %div.card
-          %div.card-body
-            %h5.card-title Start Date
-            %p.card-text= I18n.l @activity.when_start, format: :standard if @activity.when_start
-      - if !@activity.when_end.nil?
-        %div.card
-          %div.card-body
-            %h5.card-title End Date
-            %p.card-text= I18n.l @activity.when_end, format: :standard if @activity.when_end
-    - if !@activity.description.empty?
-      %div.card
-        %div.card-body
-          %h5.card-title Description
-          %p.card-text= simple_format(@activity.description)
-    - unless @activity.url.blank?
-      %div.card
-        %div.card-body
-          %h5.card-title Registration Link
-          %p.card-text= link_to('Registration Information', @activity.url)
-    - if !@activity.organization_name.empty?
-      %div.card
-        %div.card-body
-          %h5.card-title Organization
-          %p.card-text= @activity.organization_name
-    - if !@activity.contact_name.empty?
-      %div.card
-        %div.card-body
-          %h5.card-title Contact Name
-          %p.card-text= @activity.contact_name
-    - if !@activity.contact_number.empty?
-      %div.card
-        %div.card-body
-          %h5.card-title Contact Number
-          %p.card-text= link_to @activity.contact_number, "tel:#{@activity.contact_number[/\d{3}-?\d{3}-?\d{4}/,0]}"
-    - if !@activity.contact_email.empty?
-      %div.card
-        %div.card-body
-          %h5.card-title Contact Email
-          %p.card-text= mail_to @activity.contact_email
-    - if !@activity.tag_list.empty?
-      %div.card
-        %div.card-body
-          %h5.card-title Tags
+  .float-right
+    = link_to 'Delete', @activity, method: :delete, data: { confirm: "Delete Activity #{@activity.title}?" }, class: 'btn btn-outline-danger mr-5', title: "Delete #{@activity.title}" if current_user&.admin?
+    = link_to 'Edit', edit_activity_path(@activity), class: 'btn btn-primary', title: "Edit #{@activity.title}" if current_user&.admin?
+
+%section.mt-5
+  .row
+    .col-9
+      %dl.row
+        %dt.col-3 Description
+        %dd.col-9= @activity.description
+        %dt.col-3 Location
+        %dd.col-9= @activity.location
+        %dt.col-3 Frequency
+        %dd.col-9= @activity.ongoing? ? 'Ongoing' : 'One Time'
+        %dt.col-3 Start Date
+        %dd.col-9= I18n.l @activity.when_start, format: :standard if @activity.when_start
+        %dt.col-3 End Date
+        %dd.col-9= I18n.l @activity.when_end, format: :standard if @activity.when_end
+        %dt.col-3 Registration link
+        %dd.col-9= link_to(@activity.url, @activity.url) unless @activity.url.blank?
+        %dt.col-3 Organization
+        %dd.col-9= @activity.organization_name
+        %dt.col-3 Contact Name
+        %dd.col-9= @activity.contact_name
+        %dt.col-3 Contact Phone Number
+        %dd.col-9= @activity.contact_number
+        %dt.col-3 Contact Email
+        %dd.col-9= @activity.contact_email
+        %dt.col-3 Tags
+        %dd.col-9
           - @activity.tag_list.each do |tag|
-            .btn.btn-secondary.btn-sm.btn-static #{tag}
+            .d-inline-block.mr-2.badge-secondary.badge-pill= tag
