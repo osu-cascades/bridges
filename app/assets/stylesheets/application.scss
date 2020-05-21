@@ -376,6 +376,10 @@ input[type="submit"],
   }
 }
 
+.large-logo img {
+  max-width: 200px;
+}
+
 .dashboard-header h1, .dashboard-header p {
   font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
   color: #333;

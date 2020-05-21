@@ -1,58 +1,36 @@
-- content_for_title("#{@organization.name}")
+- content_for_title(@organization.name)
+
 - content_for(:subnav) do
-  = link_to '« Back to organizations', organizations_path, class: 'btn btn-green', title: 'List of all organizations'
-  .btn-group
-    = link_to 'Edit', edit_organization_path(@organization), class: 'btn btn-orange', title: "Edit #{@organization.name}" if current_user&.admin?
-    = link_to 'Delete', @organization, method: :delete, data: { confirm: "Delete Organization #{@organization.name}?" }, class: 'btn btn-red', title: "Delete #{@organization.name}" if current_user&.admin?
-%section
-  %div.card-columns
-    %div.card
-      %div.card-body
-        %h5.card-title Name
-        %p.card-text= @organization.name
-    - if !@organization.location.blank?
-      %div.card
-        %div.card-body
-          %h5.card-title Location
-          %p.card-text= @organization.location
-    - if !@organization.description.blank?
-      %div.card
-        %div.card-body
-          %h5.card-title Description
-          %p.card-text= simple_format(@organization.description)
-    - if !@organization.ages_served.blank?
-      %div.card
-        %div.card-body
-          %h5.card-title Ages Served
-          %p.card-text= @organization.ages_served
-    - if !@organization.programs.blank?
-      %div.card
-        %div.card-body
-          %h5.card-title Programs
-          %p.card-text= @organization.programs
-    - if !@organization.contact_number.blank?
-      %div.card
-        %div.card-body
-          %h5.card-title Contact Number
-          %p.card-text
-            - phone_numbers = @organization.contact_number.split(', ')
-            - phone_numbers.each do |phone_number|
-              = link_to phone_number,  "tel:#{phone_number[/\d{3}-?\d{3}-?\d{4}/,0]}"
-              %br
-    - if !@organization.contact_email.blank?
-      %div.card
-        %div.card-body
-          %h5.card-title Contact Email
-          %p.card-text= mail_to @organization.contact_email
-    - if !@organization.website.blank?
-      %div.card
-        %div.card-body
-          %h5.card-title Website
-          %p.card-text= link_to @organization.website,  @organization.website
-    - if !@organization.tag_list.blank?
-      %div.card
-        %div.card-body
-          %h5.card-title Tags
+  .float-right
+    = link_to 'Delete', @organization, method: :delete, data: { confirm: "Delete Organization #{@organization.name}?" }, class: 'btn btn-outline-danger mr-5', title: "Delete #{@organization.name}" if current_user&.admin?
+    = link_to 'Edit', edit_organization_path(@organization), class: 'btn btn-primary', title: "Edit #{@organization.name}" if current_user&.admin?
+
+%section.mt-5
+  .row
+    .col-9
+      %dl.row
+        %dt.col-3 Description
+        %dd.col-9= @organization.description.presence || 'No description provided.'
+        %dt.col-3 Location
+        %dd.col-9= @organization.location
+        %dt.col-3 Ages Served
+        %dd.col-9= @organization.ages_served
+        %dt.col-3 Programs
+        %dd.col-9= @organization.programs
+        %dt.col-3 Contact Number
+        %dd.col-9
+          - phone_numbers = @organization.contact_number.split(', ')
+          - phone_numbers.each do |phone_number|
+            = link_to phone_number,  "tel:#{phone_number[/\d{3}-?\d{3}-?\d{4}/,0]}"
+        %dt.col-3 Contact Email
+        %dd.col-9= mail_to @organization.contact_email
+        %dt.col-3 Web Site
+        %dd.col-9= link_to(@organization.website, @organization.website) unless @organization.website.blank?
+        %dt.col-3 Tags
+        %span.col-9
           - @organization.tag_list.each do |tag|
-            .btn.btn-secondary.btn-sm.btn-static #{tag}
-= link_to 'Email organization', new_contact_path({ to: @organization.id }), class: 'btn btn-primary email-organization', title: "Email #{@organization.name}" if @organization.contact_email.present?
+            .d-inline-block.mr-2.badge-secondary.badge-pill= tag
+    .col-3
+      .large-logo= image_tag(@organization.logo) if @organization.logo
+.mt-5
+  = link_to 'Contact this organization', new_contact_path({ to: @organization.id }), class: 'btn btn-primary email-organization', title: "Email #{@organization.name}" if @organization.contact_email.present?
