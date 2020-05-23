@@ -31,6 +31,6 @@
           - @organization.tag_list.each do |tag|
             .d-inline-block.mr-2.badge-secondary.badge-pill= tag
     .col-3
-      .large-logo= image_tag(@organization.logo) if @organization.logo
+      .large-logo= image_tag(@organization.logo) if @organization.logo.attached?
 .mt-5
   = link_to 'Contact this organization', new_contact_path({ to: @organization.id }), class: 'btn btn-primary email-organization', title: "Email #{@organization.name}" if @organization.contact_email.present?
