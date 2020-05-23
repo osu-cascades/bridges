@@ -7,7 +7,7 @@
     "lodash": "^4.17.15",
     "moment": "^2.26.0",
     "vue": "^2.6.11",
-    "vue-loader": "^15.7.2",
+    "vue-loader": "^15.9.2",
     "vue-template-compiler": "^2.6.11"
   },
   "devDependencies": {
