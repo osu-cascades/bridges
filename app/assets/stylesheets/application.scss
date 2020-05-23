@@ -64,7 +64,7 @@ input::placeholder {
 
 .jumbotron {
   padding: 1.5rem 1rem;
-  background-color: #FFFFFF;
+  background-color: #FCFCFC;
   color: black;
 }
 
@@ -206,15 +206,16 @@ th, td {
   padding: 15px;
   margin-bottom: 30px;
   display: flex;
-  border-radius: 1rem;
+  border-radius: 0.4rem;
+  border: 1px solid #DDD;
 
   &.active {
-    background-color: #F79648;
+    background-color: #FCFCFC;
   }
 
   &:hover {
     cursor: pointer;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.2), -1px -1px 4px 0 rgba(0, 0, 0, 0.2),;
   }
 }
 
@@ -228,20 +229,21 @@ th, td {
 }
 
 .individual-row {
-  border-radius: 1rem;
   margin-bottom: 0.2rem;
+  border: 1px solid #DDD;
+  border-radius: 0.4rem;
 
   p {
     margin: 0;
   }
 
   &.active {
-    background-color: #F79648;
+    background-color: #FCFCFC;
   }
 
   &:hover {
     cursor: pointer;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.2), -1px -1px 4px 0 rgba(0, 0, 0, 0.2),;
   }
 }
 
@@ -351,13 +353,11 @@ input[type="submit"],
 }
 
 .pending {
-  background-color: lighten(#F79648, 15%);
-  opacity: 0.9;
+  background-color: #FFFBCE;
 }
 
 .denied {
-  background-color: lighten(#c0504d, 25%);
-  opacity: 0.9;
+  background-color: #FFE4E1;
 }
 
 .text-center {
