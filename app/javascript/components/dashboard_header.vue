@@ -7,7 +7,7 @@
         <input class="col-md-6 form-control form-control-lg" type="text" placeholder="Search... After school? Age 8? Sports?" v-model="search" v-on:keydown.enter.prevent></input>
       </form>
       <div class="section tags">
-        <button v-for="tag in tagsData" v-on:click="select(tag)" v-bind:class="active(tag)" class="btn btn-secondary btn-sm">{{ tag.name }}</button>
+        <button v-for="tag in tagsData" v-on:click="select(tag)" v-bind:class="active(tag)" class="tag badge badge-pill mr-1">{{ tag.name }}</button>
       </div>
       <div class="section tags">
         <button v-on:click="clearSearch" class="btn btn-purple btn-sm">Clear search</button>

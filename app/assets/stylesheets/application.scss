@@ -417,6 +417,12 @@ input[type="submit"],
   }
 }
 
+.tag {
+  font-weight: normal !important;
+  background-color: #EEE;
+  color: #888;
+}
+
 .btn-static {
   background-color: #965A92 !important;
   border-color: #965A92 !important;
@@ -518,4 +524,8 @@ body.sessions.new, body.registrations.new, body.registrations.create {
 
 .form-signin {
   max-width: 500px;
+}
+
+.details {
+  background-color: #FCFCFC;
 }

@@ -6,7 +6,7 @@
           <p>{{ model[modelDisplayTitle] }}</p>
         </div>
         <div class="col align-column">
-          <div class="btn btn-secondary btn-sm btn-static" v-for="tag in model.tag_list">{{ tag }}</div>
+          <span class="tag badge badge-pill mr-1" v-for="tag in model.tag_list">{{ tag }}</span>
         </div>
         <div class="col-1 align-column center-column" v-if="admin">
           <div v-on:click.stop="edit(model.id)" class="btn btn-blue btn-sm">Edit</div>

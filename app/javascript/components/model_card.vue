@@ -21,7 +21,7 @@
                 <div v-on:click.stop="edit(model.id)" class="btn btn-blue btn-sm">Edit</div>
                 </br>
               </div>
-              <div class="btn btn-secondary btn-sm btn-static" v-for="tag in model.tag_list">{{ tag }}</div>
+              <span class="tag badge badge-pill mr-1" v-for="tag in model.tag_list">{{ tag }}</span>
             </div>
           </div>
         </div>

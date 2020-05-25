@@ -5,7 +5,7 @@
     = link_to 'Delete', @organization, method: :delete, data: { confirm: "Delete Organization #{@organization.name}?" }, class: 'btn btn-outline-danger mr-5', title: "Delete #{@organization.name}" if current_user&.admin?
     = link_to 'Edit', edit_organization_path(@organization), class: 'btn btn-primary', title: "Edit #{@organization.name}" if current_user&.admin?
 
-%section.mt-5
+%section.details.border.mt-5.p-5
   .row
     .col-9
       %dl.row
@@ -27,9 +27,9 @@
         %dt.col-3 Web Site
         %dd.col-9= link_to(@organization.website, @organization.website) unless @organization.website.blank?
         %dt.col-3 Tags
-        %span.col-9
+        %dd.col-9
           - @organization.tag_list.each do |tag|
-            .d-inline-block.mr-2.badge-secondary.badge-pill= tag
+            %span.tag.badge-pill.mr-1= tag
     .col-3
       .large-logo= image_tag(@organization.logo) if @organization.logo.attached?
 .mt-5
