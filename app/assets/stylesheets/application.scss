@@ -394,25 +394,22 @@ input[type="submit"],
   padding: 10px 10px 0px 10px;
   text-align: center;
 
-  .btn {
-    margin: 3px 3px 3px 0;
-
+  .tag {
     &:hover {
-      color: #fff;
-      background-color: #804d7c;
-      border-color: #804d7c;
+      color: #FFF;
+      background-color: #69CCE6;
+      border-color: #49ACC6;
     }
   }
 
-  .btn-secondary.active,
-  .btn-primary {
-    background-color: #965A92 !important;
-    border-color: #965A92 !important;
+  .tag.active {
+    color: #FFF;
+    background-color: #49ACC6 !important;
+    border-color: #298CA6 !important;
 
-    &:hover,
     &:active {
-      background-color: #804d7c !important;
-      border-color: #804d7c !important;
+      background-color: #EEE !important;
+      color: #888 !important;
     }
   }
 }

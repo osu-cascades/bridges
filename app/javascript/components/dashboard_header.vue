@@ -9,8 +9,8 @@
       <div class="section tags">
         <button v-for="tag in tagsData" v-on:click="select(tag)" v-bind:class="active(tag)" class="tag badge badge-pill mr-1">{{ tag.name }}</button>
       </div>
-      <div class="section tags">
-        <button v-on:click="clearSearch" class="btn btn-purple btn-sm">Clear search</button>
+      <div class="mt-4 text-center">
+        <button v-on:click="clearSearch" class="btn btn-outline-secondary btn-sm">Clear Search</button>
       </div>
     </div>
   </div>
