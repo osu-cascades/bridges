@@ -17,11 +17,10 @@
                   <p class="model-detail" v-else-if="model[entry[0]]">{{ entry[1] }}: {{ format(model[entry[0]]) }}</p>
                 </div>
               </div>
-              <div v-if="admin">
-                <div v-on:click.stop="edit(model.id)" class="btn btn-blue btn-sm">Edit</div>
-                </br>
-              </div>
               <span class="tag badge badge-pill mr-1" v-for="tag in model.tag_list">{{ tag }}</span>
+            </div>
+            <div v-if="admin">
+              <a v-on:click.stop="edit(model.id)" href="#" onclick="return false;">edit</a>
             </div>
           </div>
         </div>

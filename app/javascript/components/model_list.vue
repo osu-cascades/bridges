@@ -9,7 +9,7 @@
           <span class="tag badge badge-pill mr-1" v-for="tag in model.tag_list">{{ tag }}</span>
         </div>
         <div class="col-1 align-column center-column" v-if="admin">
-          <div v-on:click.stop="edit(model.id)" class="btn btn-blue btn-sm">Edit</div>
+          <a v-on:click.stop="edit(model.id)" href="#" onclick="return false;">edit</a>
         </div>
       </div>
     </div>
