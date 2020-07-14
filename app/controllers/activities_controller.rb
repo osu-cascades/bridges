@@ -51,13 +51,15 @@ class ActivitiesController < ApplicationController
     end
 
     def create
-      @activity = Activity.new(activity_params)
-      @activity.state = current_user&.admin? ? :active : :pending
-
-      if verify_recaptcha && @activity.save
+      create_activity_workflow = CreateActivity.new(
+        Activity.new(activity_params),
+        current_user
+      )
+      if verify_recaptcha && create_activity_workflow.run
         redirect_to activities_path
-        flash[:success] = @activity.active? ? 'Activity was successfully created.' : 'Activity is pending review. It will be available on the dashboard once approved.'
+        flash[:success] = create_activity_workflow.message
       else
+        @activity = create_activity_workflow.activity
         @activities = Activity.all
         render :new
       end
