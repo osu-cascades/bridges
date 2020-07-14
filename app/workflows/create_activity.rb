@@ -1,14 +1,14 @@
 class CreateActivity
 
-  attr_reader :activity, :author
+  attr_reader :activity
 
-  def initialize(activity, author = nil)
+  def initialize(activity)
     @activity = activity
-    @author = author
   end
 
-  def run
-    activity.state = activity_state
+  def run(author = nil)
+    activity.state = activity_state(author)
+    activity.author = author
     activity.save
   end
 
@@ -24,7 +24,7 @@ class CreateActivity
 
   private
 
-  def activity_state
+  def activity_state(author)
     author&.admin? ? :active : :pending
   end
 

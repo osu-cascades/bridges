@@ -51,11 +51,8 @@ class ActivitiesController < ApplicationController
     end
 
     def create
-      create_activity_workflow = CreateActivity.new(
-        Activity.new(activity_params),
-        current_user
-      )
-      if verify_recaptcha && create_activity_workflow.run
+      create_activity_workflow = CreateActivity.new(Activity.new(activity_params))
+      if verify_recaptcha && create_activity_workflow.run(current_user)
         redirect_to activities_path
         flash[:success] = create_activity_workflow.message
       else
