@@ -18,6 +18,10 @@ RSpec.describe User, type: :model do
     specify { expect(activity).to respond_to(:url) }
   end
 
+  describe 'associations' do
+    specify { expect(activity).to belong_to(:author).optional(true) }
+  end
+
   describe 'validations' do
     specify { expect(activity).to validate_presence_of(:title) }
     it 'url format' do

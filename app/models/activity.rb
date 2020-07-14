@@ -4,6 +4,8 @@ class Activity < ApplicationRecord
   ActsAsTaggableOn.force_lowercase = true
   ActsAsTaggableOn.remove_unused_tags = true
 
+  belongs_to :author, class_name: 'User', optional: true
+
   validates :title, presence: true
   validates :url, format: {
     with: URI.regexp(['http', 'https']),
