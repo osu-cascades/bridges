@@ -6,7 +6,7 @@ class OrganizationsController < ApplicationController
   def index
     @tags = Organization.select("tags.name").joins(:taggings).joins("LEFT OUTER JOIN tags on tags.id = taggings.tag_id").distinct
     @organizations = Organization.active.order(:name)
-
+    @inactive_organizations = Organization.inactive.order(:name)
     if params[:search].present?
       column_names = Organization.columns.map { |column| column.name if [:string, :text].include? column.type }.compact
       query_string = ''
