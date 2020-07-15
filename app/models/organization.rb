@@ -11,6 +11,8 @@ class Organization < ApplicationRecord
 
   has_many :users
 
+  scope :active, -> { where(active: true) }
+
   def to_s
     name
   end
