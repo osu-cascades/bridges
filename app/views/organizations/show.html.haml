@@ -30,6 +30,9 @@
         %dd.col-9
           - @organization.tag_list.each do |tag|
             %span.tag.badge-pill.mr-1= tag
+        %dt.col-3 Status
+        %dd.col-9= @organization.active? ? 'Active' : 'Inactive (hidden)'
+
     .col-3
       .large-logo= image_tag(@organization.logo) if @organization.logo.attached?
 .mt-5
