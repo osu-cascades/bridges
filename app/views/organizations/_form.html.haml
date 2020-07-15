@@ -36,6 +36,10 @@
         = form.label 'Tags'
         = form.text_field :tag_list, value: form.object.tag_list.to_s, class: 'form-control'
       .form-group
+        .custom-control.custom-switch
+          = form.check_box :active, class: 'custom-control-input'
+          = form.label :active, 'Active?', class: 'custom-control-label'
+      .form-group.mt-4
         = form.submit class: 'btn'
   :javascript
     $('.custom-file-input').on('change', function() {
