@@ -12,6 +12,7 @@ class Organization < ApplicationRecord
   has_many :users
 
   scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
 
   def to_s
     name
