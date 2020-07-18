@@ -3,7 +3,7 @@
 - content_for(:subnav) do
   .float-right
     = link_to 'Delete', @organization, method: :delete, data: { confirm: "Delete Organization #{@organization.name}?" }, class: 'btn btn-outline-danger mr-5', title: "Delete #{@organization.name}" if current_user&.admin?
-    = link_to 'Edit', edit_organization_path(@organization), class: 'btn btn-primary', title: "Edit #{@organization.name}" if current_user&.admin?
+    = link_to 'Edit', edit_organization_path(@organization), class: 'btn btn-primary', title: "Edit #{@organization.name}" if @organization.editable_by?(current_user)
 
 %section.details.border.mt-5.p-5
   .row
