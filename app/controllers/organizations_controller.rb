@@ -1,7 +1,8 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :restrict_unless_admin, except: [:index, :show]
+  before_action :restrict_unless_admin, only: [:new, :create, :destroy ]
+  before_action :limit_editing_to_organization_members_and_admins, only: [:edit, :update]
 
   def index
     @tags = Organization.select("tags.name").joins(:taggings).joins("LEFT OUTER JOIN tags on tags.id = taggings.tag_id").distinct
@@ -78,6 +79,10 @@ class OrganizationsController < ApplicationController
   end
 
   private
+
+  def limit_editing_to_organization_members_and_admins
+    redirect_to(root_url) unless current_user.organization == @organization || current_user.admin?
+  end
 
   def set_organization
     @organization = Organization.find(params[:id])

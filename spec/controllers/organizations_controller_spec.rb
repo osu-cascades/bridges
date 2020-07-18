@@ -96,6 +96,21 @@ RSpec.describe OrganizationsController, type: :controller do
       end
     end
 
+    context 'logged in as organization member' do
+      let(:user) { create(:user) }
+      let(:organization) { create(:organization) }
+      before do
+        user.organization = organization
+        user.save!
+        sign_in(user)
+      end
+
+      it 'returns http success' do
+        get :edit, params: { id: organization.id }
+        expect(response).to have_http_status(:success)
+      end
+    end
+
     context 'logged in as guest' do
       login_user
 
@@ -201,6 +216,22 @@ RSpec.describe OrganizationsController, type: :controller do
           put :update, params: { id: @organization, organization: FactoryBot.attributes_for(:invalid_organization) }
           expect(response).to_not redirect_to @organization
         end
+      end
+    end
+
+    context 'logged in as organization member' do
+      let(:user) { create(:user) }
+      let(:organization) { create(:organization) }
+      before do
+        user.organization = organization
+        user.save!
+        sign_in(user)
+      end
+
+      it 'returns http success' do
+        put :update, params: { id: organization.id, organization: attributes_for(:organization) }
+        expect(flash[:success]).to eq('Organization was successfully updated.')
+        expect(response).to redirect_to @organization
       end
     end
 
