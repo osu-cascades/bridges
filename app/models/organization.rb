@@ -14,6 +14,11 @@ class Organization < ApplicationRecord
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
 
+
+  def editable_by?(user)
+    user&.admin? || user&.organization == self
+  end
+
   def to_s
     name
   end

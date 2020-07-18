@@ -25,6 +25,29 @@ RSpec.describe Organization, type: :model do
     specify { expect(organization).to have_many(:users) }
   end
 
+  describe '#editable_by?' do
+    let(:admin) { build(:user, :admin) }
+    it 'is editable by admins' do
+      expect(organization.editable_by?(admin)).to be_truthy
+    end
+
+    it 'is editable by a member' do
+      member = build(:user)
+      member.organization = organization
+      expect(organization.editable_by?(member)).to be_truthy
+    end
+
+    it 'is not editable by a non-member' do
+      non_member = build(:user)
+      expect(organization.editable_by?(non_member)).to be_falsy
+    end
+
+    it 'returns false when passed nil' do
+      expect(organization.editable_by?(nil)).to be_falsy
+    end
+
+  end
+
   describe '#to_s' do
     it 'is the organization name' do
       result = organization.name
