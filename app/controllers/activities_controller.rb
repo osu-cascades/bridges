@@ -5,7 +5,7 @@ class ActivitiesController < ApplicationController
 
     def index
       @tags = Activity.select("tags.name").where(state: :active).joins(:taggings).joins("LEFT OUTER JOIN tags on tags.id = taggings.tag_id").distinct
-      @activities = Activity.all
+      @activities = Activity.current
 
       if params[:search].present?
         column_names = Activity.columns.map { |column| column.name if [:string, :text].include? column.type }.compact
@@ -47,7 +47,7 @@ class ActivitiesController < ApplicationController
     end
 
     def edit
-      @activities = Activity.all
+      @activities = Activity.current
     end
 
     def create
@@ -57,7 +57,7 @@ class ActivitiesController < ApplicationController
         flash[:success] = create_activity_workflow.message
       else
         @activity = create_activity_workflow.activity
-        @activities = Activity.all
+        @activities = Activity.current
         render :new
       end
     end
@@ -67,7 +67,7 @@ class ActivitiesController < ApplicationController
         redirect_to @activity
         flash[:success] = 'Activity was successfully updated.'
       else
-        @activities = Activity.all
+        @activities = Activity.current
         render :edit
       end
     end
