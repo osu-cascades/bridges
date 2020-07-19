@@ -15,6 +15,8 @@ class Activity < ApplicationRecord
 
   enum state: [:pending, :active, :denied]
 
+  scope :current, -> { where('when_end >= ? OR (when_end IS NULL AND when_start > ?)', Date.current, Date.current) }
+
   private
 
   def end_date_after_start_date
