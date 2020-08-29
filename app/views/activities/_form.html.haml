@@ -73,8 +73,8 @@
       $("#onetime").removeClass('active');
       $("#is-ongoing").val(true);
     }
-    const start = "#{@activity.when_start&.iso8601}"
-    const end = "#{@activity.when_end&.iso8601}"
+    const start = "#{@activity.when_start&.in_time_zone('Pacific Time (US & Canada)')}"
+    const end = "#{@activity.when_end&.in_time_zone('Pacific Time (US & Canada)')}"
     $(function () {
       $('#when-start').datetimepicker({ format: 'MM/DD/YYYY HH:mm', defaultDate: start });
     });
