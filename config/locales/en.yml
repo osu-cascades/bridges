@@ -37,4 +37,4 @@ en:
         when_end: "End date"
   time:
     formats:
-      standard: "%Y-%m-%d %H:%M"
+      standard: "%m/%d/%Y %H:%M %p"
