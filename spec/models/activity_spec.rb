@@ -5,12 +5,10 @@ RSpec.describe User, type: :model do
 
   describe 'attributes' do
     specify { expect(activity).to respond_to(:title) }
-    specify { expect(activity).to respond_to(:when_start) }
     specify { expect(activity).to respond_to(:start_date) }
-    specify { expect(activity).to respond_to(:start_time) }
     specify { expect(activity).to respond_to(:end_date) }
+    specify { expect(activity).to respond_to(:start_time) }
     specify { expect(activity).to respond_to(:end_time) }
-    specify { expect(activity).to respond_to(:when_end) }
     specify { expect(activity).to respond_to(:description) }
     specify { expect(activity).to respond_to(:location) }
     specify { expect(activity).to respond_to(:contact_name) }

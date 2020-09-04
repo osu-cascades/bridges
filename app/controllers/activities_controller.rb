@@ -24,7 +24,7 @@ class ActivitiesController < ApplicationController
       @denied_activities = @activities.where(state: :denied)
       @activities = @activities.where(state: :active)
 
-      @display_attributes = { when_start: 'Time', location: 'Location' }
+      @display_attributes = { start_date: 'Time', location: 'Location' }
 
       respond_to do |format|
         format.html { render :index }
@@ -85,9 +85,7 @@ class ActivitiesController < ApplicationController
     end
 
     def activity_params
-      params[:activity][:when_start] = Time.strptime(params[:activity][:when_start], '%m/%d/%Y %H:%M') if !params[:activity][:when_start].blank?
-      params[:activity][:when_end] = Time.strptime(params[:activity][:when_end], '%m/%d/%Y %H:%M') if !params[:activity][:when_end].blank?
-      params.require(:activity).permit(:title, :when_start, :when_end, :start_date, :start_time, :end_date, :end_time,
+      params.require(:activity).permit(:title, :start_date, :end_date, :start_time, :end_time,
         :description, :location, :contact_name, :contact_number,
         :contact_email, :state, :ongoing, :organization_name, :tag_list,
         :url
