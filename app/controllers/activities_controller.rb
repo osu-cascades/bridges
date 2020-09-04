@@ -87,7 +87,7 @@ class ActivitiesController < ApplicationController
     def activity_params
       params[:activity][:when_start] = Time.strptime(params[:activity][:when_start], '%m/%d/%Y %H:%M') if !params[:activity][:when_start].blank?
       params[:activity][:when_end] = Time.strptime(params[:activity][:when_end], '%m/%d/%Y %H:%M') if !params[:activity][:when_end].blank?
-      params.require(:activity).permit(:title, :when_start, :when_end,
+      params.require(:activity).permit(:title, :when_start, :when_end, :start_date, :start_time, :end_date, :end_time,
         :description, :location, :contact_name, :contact_number,
         :contact_email, :state, :ongoing, :organization_name, :tag_list,
         :url

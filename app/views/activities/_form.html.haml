@@ -9,25 +9,17 @@
         = form.label :location
         = form.text_field :location, class: 'form-control'
       .form-group
-        = form.label 'Time'
-        .btn-group{id: 'toggle'}
-          = content_tag 'a', 'one-time', onclick: 'showTime();', class: [('btn btn-orange'), ('active' if [nil, false].include? @activity.ongoing)], id: 'onetime'
-          = form.hidden_field :ongoing, value: @activity.ongoing || false, id: 'is-ongoing'
-          = content_tag 'a', 'ongoing', onclick: 'hideTime();', class: [('btn btn-orange'), ('active' if @activity.ongoing)], id: 'ongoing'
-      .form-group{id: 'start', class: ('hide' if @activity.ongoing)}
-        = form.label :when_start
-        #when-start.input-group.date{"data-target-input": "nearest"}
-          %input.form-control.datetimepicker-input{"data-target": "#when-start", type: "text", name: "activity[when_start]"}
-          .input-group-append{"data-target": "#when-start", "data-toggle": "datetimepicker"}
-            .input-group-text.btn-purple
-              %i.fa.fa-calendar
-      .form-group{id: 'end', class: ('hide' if @activity.ongoing)}
-        = form.label :when_end
-        #when-end.input-group.date{"data-target-input": "nearest"}
-          %input.form-control.datetimepicker-input{"data-target": "#when-end", type: "text", name: "activity[when_end]"}
-          .input-group-append{"data-target": "#when-end", "data-toggle": "datetimepicker"}
-            .input-group-text.btn-purple
-              %i.fa.fa-calendar
+        = form.label :start_date
+        = form.date_select :start_date, order: [:month, :day, :year]
+      .form-group
+        = form.label :end_date
+        = form.date_select :end_date, order: [:month, :day, :year]
+      .form-group
+        = form.label :start_time
+        = form.time_select :start_time, ampm: true, minute_step: 15
+      .form-group
+        = form.label :end_time
+        = form.time_select :end_time, ampm: true, minute_step: 15
       .form-group
         = form.label :description
         = form.text_area :description, rows: 6, class: 'form-control'
@@ -58,26 +50,3 @@
           = recaptcha_tags
       .form-group
         = form.submit class: 'btn'
-  :javascript
-    const showTime = () => {
-      $("#start").removeClass('hide');
-      $("#end").removeClass('hide');
-      $("#onetime").addClass('active');
-      $("#ongoing").removeClass('active');
-      $("#is-ongoing").val(false);
-    }
-    const hideTime = () => {
-      $("#start").addClass('hide');
-      $("#end").addClass('hide');
-      $("#ongoing").addClass('active');
-      $("#onetime").removeClass('active');
-      $("#is-ongoing").val(true);
-    }
-    const start = "#{@activity.when_start&.in_time_zone('Pacific Time (US & Canada)')}"
-    const end = "#{@activity.when_end&.in_time_zone('Pacific Time (US & Canada)')}"
-    $(function () {
-      $('#when-start').datetimepicker({ format: 'MM/DD/YYYY HH:mm', defaultDate: start });
-    });
-    $(function () {
-      $('#when-end').datetimepicker({ format: 'MM/DD/YYYY HH:mm', defaultDate: end });
-    });

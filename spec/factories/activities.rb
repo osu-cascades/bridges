@@ -1,6 +1,10 @@
 FactoryBot.define do
   factory :activity do
     location { 'Bend' }
+    start_date { '01/01/2020' }
+    end_date { '01/11/2020' }
+    start_time { '10:00' }
+    end_time { '12:00' }
     when_start { '01/01/2020 10:00' }
     when_end { '01/11/2020 10:00' }
     contact_name { 'Howard' }

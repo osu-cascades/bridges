@@ -33,8 +33,11 @@ en:
   activerecord:
     attributes:
       activity:
-        when_start: "Start date"
-        when_end: "End date"
+  date:
+    formats:
+      month_day: "%B %e"
+      month_day_year: "%B %e, %Y"
   time:
     formats:
       standard: "%m/%d/%Y %H:%M %p"
+      rename_me: "%l:%M %p"

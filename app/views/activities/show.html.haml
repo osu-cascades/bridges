@@ -15,10 +15,17 @@
         %dd.col-9= @activity.location
         %dt.col-3 Frequency
         %dd.col-9= @activity.ongoing? ? 'Ongoing' : 'One Time'
-        %dt.col-3 Start Date
-        %dd.col-9= I18n.l @activity.when_start.in_time_zone('Pacific Time (US & Canada)'), format: :standard if @activity.when_start
-        %dt.col-3 End Date
-        %dd.col-9= I18n.l @activity.when_end.in_time_zone('Pacific Time (US & Canada)'), format: :standard if @activity.when_end
+        %dt.col-3 Dates
+        %dd.col-9
+          %p
+            = I18n.l @activity.start_date, format: :month_day
+            to
+            = I18n.l @activity.end_date, format: :month_day_year
+            %br
+            From
+            = I18n.l @activity.start_time, format: :rename_me
+            to
+            = I18n.l @activity.end_time, format: :rename_me
         %dt.col-3 Registration link
         %dd.col-9= link_to(@activity.url, @activity.url) unless @activity.url.blank?
         %dt.col-3 Organization

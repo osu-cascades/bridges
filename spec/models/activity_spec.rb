@@ -6,6 +6,10 @@ RSpec.describe User, type: :model do
   describe 'attributes' do
     specify { expect(activity).to respond_to(:title) }
     specify { expect(activity).to respond_to(:when_start) }
+    specify { expect(activity).to respond_to(:start_date) }
+    specify { expect(activity).to respond_to(:start_time) }
+    specify { expect(activity).to respond_to(:end_date) }
+    specify { expect(activity).to respond_to(:end_time) }
     specify { expect(activity).to respond_to(:when_end) }
     specify { expect(activity).to respond_to(:description) }
     specify { expect(activity).to respond_to(:location) }
@@ -32,7 +36,7 @@ RSpec.describe User, type: :model do
     end
     it 'ensure end date is not before start date' do
       expect(activity).to be_valid
-      activity.when_end = activity.when_start - 1.day
+      activity.end_date = activity.start_date - 1.day
       expect(activity).to_not be_valid
     end
   end

@@ -15,15 +15,15 @@ class Activity < ApplicationRecord
 
   enum state: [:pending, :active, :denied]
 
-  scope :current, -> { where('when_end >= ? OR (when_end IS NULL AND when_start > ?)', Date.current, Date.current) }
+  scope :current, -> { where('end_date >= ? OR (end_date IS NULL AND start_date > ?)', Date.current, Date.current) }
 
   private
 
   def end_date_after_start_date
-    return if when_end.blank? || when_start.blank?
+    return if end_date.blank? || start_date.blank?
 
-    if when_end < when_start
-      errors.add(:when_end, "must be after the start date")
+    if end_date < start_date
+      errors.add(:end_date, "must be after the start date")
     end
   end
 
