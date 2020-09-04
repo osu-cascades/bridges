@@ -13,8 +13,8 @@
               </h3>
               <div v-if="modelDisplayAttributes">
                 <div v-for="entry in Object.entries(modelDisplayAttributes)">
-                  <p class="model-detail" v-if="model['ongoing'] && entry[0] == 'when_start'">Time: Ongoing</p>
-                  <p class="model-detail" v-else-if="model[entry[0]]">{{ entry[1] }}: {{ format(model[entry[0]]) }}</p>
+                  <p class="model-detail" v-if="model['ongoing'] && entry[0] == 'start_date'">Time: Ongoing</p>
+                  <p class="model-detail" v-else-if="model[entry[0]]">{{ format(model[entry[0]]) }}</p>
                 </div>
               </div>
               <span class="tag badge badge-pill mr-1" v-for="tag in model.tag_list">{{ tag }}</span>
@@ -79,7 +79,7 @@ export default {
     format: function (value) {
       const formatted = moment(value);
       if (formatted._isValid) {
-        return formatted.format('MMMM Do YYYY, h:mm a');
+        return formatted.format('MMMM Do YYYY');
       }
       return value;
     }

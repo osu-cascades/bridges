@@ -24,7 +24,7 @@ class ActivitiesController < ApplicationController
       @denied_activities = @activities.where(state: :denied)
       @activities = @activities.where(state: :active)
 
-      @display_attributes = { start_date: 'Time', location: 'Location' }
+      @display_attributes = { start_date: '', location: 'Location' }
 
       respond_to do |format|
         format.html { render :index }
