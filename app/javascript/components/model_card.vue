@@ -13,8 +13,7 @@
               </h3>
               <div v-if="modelDisplayAttributes">
                 <div v-for="entry in Object.entries(modelDisplayAttributes)">
-                  <p class="model-detail" v-if="model['ongoing'] && entry[0] == 'start_date'">Time: Ongoing</p>
-                  <p class="model-detail" v-else-if="model[entry[0]]">{{ format(model[entry[0]]) }}</p>
+                  <p class="model-detail">{{ format(model[entry[0]]) }}</p>
                 </div>
               </div>
               <span class="tag badge badge-pill mr-1" v-for="tag in model.tag_list">{{ tag }}</span>

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe Activity, type: :model do
   let(:activity) { build(:activity) }
 
   describe 'attributes' do
@@ -15,7 +15,6 @@ RSpec.describe User, type: :model do
     specify { expect(activity).to respond_to(:contact_number) }
     specify { expect(activity).to respond_to(:contact_email) }
     specify { expect(activity).to respond_to(:state) }
-    specify { expect(activity).to respond_to(:ongoing) }
     specify { expect(activity).to respond_to(:organization_name) }
     specify { expect(activity).to respond_to(:url) }
   end
