@@ -9,6 +9,7 @@ RSpec.describe Activity, type: :model do
     specify { expect(activity).to respond_to(:end_date) }
     specify { expect(activity).to respond_to(:start_time) }
     specify { expect(activity).to respond_to(:end_time) }
+    specify { expect(activity).to respond_to(:days) }
     specify { expect(activity).to respond_to(:description) }
     specify { expect(activity).to respond_to(:location) }
     specify { expect(activity).to respond_to(:contact_name) }
