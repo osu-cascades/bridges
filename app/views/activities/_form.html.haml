@@ -9,6 +9,10 @@
         = form.label :location
         = form.text_field :location, class: 'form-control'
       .form-group
+        %label.d-block Days
+        .form-check.form-check-inline
+          = day_checkboxes(form)
+      .form-group
         = form.label :start_date
         = form.date_select :start_date, order: [:month, :day, :year]
       .form-group
