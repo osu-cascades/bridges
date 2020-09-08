@@ -5,6 +5,7 @@ FactoryBot.define do
     end_date { '01/11/2020' }
     start_time { '10:00' }
     end_time { '12:00' }
+    days { 'Monday, Wednesday' }
     location { 'Bend' }
     contact_name { 'Howard' }
     contact_email { 'howard@example.com' }
