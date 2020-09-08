@@ -12,6 +12,7 @@ class Activity < ApplicationRecord
     message: 'must start with http or https'
   }, if: -> { url.present? }
   validate :end_date_after_start_date
+  validates :days, presence: true, allow_nil: true
 
   enum state: [:pending, :active, :denied]
 

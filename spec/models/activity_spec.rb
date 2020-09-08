@@ -26,6 +26,7 @@ RSpec.describe Activity, type: :model do
 
   describe 'validations' do
     specify { expect(activity).to validate_presence_of(:title) }
+    specify { expect(activity).to validate_presence_of(:days).allow_nil }
     it 'url format' do
       expect(activity).to allow_value('http://fake.com').for(:url)
       expect(activity).to allow_value('https://fake.com').for(:url)
