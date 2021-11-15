@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.6'
+ruby '2.7.4'
 
 gem 'acts-as-taggable-on'
 gem 'aws-sdk-s3', require: false
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'bootstrap', '>= 4.4.1'
+gem 'bootstrap', '~> 4.4.1'
 gem 'bootstrap4-datetime-picker-rails'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
@@ -17,7 +17,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'pg'
 gem 'puma', '~> 3.12.6'
-gem 'rails', '~> 5.2.4.2'
+gem 'rails', '~> 5.2.4.6'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'sassc-rails'
 gem 'turbolinks', '~> 5'
